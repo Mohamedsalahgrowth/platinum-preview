@@ -1218,6 +1218,43 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
   .partner{padding:10px;aspect-ratio:1}
   .partner img{max-height:80px}
 }
+
+/* ===== dynamic gallery (2 tiles) + animated process ===== */
+.ab-gal{grid-template-columns:1.55fr 1fr;grid-template-rows:1fr;height:clamp(340px,38vw,520px)}
+.ab-gal figure.big{grid-row:auto}
+.ab-step-list::after{content:"";position:absolute;top:30px;right:12%;height:2px;width:calc(76% * var(--p));background:var(--red);transition:width .9s cubic-bezier(.2,.7,.2,1);z-index:0;box-shadow:0 0 12px rgba(196,22,28,.45)}
+.ab-step-list li{cursor:pointer;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.ab-step-list li h3,.ab-step-list li p{transition:color .4s,opacity .4s}
+.ab-step-list li:not(.on) p{opacity:.7}
+.ab-step-list li.done .ab-k{background:var(--navy);color:#fff;border-color:var(--navy)}
+.ab-step-list li.on{transform:translateY(-6px)}
+.ab-step-list li.on .ab-k{background:var(--red);border-color:var(--red);color:#fff;transform:scale(1.12);box-shadow:0 12px 26px -8px rgba(196,22,28,.6)}
+.ab-step-list li.on h3{color:var(--red)}
+.ab-k{transition:background .4s,color .4s,border-color .4s,transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+.ab-k::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--red);opacity:0;transform:scale(.85)}
+.ab-step-list li.on .ab-k::after{animation:ringp 1.8s ease-out infinite}
+@keyframes ringp{0%{opacity:.7;transform:scale(.9)}100%{opacity:0;transform:scale(1.35)}}
+.ab-step-bar{display:flex;justify-content:center;gap:8px;margin-top:34px}
+.ab-step-bar button{width:34px;height:4px;border-radius:4px;border:0;background:#E2DDD5;cursor:pointer;padding:0;position:relative;overflow:hidden}
+.ab-step-bar button.on::after{content:"";position:absolute;inset:0;background:var(--red);transform-origin:100% 50%;animation:fillb var(--dur,2.8s) linear forwards}
+.ab-step-bar.paused button.on::after{animation-play-state:paused}
+.ab-step-bar button.done{background:var(--navy)}
+@keyframes fillb{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (max-width:980px){.ab-step-list::after{display:none}}
+@media (max-width:760px){
+  .ab-gal{grid-template-columns:1fr;height:auto}
+  .ab-gal figure img{aspect-ratio:16/10}
+  /* vertical timeline */
+  .ab-step-list{grid-template-columns:1fr;row-gap:22px;padding-inline-start:0}
+  .ab-step-list::before{display:block;top:26px;bottom:26px;right:25px;left:auto;width:2px;height:auto;background:repeating-linear-gradient(to bottom,#D9D3CA 0 8px,transparent 8px 14px)}
+  .ab-step-list::after{display:block;top:26px;right:25px;width:2px;height:calc((100% - 52px) * var(--p));transition:height .9s cubic-bezier(.2,.7,.2,1)}
+  .ab-step-list li{grid-template-columns:52px 1fr;column-gap:16px;row-gap:2px;justify-items:start;text-align:right;padding:0;align-items:start}
+  .ab-step-list li .ab-k{grid-row:span 2}
+  .ab-step-list li h3{margin-top:4px}
+  .ab-step-list li p{max-width:none}
+  .ab-step-list li.on{transform:translateX(-4px)}
+  .ab-step-bar{display:none}
+}
 </style>
 </head>
 <body class="present">
@@ -1833,7 +1870,7 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
   <section class="ab-steps">
     <div class="wrap">
       <div class="head center"><span class="mark"><i></i><i></i></span><h2>كيف نعمل: من اختيار الخامة حتى التركيب</h2><p class="lead">أربع خطوات واضحة تختصر عليك الوقت وتضمن وصول الخامة المناسبة لمشروعك.</p></div>
-      <ol class="ab-step-list">
+      <ol class="ab-step-list" id="abSteps" style="--p:0">
         <li><span class="ab-k">01</span><h3>اختيار الخامة</h3><p>زر معرضنا أو أرسل صور مشروعك عبر واتساب، ونساعدك في اختيار الخامة واللون المناسبين للاستخدام.</p></li>
         <li><span class="ab-k">02</span><h3>عرض السعر</h3><p>نرسل لك عرض سعر واضحًا حسب نوع الخامة والمقاس والسماكة والكمية المطلوبة.</p></li>
         <li><span class="ab-k">03</span><h3>القص والتجهيز</h3><p>نجهز الخامة بالمقاسات المعتمدة لتكون جاهزة للتسليم والتركيب.</p></li>
@@ -1848,7 +1885,6 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
       <div class="ab-gal" data-lbg="about-show">
         <figure class="big"><img src="https://lh3.googleusercontent.com/d/1dOj_3MkIowMDT1SvJHx8qMNmIjfobJcX=w1600" alt="معرض بلاتنيوم للرخام والحجر الطبيعي في الرياض" loading="lazy"><figcaption>المعرض</figcaption></figure>
         <figure><img src="https://lh3.googleusercontent.com/d/14nKSD0I0JK3yq9f_QpmW4A0wjw_1GOH5=w1000" alt="مستودع ألواح الرخام والحجر الطبيعي" loading="lazy"><figcaption>المستودع</figcaption></figure>
-        <figure><img src="https://platinum-marble.com/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-20-at-4.31.36-PM-1024x701.jpeg" alt="مكتب مؤسسة بلاتنيوم للحجر والرخام الرئيسي في السعودية" loading="lazy"><figcaption>المكتب الرئيسي</figcaption></figure>
       </div>
       <div class="ab-branches">
         <div class="ab-br"><span class="ab-br-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><b>الفرع الرئيسي</b><span>حي المناخ، شارع البيرات – طريق الخرج، الرياض 14315</span></div><a class="more" href="https://maps.app.goo.gl/X298kvm2EiXzcUiXA" target="_blank" rel="noopener">الاتجاهات ←</a></div>
@@ -2395,5 +2431,28 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
 })();
 </script>
 
+
+<script>
+/* ===== About: animated process timeline ===== */
+(function(){
+  const ol=document.getElementById('abSteps');if(!ol)return;
+  const items=[...ol.children],reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,DUR=2800;
+  const bar=document.createElement('div');bar.className='ab-step-bar';bar.style.setProperty('--dur',DUR+'ms');
+  bar.innerHTML=items.map((_,i)=>`<button type="button" aria-label="الخطوة ${i+1}"></button>`).join('');ol.after(bar);
+  const dots=[...bar.children];let i=-1,t=null,inView=false,hover=false;
+  function set(n){i=n;ol.style.setProperty('--p',items.length>1?n/(items.length-1):1);
+    items.forEach((li,k)=>{li.classList.toggle('on',k===n);li.classList.toggle('done',k<n)});
+    dots.forEach((d,k)=>{d.classList.remove('on');d.classList.toggle('done',k<n);if(k===n){void d.offsetWidth;d.classList.add('on')}})}
+  function tick(){set((i+1)%items.length)}
+  function play(){clearInterval(t);if(reduce||!inView||hover)return;t=setInterval(tick,DUR)}
+  function stop(){clearInterval(t)}
+  items.forEach((li,k)=>li.addEventListener('click',()=>{set(k);play()}));
+  dots.forEach((d,k)=>d.addEventListener('click',()=>{set(k);play()}));
+  ol.addEventListener('mouseenter',()=>{hover=true;stop();bar.classList.add('paused')});
+  ol.addEventListener('mouseleave',()=>{hover=false;bar.classList.remove('paused');play()});
+  if('IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(e=>{inView=e.isIntersecting;if(inView){if(i<0)set(0);play()}else stop()}),{threshold:.35}).observe(ol)}else{set(items.length-1)}
+  if(reduce)set(items.length-1);
+})();
+</script>
 </body>
 </html>
