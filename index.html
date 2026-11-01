@@ -1073,6 +1073,49 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
 #homeP .media{background:#E4E1DC}
 #homeP .media img{object-position:50% 42%}
 #homeP .card .media::after{background:linear-gradient(to top,rgba(15,23,42,.08),transparent 25%)}
+
+/* ===== v9: refined catalogue filter ===== */
+.cx-bar,.present .cx-bar{background:transparent;border:0;padding-block:14px;top:80px;backdrop-filter:none;pointer-events:none}
+.cx-bar.stuck{box-shadow:none}
+.cx-bar-in{pointer-events:auto;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px;background:rgba(255,255,255,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid #E7E3DD;border-radius:18px;box-shadow:0 10px 30px -18px rgba(15,23,42,.22);transition:box-shadow .35s,border-color .35s}
+.cx-bar.stuck .cx-bar-in{box-shadow:0 18px 40px -16px rgba(15,23,42,.32);border-color:#DDD7CE}
+.cx-fams-wrap{min-width:0;flex:1;position:relative}
+.cx-fams{position:relative;display:flex;gap:2px;background:#F3F1ED;border-radius:13px;padding:4px;overflow-x:auto;scrollbar-width:none;width:max-content;max-width:100%}
+.cx-fams::-webkit-scrollbar{display:none}
+.cx-ind{position:absolute;top:4px;bottom:4px;left:0;border-radius:10px;background:var(--navy);box-shadow:0 6px 16px -6px rgba(15,23,42,.5);transition:transform .45s cubic-bezier(.2,.7,.2,1),width .45s cubic-bezier(.2,.7,.2,1);z-index:0;pointer-events:none}
+.cx-fams button{position:relative;z-index:1;display:inline-flex;align-items:center;gap:7px;flex:none;font:700 .92rem/1 var(--font);color:#5B6474;background:none;border:0;padding:11px 15px;border-radius:10px;cursor:pointer;transition:color .3s}
+.cx-fams button:hover{color:var(--ink);background:transparent}
+.cx-fams button[aria-pressed="true"]{color:#fff}
+.cx-fams button[aria-pressed="true"]::after{display:none}
+.cx-fams button sup{font:700 .7rem/1 var(--font);min-width:20px;height:20px;padding:0 5px;border-radius:999px;display:inline-grid;place-items:center;background:#E5E1DA;color:#6B6458;margin:0;transition:background .3s,color .3s}
+.cx-fams button[aria-pressed="true"] sup{background:var(--red);color:#fff}
+.cx-tone-box{display:flex;align-items:center;gap:10px;flex:none;padding-inline-start:14px;border-inline-start:1px solid #ECE8E2}
+.cx-tl{display:grid;gap:2px;font-size:.72rem;color:#9A8F80;font-weight:700;min-width:74px}
+.cx-tl b{font-size:.86rem;color:var(--ink)}
+.cx-tones::before{display:none}
+.cx-tones{gap:6px}
+.cx-tones button,.cx-tones button[aria-pressed]{padding:0;border:0;background:none;border-radius:50%;box-shadow:none;position:relative}
+.cx-tones .sw{display:block;width:34px;height:34px;border-radius:50%;box-shadow:0 0 0 2px #fff,0 0 0 3px #E2DDD5;transition:box-shadow .25s,transform .25s}
+.cx-tones button:hover .sw{transform:scale(1.08)}
+.cx-tones button[aria-pressed="true"] .sw{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--red)}
+.cx-tones em{display:none!important}
+.cx-cnt{display:inline-flex;align-items:center;gap:12px}
+.cx-reset{font:700 .8rem/1 var(--font);color:var(--red);background:#FDECEC;border:0;border-radius:999px;padding:8px 12px;cursor:pointer}
+.cx-reset:hover{background:var(--red);color:#fff}
+@media (max-width:900px){.cx-bar-in{flex-direction:column;align-items:stretch;gap:10px}.cx-tone-box{border:0;padding:0;justify-content:space-between}.cx-fams{width:100%}}
+@media (max-width:760px){
+  .cx-bar,.present .cx-bar{top:64px;padding-block:8px}
+  .cx-bar-in{border-radius:16px;padding:6px;gap:8px}
+  .cx-fams{border-radius:11px;padding:3px}
+  .cx-ind{top:3px;bottom:3px}
+  .cx-fams button{padding:10px 12px;font-size:.86rem}
+  .cx-fams-wrap::after{content:"";position:absolute;top:0;bottom:0;left:0;width:28px;border-radius:0 0 0 11px;background:linear-gradient(to right,#F3F1ED,rgba(243,241,237,0));pointer-events:none}
+  .cx-fams{margin:0;padding-inline:3px}
+  .cx-tones{overflow:visible;margin:0;padding:0}
+  .cx-tone-box{padding-inline:6px 4px}
+  .cx-tones .sw{width:30px;height:30px}
+}
+@media (min-width:1101px){.cx-fams button{padding:11px 11px;font-size:.9rem;gap:6px}.cx-tones .sw{width:30px;height:30px}.cx-tl{min-width:64px}}
 </style>
 </head>
 <body class="present">
@@ -1365,15 +1408,15 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
   </section>
 
   <div class="cx-bar" id="cxBar">
-    <div class="wrap cx-bar-in">
-      <div class="cx-fams" id="cxFams" role="group" aria-label="العائلة"></div>
-      <div class="cx-tones" id="cxTones" role="group" aria-label="اللون"></div>
-    </div>
+    <div class="wrap"><div class="cx-bar-in">
+      <div class="cx-fams-wrap"><div class="cx-fams" id="cxFams" role="group" aria-label="العائلة"></div></div>
+      <div class="cx-tone-box"><span class="cx-tl">اللون <b id="cxTL">كل الألوان</b></span><div class="cx-tones" id="cxTones" role="group" aria-label="اللون"></div></div>
+    </div></div>
   </div>
 
   <section class="cx-body">
     <div class="wrap">
-      <div class="cx-meta"><span id="cxCount" aria-live="polite"></span><span class="cx-note">الأسعار للمتر المربع وغير شاملة ضريبة القيمة المضافة</span></div>
+      <div class="cx-meta"><span class="cx-cnt"><span id="cxCount" aria-live="polite"></span><button type="button" class="cx-reset" id="cxReset" hidden>مسح الفلاتر ✕</button></span><span class="cx-note">الأسعار للمتر المربع وغير شاملة ضريبة القيمة المضافة</span></div>
       <div class="cx-grid" id="cxGrid"></div>
     </div>
   </section>
@@ -2112,15 +2155,20 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
   const fams=$('#cxFams'),tones=$('#cxTones');
   fams.innerHTML=FAMS.map((f,i)=>`<button type="button" aria-pressed="${i===0}" data-f="${f}">${f}<sup>${f==='الكل'?DATA.length:DATA.filter(d=>d.f===f).length}</sup></button>`).join('');
   tones.innerHTML=TONES.map(([k,l,id],i)=>`<button type="button" aria-pressed="${i===0}" data-t="${k}" title="${l}" aria-label="${l}">${id?`<span class="sw" style="background-image:url(${img(id,300)})"></span>`:'<span class="sw all"></span>'}<em>${l}</em></button>`).join('');
+  fams.insertAdjacentHTML('afterbegin','<span class="cx-ind" aria-hidden="true"></span>');
+  const ind=fams.querySelector('.cx-ind');
+  function moveInd(){const b=fams.querySelector('button[aria-pressed="true"]');if(!b||!b.offsetWidth)return;ind.style.width=b.offsetWidth+'px';ind.style.transform='translateX('+b.offsetLeft+'px)'}
+  addEventListener('resize',moveInd);addEventListener('hashchange',()=>setTimeout(moveInd,60));setTimeout(moveInd,80);
   let F='الكل',T='all';
   function apply(){
     let n=0;$$('.cx-card',grid).forEach(c=>{const ok=(F==='الكل'||c.dataset.f===F)&&(T==='all'||c.dataset.t===T);c.hidden=!ok;if(ok){n++;c.classList.remove('pop');void c.offsetWidth;c.classList.add('pop')}});
     $('#cxCount').innerHTML=`<b>${n}</b> خامة`;
-    grid.classList.toggle('filtered',F!=='الكل'||T!=='all');
+    grid.classList.toggle('filtered',F!=='الكل'||T!=='all');document.getElementById('cxReset').hidden=(F==='الكل'&&T==='all');moveInd();
     let e=$('.cx-empty',grid);if(!n){if(!e)grid.insertAdjacentHTML('beforeend',`<div class="cx-empty"><b>مفيش خامة بالتركيبة دي</b><span>جرّب لون أو عائلة تانية، أو اسألنا على الواتساب.</span></div>`)}else if(e)e.remove();
   }
   fams.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',fams).forEach(x=>x.setAttribute('aria-pressed',x===b));F=b.dataset.f;apply();b.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'})});
-  tones.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',tones).forEach(x=>x.setAttribute('aria-pressed',x===b));T=b.dataset.t;apply()});
+  tones.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',tones).forEach(x=>x.setAttribute('aria-pressed',x===b));T=b.dataset.t;document.getElementById('cxTL').textContent=b.getAttribute('aria-label');apply()});
+  document.getElementById('cxReset').addEventListener('click',()=>{F='الكل';T='all';$$('button',fams).forEach((x,i)=>x.setAttribute('aria-pressed',x.dataset.f==='الكل'));$$('button',tones).forEach(x=>x.setAttribute('aria-pressed',x.dataset.t==='all'));document.getElementById('cxTL').textContent='كل الألوان';apply();fams.scrollTo({left:0,behavior:'smooth'})});
   apply();
 
   // other collections index (all remaining products keep their links)
