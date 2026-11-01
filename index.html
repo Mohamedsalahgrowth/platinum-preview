@@ -1068,6 +1068,11 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
 .cx-card.feat .cx-acts{grid-template-columns:auto auto;justify-content:start}
 .cx-card.feat .cx-q{padding:13px 22px}
 @media (max-width:760px){.cx-tones::before{display:none}.ba{bottom:calc(86px + env(safe-area-inset-bottom,0px));scale:.92}}
+
+/* v8: home slider uses studio product photos */
+#homeP .media{background:#E4E1DC}
+#homeP .media img{object-position:50% 42%}
+#homeP .card .media::after{background:linear-gradient(to top,rgba(15,23,42,.08),transparent 25%)}
 </style>
 </head>
 <body class="present">
@@ -1715,7 +1720,7 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
 <script>
 (function(){
   const U='https://platinum-marble.com/wp-content/uploads/';
-  const src=p=>U+(p.includes('%')?p:encodeURI(p));
+  const src=p=>/^https?:/.test(p)?p:U+(p.includes('%')?p:encodeURI(p));
   const WA='https://wa.me/966553499059?text=';
   const q=n=>WA+encodeURIComponent('السلام عليكم، أرغب بالحصول على عرض سعر ل'+n+' ومعرفة التفاصيل المتوفرة.');
   // [name, desc, link (path | '#view' | null=quote | 'WA'), category, image]
@@ -1766,12 +1771,14 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
     ['درج كريم مارفل وموغلا وعماني','مجموعة من درجات الرخام الطبيعي تشمل كريم مارفل وموغلا وعماني، لتشطيب أنيق يدوم لسنوات.',null,'درج','2026/05/درج-كريم-مارفل-وموغلا-وعماني-scaled.jpeg']
   ];
   const HOME=[
-    ['بازلت','بازلت طبيعي عالي التحمل، مناسب للمواقف والأرضيات الخارجية الثقيلة.','/basalt/','بازلت','2026/05/بازلت-1.jpeg'],
-    ['حجر وجه الجبل','حجر طبيعي بملمس مميز يمنح الواجهات طابعًا فخمًا وحضورًا لافتًا.','/riyadh-white-rock-face-stone/','حجر طبيعي','elementor/thumbs/حجر-وجه-الجبل-roinihx8xsrdxgc2lsnj3t1tqsl3rvubpqv0ebnte0.jpeg'],
-    ['رخام ترافنتينو تركي','رخام طبيعي كلاسيكي، شائع للواجهات والأرضيات الخارجية بطابع أنيق ولمسة طبيعية مميزة.','#product','ترافنتينو','elementor/thumbs/ترافنتينو-تركي-rodj8fm7ld8iod36hbvjpnjcl443bp95i9ox09yy1s.jpeg'],
-    ['غرانيت سعودي','غرانيت طبيعي شديد الصلابة، يتميز بنقاط منقطة طبيعية، مناسب للمطابخ والأرضيات.','/saudi-granite-kitchens/','جرانيت','2026/05/غرانيت-سعودي.jpeg'],
-    ['رخام دانو رويال الإيطالي','رخام دانو رويال الإيطالي بعروق طبيعية أنيقة، يضفي لمسة فخامة على الأرضيات والجدران.','/dano-royal-italian-marble/','رخام','2026/05/رخام-دانو-رويال-الإيطالي.jpeg'],
-    ['درج موغلا','درج موغلا بتشطيب نظيف وألوان هادئة، مناسب للفلل والمنازل الحديثة.',null,'درج','2026/05/درج-موغلا-1.jpeg']
+    ['بازلت','بازلت طبيعي عالي التحمل، مناسب للمواقف والأرضيات الخارجية الثقيلة.','/basalt/','بازلت','https://lh3.googleusercontent.com/d/1JEnU6w-MGQx_7Pt254p0ysy00WqFfr4C=w800'],
+    ['حجر وجه الجبل','حجر طبيعي بملمس مميز يمنح الواجهات طابعًا فخمًا وحضورًا لافتًا.','/riyadh-white-rock-face-stone/','حجر طبيعي','https://lh3.googleusercontent.com/d/114S-VNHGkEV3yOJEIo9pOB7q2oGa-1nD=w800'],
+    ['رخام ترافنتينو تركي','رخام طبيعي كلاسيكي، شائع للواجهات والأرضيات الخارجية بطابع أنيق ولمسة طبيعية مميزة.','#product','ترافنتينو','https://lh3.googleusercontent.com/d/1nCJB3WN7jZbTuS16x0pxYCprrjNijAAS=w800'],
+    ['غرانيت سعودي','غرانيت طبيعي شديد الصلابة، يتميز بنقاط منقطة طبيعية، مناسب للمطابخ والأرضيات.','/saudi-granite-kitchens/','جرانيت','https://lh3.googleusercontent.com/d/1yQirN7Juye0vIRM5NTPbbSNJ_kLewvb1=w800'],
+    ['ترافنتينو سيلفر','لون رمادي طبيعي، مناسب للتصاميم الحديثة.','/silver-travertine-marble/','ترافنتينو','https://lh3.googleusercontent.com/d/1lsBN6QZflGnkzdJmogGhKy177zoIRcQE=w800'],
+    ['جلكسي هندي','غرانيت داكن بلمسات لامعة طبيعية، يضفي طابعًا راقيًا على المطابخ الحديثة والمساحات الفاخرة.','/indian-galaxy-marble/','جرانيت','https://lh3.googleusercontent.com/d/1GoZ-auoJfg7dfC25TLwC4ZKUM1sPK_X_=w800'],
+    ['تامبل أردني','تامبل أردني بتشطيب طبيعي، مناسب للممرات والأحواش الخارجية.','/jordanian-tumbled/','حجر طبيعي','https://lh3.googleusercontent.com/d/1_vuXFPjp8-OhBH1Us3VwhZ18CUWMQgxe=w800'],
+    ['غرانيت بيانكو','غرانيت فاتح بنقشة نقطية ناعمة، مناسب للمطابخ والمساحات الداخلية ويتميز بسهولة تنسيقه مع مختلف التصاميم.','/bianco-granite/','جرانيت','https://lh3.googleusercontent.com/d/1Um5hh-cvCksU9mQhcEY-qKP7FUBONwtH=w800']
   ];
   const esc=s=>String(s).replace(/"/g,'&quot;');
   function card(p){
@@ -2087,7 +2094,7 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
   const TONES=[['all','كل الألوان',null],['light','فاتح','1veFt6Tysck8_t0bRfAFW_K9lfNAhz_Kn'],['beige','بيج وأصفر','1mzFoLgLmz7KsDwF05zFQmg8rf6O66qXo'],['grey','رمادي','1lsBN6QZflGnkzdJmogGhKy177zoIRcQE'],['dark','داكن','1GoZ-auoJfg7dfC25TLwC4ZKUM1sPK_X_']];
   const grid=$('#cxGrid');
   grid.innerHTML=DATA.map((d,i)=>{
-    const feat=i===0;
+    const feat=false;
     const link=d.h?`<a class="cx-link" href="${d.h}"${d.h.startsWith('#')?'':' target="_blank" rel="noopener"'}>صفحة الخامة</a>`:`<a class="cx-link" href="${wa(d.n)}" target="_blank" rel="noopener">اسأل عنها</a>`;
     return `<article class="cx-card${feat?' feat':''}" data-f="${d.f}" data-t="${d.t}" data-i="${i}">
       <button class="cx-media" type="button" aria-label="عرض ${esc(d.n)}"><img src="${img(d.i,feat?1100:700)}" alt="${esc(d.n)} – ${esc(d.s)}" loading="${i<8?'eager':'lazy'}" width="600" height="750"><span class="cx-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>عرض</span></button>
