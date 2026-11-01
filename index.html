@@ -1255,6 +1255,17 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
   .ab-step-list li.on{transform:translateX(-4px)}
   .ab-step-bar{display:none}
 }
+
+/* scroll-linked timeline: follow the finger/wheel instantly */
+.ab-step-list::after{transition:width .12s linear!important}
+.ab-step-bar{display:none!important}
+.ab-step-list li.on .ab-k::after{animation:none}
+.ab-step-list li .ab-k,.ab-step-list li h3,.ab-step-list li p,.ab-step-list li{transition-duration:.25s!important}
+@media (max-width:760px){.ab-step-list::after{transition:height .12s linear!important}}
+/* snappier reveals site-wide */
+.js .rv{transition-duration:.55s!important;transform:translateY(18px)}
+.js .rv.in{transform:none}
+.cx-card.in,.cx-col.in{transition-duration:.55s!important}
 </style>
 </head>
 <body class="present">
@@ -2199,7 +2210,7 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
 
   /* scroll reveal with sibling stagger */
   const RV='.head,.card,.pcard,.stat,.doc,.rev,.branch,.map,.ticks li,.frame,.prow,.bcard,.bfeat,.val,.partner,.cc,.faq details,.art section,.facts div,.two>div,.pgal img,.gal8 img,.form,.band>*,.vars .var,.sz,.cta-box,.pn a,.sbox,.specs div,.exp-card .exp-copy>*,.contact-lines div,.pj,.ab-s,.ab-step-list li,.ab-gal figure,.ab-br,.ab-doc,.ab-nums div';
-  const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.08}):null;
+  const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px 12% 0px',threshold:0}):null;
   function arm(root){
     $$(RV,root).forEach(el=>{
       if(el.closest('.hero')||el.classList.contains('rv'))return;
@@ -2420,7 +2431,7 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&m.classList.contains('open'))close()});
 
   // reveal
-  const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{rootMargin:'0px 0px -6% 0px'}):null;
+  const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{rootMargin:'0px 0px 12% 0px'}):null;
   $$('.cx-card,.cx-col').forEach((c,k)=>{c.style.setProperty('--d',(k%4)*0.08+'s');io?io.observe(c):c.classList.add('in')});
 
   // before/after switch + sticky bar shadow
@@ -2433,25 +2444,23 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
 
 
 <script>
-/* ===== About: animated process timeline ===== */
+/* ===== About: scroll-linked process timeline (moves with the user's scroll) ===== */
 (function(){
   const ol=document.getElementById('abSteps');if(!ol)return;
-  const items=[...ol.children],reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,DUR=2800;
-  const bar=document.createElement('div');bar.className='ab-step-bar';bar.style.setProperty('--dur',DUR+'ms');
-  bar.innerHTML=items.map((_,i)=>`<button type="button" aria-label="الخطوة ${i+1}"></button>`).join('');ol.after(bar);
-  const dots=[...bar.children];let i=-1,t=null,inView=false,hover=false;
-  function set(n){i=n;ol.style.setProperty('--p',items.length>1?n/(items.length-1):1);
-    items.forEach((li,k)=>{li.classList.toggle('on',k===n);li.classList.toggle('done',k<n)});
-    dots.forEach((d,k)=>{d.classList.remove('on');d.classList.toggle('done',k<n);if(k===n){void d.offsetWidth;d.classList.add('on')}})}
-  function tick(){set((i+1)%items.length)}
-  function play(){clearInterval(t);if(reduce||!inView||hover)return;t=setInterval(tick,DUR)}
-  function stop(){clearInterval(t)}
-  items.forEach((li,k)=>li.addEventListener('click',()=>{set(k);play()}));
-  dots.forEach((d,k)=>d.addEventListener('click',()=>{set(k);play()}));
-  ol.addEventListener('mouseenter',()=>{hover=true;stop();bar.classList.add('paused')});
-  ol.addEventListener('mouseleave',()=>{hover=false;bar.classList.remove('paused');play()});
-  if('IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(e=>{inView=e.isIntersecting;if(inView){if(i<0)set(0);play()}else stop()}),{threshold:.35}).observe(ol)}else{set(items.length-1)}
-  if(reduce)set(items.length-1);
+  const items=[...ol.children],n=items.length;let raf=0;
+  function upd(){raf=0;if(!ol.offsetParent)return;
+    const r=ol.getBoundingClientRect(),vh=innerHeight,mob=innerWidth<=760;
+    // desktop: fills while the row travels from 85% to 40% of the screen; phone: while the list scrolls past the middle
+    const start=mob?vh*.72:vh*.88,end=mob?vh*.72-r.height+60:vh*.42;
+    let p=(start-r.top)/(start-end);p=Math.max(0,Math.min(1,p));
+    ol.style.setProperty('--p',p.toFixed(3));
+    const a=p<=0?-1:Math.min(n-1,Math.floor(p*(n-1)+0.35));
+    items.forEach((li,k)=>{li.classList.toggle('on',k===a);li.classList.toggle('done',k<a)});
+  }
+  const q=()=>{if(!raf)raf=requestAnimationFrame(upd)};
+  addEventListener('scroll',q,{passive:true});addEventListener('resize',q);addEventListener('hashchange',()=>setTimeout(upd,80));
+  items.forEach((li,k)=>li.addEventListener('click',()=>{const r=ol.getBoundingClientRect();scrollBy({top:r.top-innerHeight*.5+ (innerWidth<=760?li.offsetTop:0),behavior:'smooth'})}));
+  upd();
 })();
 </script>
 </body>
