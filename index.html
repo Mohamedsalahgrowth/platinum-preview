@@ -1,0 +1,1696 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Platinum Marble Redesign</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap">
+<style>
+/* Brand tokens pulled from the live site (Elementor globals): red #C4161C, navy #0F172A, text #3A3A3A, font Tajawal.
+   Motif: the slanted "//" bars from the Platinum logo mark. Single light look, like the current brand. */
+:root{
+  --red:#C4161C; --red-d:#A31117; --navy:#0F172A; --navy-2:#1C2639; --navy-3:#2A3650;
+  --ink:#0F172A; --text:#3A3A3A; --muted:#64748B; --line:#E3E6EC; --soft:#F4F5F7; --white:#FFFFFF; --blush:#FFEDE6;
+  --on-dark:#FFFFFF; --on-dark-2:#B6BFCE; --seo:#F97316;
+  --font:"Tajawal","Segoe UI",Tahoma,sans-serif;
+  --maxw:1280px; --r:8px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--text);font:400 17px/1.8 var(--font);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+[hidden]{display:none!important}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;color:var(--ink);text-wrap:balance}
+h1{font:800 clamp(2.1rem,4.6vw,3.7rem)/1.25 var(--font)}
+h2{font:800 clamp(1.6rem,2.8vw,2.4rem)/1.35 var(--font)}
+h3{font:700 1.15rem/1.55 var(--font)}
+p{margin:0}
+section{padding-block:clamp(64px,8vw,110px)}
+.bg-soft{background:var(--soft)}
+.bg-navy{background:var(--navy);color:var(--on-dark-2)} .bg-navy h2,.bg-navy h3,.bg-navy h1{color:var(--on-dark)}
+.bg-red{background:var(--red);color:#FFE3E0} .bg-red h2,.bg-red h3{color:#fff}
+.lead{font-size:1.1rem;max-width:62ch;color:var(--muted)}
+.bg-navy .lead{color:var(--on-dark-2)}
+
+/* logo slash motif */
+.mark{display:inline-flex;gap:5px;align-items:center}
+.mark i{display:block;width:22px;height:8px;background:var(--red);transform:skewX(-28deg);border-radius:2px}
+.mark i+i{width:12px;opacity:.55}
+.head{display:grid;gap:14px;margin-bottom:clamp(30px,4vw,52px);max-width:780px}
+.head h3{font-weight:500;color:var(--muted);font-size:1.08rem;line-height:1.7}
+.bg-navy .head h3{color:var(--on-dark-2)}
+.row-between{display:flex;gap:20px;align-items:end;justify-content:space-between;flex-wrap:wrap}
+
+/* buttons */
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 1rem/1 var(--font);padding:16px 26px;border-radius:var(--r);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.btn svg{width:19px;height:19px;flex:none}
+.btn-red{background:var(--red);color:#fff} .btn-red:hover{background:var(--red-d);transform:translateY(-1px)}
+.btn-navy{background:var(--navy);color:#fff} .btn-navy:hover{background:var(--navy-3)}
+.btn-line{border-color:var(--line);color:var(--ink);background:#fff} .btn-line:hover{border-color:var(--ink)}
+.btn-glass{border-color:rgba(255,255,255,.45);color:#fff;background:rgba(255,255,255,.06)} .btn-glass:hover{background:rgba(255,255,255,.16);border-color:#fff}
+.more{font-weight:700;color:var(--red);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.more:hover{gap:12px}
+
+/* prototype bar */
+.proto{position:sticky;top:0;z-index:60;background:#1B2335;color:#fff;font-size:13px}
+.proto .wrap{display:flex;align-items:center;gap:14px;min-height:44px}
+.proto b{font-weight:700;white-space:nowrap;color:#FFB4A8}
+.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{padding:8px 12px;text-decoration:none;color:#C7CEDB;white-space:nowrap;border-radius:6px;font-weight:500}
+.tabs a[aria-current="page"]{background:var(--red);color:#fff}
+.seo-tg{display:flex;align-items:center;gap:8px;cursor:pointer;white-space:nowrap;font-weight:700}
+.seo-tg input{accent-color:var(--seo);width:16px;height:16px}
+
+/* header */
+.topbar{background:var(--navy);color:var(--on-dark-2);font-size:14px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:42px;flex-wrap:wrap}
+.topbar a{text-decoration:none} .topbar a:hover{color:#fff}
+.topbar .ph{color:#fff;font-weight:700;direction:ltr;unicode-bidi:isolate}
+.soc{display:flex;gap:6px}
+@media (max-width:600px){.tb-x{display:none}}
+.soc a{width:28px;height:28px;display:grid;place-items:center;border-radius:6px;background:rgba(255,255,255,.08);font-size:11px;font-weight:700;color:#fff}
+.soc a:hover{background:var(--red)}
+.header{position:sticky;top:44px;z-index:50;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.header .wrap{display:flex;align-items:center;gap:28px;min-height:80px}
+.brand img{height:56px;width:auto}
+.nav{display:flex;gap:2px;margin-inline-start:auto}
+.nav a{position:relative;text-decoration:none;font-weight:700;font-size:1rem;padding:10px 14px;color:var(--ink)}
+.nav a::after{content:"";position:absolute;bottom:2px;right:14px;left:14px;height:3px;background:var(--red);transform:skewX(-28deg) scaleX(0);transition:transform .2s}
+.nav a:hover::after,.nav a[aria-current="page"]::after{transform:skewX(-28deg) scaleX(1)}
+.nav a[aria-current="page"]{color:var(--red)}
+.burger{display:none;margin-inline-start:auto;width:46px;height:46px;border-radius:var(--r);border:1px solid var(--line);background:#fff;cursor:pointer}
+.burger svg{width:22px;height:22px}
+.mnav{display:none}
+@media (max-width:1020px){
+  .nav,.header .btn{display:none}
+  .burger{display:grid;place-items:center}
+  .mnav.open{display:grid;border-top:1px solid var(--line)}
+  .mnav a{padding:15px max(20px,env(safe-area-inset-right,0px));text-decoration:none;border-bottom:1px solid var(--line);font-weight:700;color:var(--ink)}
+  .soc{display:none}
+  .brand img{height:46px}
+  .header .wrap{min-height:68px}
+}
+
+/* hero */
+.hero{position:relative;color:#fff;overflow:hidden;padding-block:clamp(80px,10vw,140px) clamp(130px,14vw,190px)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to left,rgba(15,23,42,.94) 0%,rgba(15,23,42,.82) 42%,rgba(15,23,42,.35) 100%)}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end}
+.hero-copy{display:grid;gap:24px;max-width:700px}
+.hero h1{color:#fff}
+.hero h1 em{font-style:normal;color:#fff;background:linear-gradient(transparent 68%,rgba(196,22,28,.85) 68% 92%,transparent 92%)}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-weight:700;color:#FFB4A8;font-size:.95rem;letter-spacing:.02em}
+.hero .lead{color:#D5DBE5;font-size:1.15rem}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips a{padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff;text-decoration:none;font-weight:500;font-size:.95rem}
+.chips a:hover{background:var(--red);border-color:var(--red)}
+.hero-card{display:block;background:#fff;color:var(--ink);border-radius:12px;overflow:hidden;text-decoration:none;box-shadow:0 24px 60px rgba(0,0,0,.35);max-width:360px;justify-self:end}
+.hero-card img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.hero-card div{padding:16px 18px;display:grid;gap:4px}
+.hero-card small{color:var(--red);font-weight:700;font-size:.82rem}
+.hero-card b{font-size:1rem;line-height:1.5}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero-card{justify-self:start;max-width:100%}}
+
+/* experience card overlapping hero */
+.exp{padding-top:0;margin-top:clamp(-120px,-9vw,-80px);position:relative;z-index:3}
+.exp-card{background:#fff;border-radius:16px;box-shadow:0 30px 70px rgba(15,23,42,.14);padding:clamp(28px,4vw,56px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center}
+.exp-copy{display:grid;gap:16px;min-width:0}
+.exp-copy p{max-width:60ch}
+.exp-copy a.in{color:var(--red);font-weight:700;text-underline-offset:5px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{background:var(--soft);border-radius:12px;padding:24px;display:grid;gap:4px;position:relative;overflow:hidden}
+.stat::after{content:"";position:absolute;top:18px;left:-6px;width:34px;height:8px;background:var(--red);transform:skewX(-28deg)}
+.stat h3{font:800 clamp(1.9rem,3.4vw,2.7rem)/1.15 var(--font);color:var(--ink)}
+.stat p{font-size:.95rem;color:var(--muted)}
+.stat:first-child{background:var(--navy)} .stat:first-child h3{color:#fff} .stat:first-child p{color:var(--on-dark-2)}
+@media (max-width:900px){.exp-card{grid-template-columns:1fr}}
+
+/* product cards */
+.grid{display:grid;gap:clamp(18px,2vw,26px)}
+.g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:1100px){.g4{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:820px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:460px){.g3,.g4{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .25s,transform .25s;min-width:0}
+.card:hover{box-shadow:0 18px 44px rgba(15,23,42,.12);transform:translateY(-3px)}
+.media{position:relative;display:block;overflow:hidden;background:var(--soft)}
+.media img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .5s}
+.card:hover .media img{transform:scale(1.05)}
+.tag{position:absolute;top:14px;right:14px;background:var(--red);color:#fff;font-weight:700;font-size:.8rem;padding:6px 14px 6px 12px;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+.card-body{display:flex;flex-direction:column;gap:8px;padding:20px 20px 22px;flex:1}
+.card-body h2{font:800 1.22rem/1.45 var(--font)}
+.g4 .card-body h2{font-size:1.08rem}
+.card-body p{color:var(--muted);font-size:.95rem;line-height:1.7;flex:1}
+.card-cta{margin-top:8px;align-self:flex-start}
+.card-cta.q{background:var(--red);color:#fff;padding:10px 16px;border-radius:var(--r);text-decoration:none;font-weight:700;font-size:.92rem}
+.card-cta.q:hover{background:var(--red-d)}
+
+/* red band */
+.band{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:center;position:relative}
+.band .ctas{justify-content:flex-end}
+.bg-red{position:relative;overflow:hidden}
+.bg-red::after{content:"";position:absolute;left:-60px;top:-40px;bottom:-40px;width:340px;background:rgba(255,255,255,.07);transform:skewX(-28deg)}
+.bg-red::before{content:"";position:absolute;left:220px;top:-40px;bottom:-40px;width:120px;background:rgba(0,0,0,.08);transform:skewX(-28deg)}
+.bg-red .wrap{position:relative;z-index:1}
+.bg-red .lead{color:#FFE3E0}
+@media (max-width:820px){.band{grid-template-columns:1fr}.band .ctas{justify-content:flex-start}}
+
+/* quality split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.frame{position:relative}
+.frame img{border-radius:16px;aspect-ratio:4/3.4;object-fit:cover;width:100%;position:relative;z-index:1}
+.frame::before{content:"";position:absolute;inset:auto auto -16px -16px;width:70%;height:70%;border:2px solid var(--red);border-radius:18px;z-index:0;opacity:.55}
+.ticks{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+.ticks li{display:flex;gap:14px;align-items:center;background:var(--soft);padding:16px 18px;border-radius:12px;font-weight:700;color:var(--ink);font-size:1.05rem}
+.ticks span{width:34px;height:34px;border-radius:8px;background:var(--red);display:grid;place-items:center;flex:none}
+.ticks svg{width:18px;height:18px;color:#fff}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+
+/* map & branches */
+.map-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+.map{position:relative;border-radius:16px;overflow:hidden;min-height:340px;display:grid;place-items:center;text-decoration:none}
+.map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.3)}
+.map::before{content:"";position:absolute;inset:0;background:rgba(15,23,42,.62);z-index:1}
+.map span{position:relative;z-index:2;display:grid;justify-items:center;gap:10px;color:#fff;text-align:center;padding:20px}
+.map .pin{width:64px;height:64px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(196,22,28,.25)}
+.map .pin svg{width:28px;height:28px}
+.map b{font-size:1.2rem}
+.map small{color:var(--on-dark-2)}
+.branches{display:grid;gap:16px}
+.branch{background:var(--navy-2);border-radius:16px;padding:24px;display:grid;gap:8px;border:1px solid var(--navy-3)}
+.branch .k{color:#FFB4A8;font-weight:700;font-size:.9rem}
+.branch b{color:#fff;font-size:1.08rem;line-height:1.6}
+.branch .more{color:#fff}
+@media (max-width:860px){.map-grid{grid-template-columns:1fr}.map{min-height:260px}}
+
+/* projects */
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.pcard{position:relative;display:block;border-radius:16px;overflow:hidden;text-decoration:none;color:#fff;min-width:0}
+.pcard img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .6s}
+.pcard:hover img{transform:scale(1.04)}
+.pcard::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,42,.92) 0%,rgba(15,23,42,.25) 55%,transparent 100%)}
+.pcard .cap{position:absolute;inset:auto 0 0 0;z-index:2;padding:26px;display:grid;gap:10px}
+.pcard .cap b{font-size:clamp(1.2rem,2vw,1.5rem);font-weight:800;line-height:1.4}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font-size:.82rem;font-weight:700;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;backdrop-filter:blur(4px)}
+.pill.r{background:var(--red)}
+@media (max-width:760px){.pgrid{grid-template-columns:1fr}}
+
+/* legal */
+.docs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.doc{display:grid;gap:12px;text-decoration:none;text-align:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 14px 18px;transition:box-shadow .2s}
+.doc:hover{box-shadow:0 14px 34px rgba(15,23,42,.1)}
+.doc img{aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--line);width:100%}
+.doc b{color:var(--ink);font-weight:700}
+@media (max-width:820px){.docs{grid-template-columns:repeat(2,1fr)}}
+
+/* reviews */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rev{margin:0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px;position:relative}
+.rev::before{content:"”";position:absolute;top:6px;left:22px;font:800 5rem/1 Georgia,serif;color:var(--blush)}
+.stars{display:flex;gap:3px;color:#F5A524} .stars svg{width:18px;height:18px}
+.rev blockquote{margin:0;color:var(--ink);line-height:1.9;flex:1;position:relative}
+.rev figcaption{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--ink)}
+.av{width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800}
+@media (max-width:900px){.revs{grid-template-columns:1fr}}
+
+/* form */
+.fgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.form{background:#fff;border-radius:16px;padding:clamp(22px,3vw,36px);display:grid;gap:16px;box-shadow:0 30px 70px rgba(0,0,0,.25)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:grid;gap:6px}
+.field label{font-weight:700;color:var(--ink);font-size:.95rem}
+.field input,.field textarea{font:inherit;color:var(--ink);background:var(--soft);border:1.5px solid var(--line);border-radius:var(--r);padding:13px 15px;width:100%}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--red);background:#fff}
+.note{font-size:.9rem;color:var(--muted);min-height:1.4em}
+.contact-lines{display:grid;gap:12px;margin-top:22px}
+.contact-lines div{display:flex;gap:12px;align-items:center;color:#fff;font-weight:700}
+.contact-lines span.i{width:40px;height:40px;border-radius:10px;background:var(--red);display:grid;place-items:center;flex:none}
+.contact-lines svg{width:19px;height:19px}
+@media (max-width:860px){.fgrid,.f2{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:grid;gap:12px;max-width:920px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:0 22px}
+.faq details[open]{border-color:var(--red);box-shadow:0 10px 30px rgba(196,22,28,.08)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:20px 0}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary h3{font-size:1.08rem}
+.faq .pm{width:32px;height:32px;border-radius:8px;background:var(--soft);display:grid;place-items:center;font-weight:800;color:var(--red);flex:none;transition:transform .2s}
+.faq details[open] .pm{transform:rotate(45deg);background:var(--red);color:#fff}
+.faq details p{padding-bottom:22px;color:var(--muted);max-width:70ch}
+
+/* footer */
+.footer{background:var(--navy);color:var(--on-dark-2);padding-block:72px 28px;position:relative;overflow:hidden}
+.footer::before{content:"";position:absolute;top:0;right:0;width:180px;height:6px;background:var(--red);transform:skewX(-28deg) translateX(-20px)}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px}
+.footer h2{font:700 1.05rem/1.4 var(--font);color:#fff;margin-bottom:16px}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.footer a{text-decoration:none} .footer a:hover{color:#fff}
+.footer .logo img{height:64px;width:auto}
+.fsoc{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.fsoc a{padding:7px 12px;border-radius:8px;background:var(--navy-2);font-size:.85rem;color:#D5DBE5}
+.fsoc a:hover{background:var(--red);color:#fff}
+.fb{margin-top:48px;padding-top:22px;border-top:1px solid var(--navy-3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.9rem}
+@media (max-width:900px){.fg{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.fg{grid-template-columns:1fr}}
+
+/* mobile action bar */
+.abar{display:none}
+@media (max-width:760px){
+  .abar{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:55;background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(15,23,42,.1);padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+  .abar a{display:flex;align-items:center;justify-content:center;gap:7px;padding:13px 6px;border-radius:var(--r);text-decoration:none;font-weight:700;font-size:.92rem;background:var(--soft);color:var(--ink)}
+  .abar a.wa{background:var(--red);color:#fff}
+  .abar svg{width:18px;height:18px}
+  body{padding-bottom:78px}
+}
+
+/* inner page heads */
+.phead{position:relative;background:var(--navy);color:var(--on-dark-2);overflow:hidden;padding-block:clamp(56px,7vw,96px)}
+.phead>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22}
+.phead::after{content:"";position:absolute;left:-40px;top:0;bottom:0;width:220px;background:var(--red);opacity:.9;transform:skewX(-28deg);transform-origin:bottom}
+.phead .wrap{position:relative;z-index:2;display:grid;gap:14px}
+.phead h1,.phead h2,.phead h3{color:#fff}
+.phead .lead{color:#D5DBE5}
+.crumbs{display:flex;gap:8px;flex-wrap:wrap;list-style:none;padding:0;margin:0;font-size:.92rem}
+.crumbs a{text-decoration:none;color:#D5DBE5} .crumbs a:hover{color:#fff}
+.crumbs li+li::before{content:"‹";margin-inline-end:8px;opacity:.6}
+.crumbs li:last-child{color:#FFB4A8;font-weight:700}
+.kick{font-weight:700;color:#FFB4A8}
+@media (max-width:760px){.phead::after{width:90px;left:-50px}}
+.filters{display:flex;gap:8px;flex-wrap:wrap;padding-block:24px;position:sticky;top:124px;z-index:20;background:var(--white)}
+.filters button{font:700 .95rem/1 var(--font);padding:12px 20px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+@media (max-width:1020px){.filters{top:112px}}
+
+/* product single */
+.ptop{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(36px,5vw,64px)}
+.ptop .gal{display:grid;grid-template-columns:1fr 84px;gap:12px}
+.ptop .gal .main{border-radius:16px;aspect-ratio:4/5;object-fit:cover;width:100%;height:100%}
+.ptop .gal .th{display:grid;gap:10px;align-content:start}
+.ptop .gal .th img{border-radius:10px;aspect-ratio:1;object-fit:cover;border:2px solid transparent;cursor:pointer}
+.ptop .gal .th img.on{border-color:var(--red)}
+.pinfo{display:grid;gap:18px;min-width:0}
+.byline{display:flex;gap:16px;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+.price{background:var(--soft);border-radius:14px;padding:20px 22px;display:grid;gap:6px;border-inline-start:5px solid var(--red)}
+.price .n{font:800 2.4rem/1.1 var(--font);color:var(--red)} .price .n span{font:700 1rem var(--font);color:var(--ink);margin-inline-start:6px}
+.price small{color:var(--muted);font-size:.88rem;line-height:1.6}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.specs div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.specs dt{font-size:.82rem;color:var(--muted)} .specs dd{margin:0;font-weight:700;color:var(--ink)}
+@media (max-width:900px){.ptop{grid-template-columns:1fr}}
+@media (max-width:700px){.ptop .gal{grid-template-columns:1fr}.ptop .gal .th{grid-auto-flow:column;grid-auto-columns:72px;overflow-x:auto;padding-bottom:4px}}
+.pbody{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:clamp(28px,4vw,56px);align-items:start;padding-bottom:clamp(64px,8vw,110px)}
+.art{display:grid;gap:clamp(40px,5vw,56px);min-width:0}
+.art section{padding:0;display:grid;gap:16px}
+.art p,.art li{max-width:70ch}
+.art section>h2{display:flex;align-items:center;gap:14px}
+.art section>h2::before{content:"";width:20px;height:8px;background:var(--red);transform:skewX(-28deg);flex:none}
+.rel{display:flex;gap:14px;align-items:center;padding:16px 20px;border-radius:12px;background:var(--blush);text-decoration:none;max-width:70ch}
+.rel small{display:block;color:var(--text);font-size:.85rem}
+.rel b{color:var(--red);font-weight:800}
+.rel svg{width:20px;height:20px;color:var(--red);margin-inline-start:auto;flex:none}
+.vars{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.var{display:grid;gap:8px;text-decoration:none;font-weight:700;font-size:.92rem;color:var(--ink);text-align:center}
+.var img,.var .noimg{border-radius:12px;aspect-ratio:3/4;object-fit:cover;width:100%}
+.var .noimg{background:linear-gradient(160deg,#CDB48C,#A68A62);display:grid;place-items:center;color:#fff;font-size:.8rem}
+.var em{font-style:normal;color:var(--red);font-size:.8rem}
+@media (max-width:700px){.vars{grid-template-columns:repeat(3,1fr)}}
+.sizes{display:flex;gap:22px;align-items:end;flex-wrap:wrap;padding:24px;background:var(--soft);border-radius:14px}
+.sz{display:grid;gap:8px;justify-items:center}
+.sz .t{background:linear-gradient(160deg,#E2D3B3,#BCA47E);border-radius:3px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.sz .t.d{background:transparent;border:2px dashed var(--muted);display:grid;place-items:center;font-size:.82rem;color:var(--muted)}
+.sz b{color:var(--ink);font-variant-numeric:tabular-nums}
+.tagl{display:flex;gap:8px;flex-wrap:wrap;list-style:none;padding:0;margin:0}
+.tagl li{padding:9px 16px;border-radius:999px;background:var(--soft);font-weight:700;color:var(--ink);font-size:.95rem}
+.ok{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;list-style:none;padding:0;margin:0}
+.ok li{display:flex;gap:10px;align-items:center;padding:14px 16px;border-radius:12px;border:1px solid var(--line);font-weight:700;color:var(--ink)}
+.ok li::before{content:"";width:22px;height:22px;flex:none;border-radius:6px;background:var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/14px no-repeat}
+.side{position:sticky;top:140px;display:grid;gap:14px}
+.sbox{background:var(--navy);color:var(--on-dark-2);border-radius:16px;padding:24px;display:grid;gap:14px}
+.sbox b{color:#fff;font-size:1.15rem}
+.sbox .btn{width:100%}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pn a{display:grid;gap:4px;padding:18px;border:1px solid var(--line);border-radius:12px;text-decoration:none}
+.pn small{color:var(--muted)} .pn b{color:var(--ink);line-height:1.6}
+.pn a:last-child{text-align:left}
+@media (max-width:980px){.pbody{grid-template-columns:1fr}.side{position:static}}
+
+/* project pages */
+.prow{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(28px,4vw,48px)}
+.prow+.prow{border-top:1px solid var(--line)}
+.prow:nth-child(even) .pimg{order:2}
+.pimg{border-radius:16px;aspect-ratio:16/11;object-fit:cover;width:100%}
+.ptxt{display:grid;gap:14px;min-width:0}
+.ptxt h3{font:800 clamp(1.3rem,2.2vw,1.7rem)/1.45 var(--font)}
+.ptxt .pills .pill{background:var(--soft);color:var(--ink);backdrop-filter:none}
+.ptxt .pills .pill.r{background:var(--red);color:#fff}
+@media (max-width:820px){.prow{grid-template-columns:1fr}.prow:nth-child(even) .pimg{order:0}}
+.gal8{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal8 img{border-radius:12px;aspect-ratio:4/5;object-fit:cover;width:100%}
+@media (max-width:760px){.gal8{grid-template-columns:repeat(2,1fr)}}
+.cover{border-radius:18px;aspect-ratio:21/9;object-fit:cover;width:100%;margin-top:-60px;position:relative;z-index:3;box-shadow:0 30px 60px rgba(15,23,42,.2)}
+@media (max-width:700px){.cover{aspect-ratio:4/3;margin-top:-40px}}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0}
+.facts div{background:var(--soft);border-radius:12px;padding:16px 18px;border-inline-start:4px solid var(--red)}
+.facts dt{font-size:.85rem;color:var(--muted)} .facts dd{margin:0;font-weight:800;color:var(--ink)}
+@media (max-width:700px){.facts{grid-template-columns:1fr 1fr}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px)}
+.two>div{display:grid;gap:12px;align-content:start}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+.pgal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:220px;gap:12px}
+.pgal img{border-radius:12px;width:100%;height:100%;object-fit:cover}
+.pgal img:first-child{grid-row:span 2}
+@media (max-width:700px){.pgal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}.pgal img:first-child{grid-column:span 2;grid-row:span 1}}
+.cta-box{background:var(--navy);border-radius:16px;padding:clamp(24px,3vw,36px);display:grid;gap:14px;color:var(--on-dark-2)}
+.cta-box h2{color:#fff}
+
+/* blog */
+.bfeat{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;text-decoration:none;margin-bottom:clamp(36px,5vw,56px);background:var(--soft);border-radius:18px;overflow:hidden}
+.bfeat img{width:100%;height:100%;aspect-ratio:16/10;object-fit:cover}
+.bfeat div{padding:clamp(20px,3vw,40px);display:grid;gap:14px}
+.bfeat h3{font:800 clamp(1.4rem,2.4vw,1.9rem)/1.45 var(--font)}
+.bcard{display:grid;gap:12px;text-decoration:none;align-content:start}
+.bcard img{border-radius:14px;aspect-ratio:16/10;object-fit:cover;width:100%;transition:transform .4s}
+.bcard:hover img{transform:scale(1.02)}
+.bcard h3{font:700 1.1rem/1.6 var(--font)}
+.bcard p{color:var(--muted);font-size:.95rem;line-height:1.7}
+@media (max-width:820px){.bfeat{grid-template-columns:1fr}}
+
+/* about / contact */
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.val{background:var(--navy-2);border:1px solid var(--navy-3);border-radius:16px;padding:26px;display:grid;gap:10px;align-content:start}
+.val .ic{width:44px;height:44px;border-radius:10px;background:var(--red);display:grid;place-items:center}
+.val .ic svg{width:22px;height:22px;color:#fff}
+@media (max-width:900px){.vals{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.vals{grid-template-columns:1fr}}
+.partners{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.partner{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;place-items:center;aspect-ratio:16/10}
+.partner img{max-height:120px;width:auto;object-fit:contain}
+@media (max-width:700px){.partners{grid-template-columns:1fr}}
+.cg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:10px;align-content:start;min-width:0}
+.cc .ic{width:48px;height:48px;border-radius:12px;background:var(--blush);display:grid;place-items:center}
+.cc .ic svg{width:24px;height:24px;color:var(--red)}
+.cc .v{font-weight:800;color:var(--ink);overflow-wrap:anywhere}
+.copy{justify-self:start;font:700 .85rem var(--font);padding:8px 14px;border-radius:8px;border:1.5px solid var(--line);background:#fff;cursor:pointer;color:var(--ink)}
+@media (max-width:980px){.cg{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.cg{grid-template-columns:1fr}}
+
+/* SEO overlay */
+.serpw{display:none}
+.seo-on .serpw{display:block}
+.serp{background:#fff;border:2px dashed var(--seo);border-radius:12px;padding:16px 20px;margin-block:18px;display:grid;gap:4px}
+.serp .l{font-weight:800;color:var(--seo);font-size:.85rem}
+.serp .u{direction:ltr;text-align:right;font-size:.85rem;color:#1a7f37;overflow-wrap:anywhere}
+.serp .t{color:#1a0dab;font-size:1.15rem;font-weight:500}
+.serp .d{color:#4d5156;font-size:.92rem}
+.serp .k{margin-top:6px;font-size:.84rem;color:var(--muted)}
+.seo-on main :is(h1,h2,h3){outline:2px dashed var(--seo);outline-offset:4px}
+.seo-on main :is(h1,h2,h3)::before{display:inline-block;font:800 11px/1 var(--font);background:var(--seo);color:#fff;padding:4px 6px;border-radius:4px;margin-inline-end:8px;vertical-align:middle;direction:ltr}
+.seo-on main h1::before{content:"H1"} .seo-on main h2::before{content:"H2"} .seo-on main h3::before{content:"H3"}
+.seo-on .art section>h2::before{width:auto;height:auto;transform:none;background:var(--seo)}
+.flag{display:none}
+.seo-on .flag{display:block;margin-top:16px;border:2px dashed var(--seo);border-radius:10px;padding:12px 16px;background:#FFF7ED;color:var(--ink);font-size:.92rem}
+.flag b{color:#C2410C}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ================= Motion & interaction layer ================= */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:130;pointer-events:none}
+.progress i{display:block;height:100%;background:var(--red);transform-origin:100% 50%;transform:scaleX(0)}
+.js .rv{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.js .head .mark i{transform:skewX(-28deg) scaleX(0);transform-origin:100% 50%;transition:transform .7s .25s cubic-bezier(.2,.7,.2,1)}
+.js .head.in .mark i{transform:skewX(-28deg) scaleX(1)}
+.js .head.in .mark i+i{transition-delay:.45s}
+main[data-view]:not([hidden]){animation:vfade .55s ease both}
+@keyframes vfade{from{opacity:0}to{opacity:1}}
+/* hero entrance */
+.hero-bg{animation:kb 26s ease-out both}
+@keyframes kb{from{transform:scale(1.15)}to{transform:scale(1)}}
+.hero-copy>*{animation:up .95s cubic-bezier(.2,.7,.2,1) both}
+.hero-copy>*:nth-child(2){animation-delay:.12s}.hero-copy>*:nth-child(3){animation-delay:.24s}.hero-copy>*:nth-child(4){animation-delay:.36s}.hero-copy>*:nth-child(5){animation-delay:.48s}
+.hero h1 em{background-repeat:no-repeat;background-position:100% 0;background-size:0% 100%;animation:hl 1.1s .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes hl{to{background-size:100% 100%}}
+.hero-card{animation:up 1s .6s both,float 7s 1.8s ease-in-out infinite}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -10px}}
+.chips a,.btn{will-change:transform}
+/* header on scroll */
+.header,.header .wrap,.brand img{transition:min-height .3s,height .3s,box-shadow .3s}
+.header.sc{box-shadow:0 10px 30px rgba(15,23,42,.08)}
+.header.sc .wrap{min-height:66px}
+.header.sc .brand img{height:46px}
+/* marquee */
+
+/* image loading shimmer */
+.sk{background:linear-gradient(100deg,#ECEEF2 30%,#F8F9FB 50%,#ECEEF2 70%) 0 0/200% 100%;animation:sh 1.2s linear infinite}
+@keyframes sh{to{background-position:-200% 0}}
+/* product card: quick view */
+.media .ml{display:block}
+.media .qv{position:absolute;bottom:16px;left:50%;translate:-50% 14px;opacity:0;transition:opacity .3s,translate .3s,background .2s;background:#fff;color:var(--ink);border:0;border-radius:999px;padding:11px 18px;font:700 .9rem/1 var(--font);display:flex;gap:8px;align-items:center;cursor:pointer;box-shadow:0 10px 26px rgba(0,0,0,.22);white-space:nowrap}
+.media .qv svg{width:17px;height:17px}
+.media .qv:hover{background:var(--red);color:#fff}
+.card:hover .qv,.media .qv:focus-visible{opacity:1;translate:-50% 0}
+@media (hover:none){.media .qv{opacity:1;translate:-50% 0;padding:9px 14px;font-size:.82rem}}
+.card.pop{animation:pop .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+/* modal + lightbox */
+.modal{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:max(20px,env(safe-area-inset-top,0px)) 20px 20px;background:rgba(9,14,27,.84);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.modal.open{opacity:1;visibility:visible}
+.qv-box{position:relative;background:#fff;border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;max-width:960px;width:100%;max-height:88vh;transform:translateY(24px) scale(.97);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.modal.open .qv-box{transform:none}
+.qv-box>img{width:100%;height:100%;object-fit:cover;max-height:88vh;min-height:320px}
+.qv-info{padding:clamp(24px,3vw,44px);display:grid;gap:16px;align-content:center;overflow:auto}
+.qv-info h3{font:800 clamp(1.4rem,2.6vw,2rem)/1.35 var(--font)}
+.qv-info p{color:var(--muted);font-size:1.02rem}
+.qv-info .ctas .btn{flex:1}
+.qv-info ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.qv-info li{display:flex;gap:10px;align-items:center;color:var(--ink);font-weight:500}
+.qv-info li::before{content:"";width:16px;height:6px;background:var(--red);transform:skewX(-28deg);flex:none}
+.x{position:absolute;top:14px;left:14px;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:var(--ink);cursor:pointer;display:grid;place-items:center;z-index:3;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.x svg{width:20px;height:20px}
+.x:hover{background:var(--red);color:#fff}
+@media (max-width:720px){.qv-box{grid-template-columns:1fr;overflow:auto}.qv-box>img{max-height:42vh;min-height:0}}
+.lb-fig{margin:0;display:grid;gap:14px;justify-items:center;max-width:min(1100px,100%);transform:scale(.97);transition:transform .35s}
+.modal.open .lb-fig{transform:none}
+.lb-fig img{max-height:78vh;max-width:100%;width:auto;border-radius:14px;object-fit:contain;background:#111}
+.lb-fig figcaption{color:#E2E8F0;text-align:center;max-width:70ch}
+.lb-nav{position:absolute;top:50%;translate:0 -50%;width:54px;height:54px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;cursor:pointer;display:grid;place-items:center;z-index:3}
+.lb-nav svg{width:24px;height:24px}
+.lb-nav:hover{background:var(--red)}
+.lb-prev{right:18px}.lb-next{left:18px}
+.lb-count{position:absolute;top:24px;right:24px;color:#fff;font-weight:700;font-variant-numeric:tabular-nums}
+#lb .x{background:rgba(255,255,255,.14);color:#fff;box-shadow:none}
+@media (max-width:640px){.lb-nav{top:auto;bottom:18px;translate:0 0}}
+[data-lb]{cursor:zoom-in}
+/* floating WhatsApp + back to top */
+.fwa{position:fixed;bottom:26px;right:26px;z-index:58;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px rgba(37,211,102,.38);text-decoration:none;transition:transform .2s}
+.fwa:hover{transform:scale(1.07)}
+.fwa svg{width:30px;height:30px}
+.fwa::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:ping 2.4s infinite}
+@keyframes ping{from{transform:scale(1);opacity:.8}to{transform:scale(1.75);opacity:0}}
+.fwa .tip{position:absolute;right:76px;background:var(--navy);color:#fff;padding:9px 14px;border-radius:10px;white-space:nowrap;font-weight:700;font-size:.9rem;opacity:0;translate:10px 0;transition:.25s;pointer-events:none}
+.fwa:hover .tip{opacity:1;translate:0 0}
+.totop{position:fixed;bottom:26px;left:26px;z-index:58;width:50px;height:50px;border-radius:14px;border:0;background:var(--navy);color:#fff;cursor:pointer;display:grid;place-items:center;opacity:0;visibility:hidden;translate:0 12px;transition:.3s}
+.totop.show{opacity:1;visibility:visible;translate:0 0}
+.totop:hover{background:var(--red)}
+.totop svg{width:20px;height:20px}
+@media (max-width:760px){.fwa,.totop{display:none}}
+/* mobile drawer */
+.scrim{position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:85;opacity:0;visibility:hidden;transition:.3s}
+.scrim.on{opacity:1;visibility:visible}
+.mnav .dr-head,.mnav .btn{display:none}
+@media (max-width:1020px){
+  .mnav{display:grid!important;position:fixed;top:0;bottom:0;right:0;width:min(86vw,360px);background:#fff;z-index:90;transform:translateX(105%);transition:transform .45s cubic-bezier(.2,.7,.2,1);align-content:start;padding:env(safe-area-inset-top,0px) 0 24px;box-shadow:-20px 0 60px rgba(0,0,0,.2);border:0!important;overflow:auto}
+  .mnav.open{transform:none}
+  .mnav .dr-head{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;border-bottom:1px solid var(--line)}
+  .mnav .dr-head img{height:44px;width:auto}
+  .mnav .dr-head button{width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer;display:grid;place-items:center}
+  .mnav .dr-head svg{width:20px;height:20px}
+  .mnav a:not(.btn){display:flex;justify-content:space-between;align-items:center;font-size:1.08rem}
+  .mnav a:not(.btn)::after{content:"‹";color:var(--red);font-size:1.3rem}
+  .mnav a[aria-current="page"]{color:var(--red)}
+  .mnav .btn{display:inline-flex;margin:22px 22px 0;color:#fff}
+}
+/* products finder */
+.ptools{display:grid;gap:16px;padding-top:30px}
+.ptools .row{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.search{position:relative;flex:1;max-width:540px;min-width:240px}
+.search input{width:100%;font:500 1rem var(--font);color:var(--ink);padding:15px 52px 15px 18px;border:1.5px solid var(--line);border-radius:999px;background:var(--soft);transition:.2s}
+.search input:focus{outline:none;border-color:var(--red);background:#fff;box-shadow:0 0 0 4px rgba(196,22,28,.1)}
+.search svg{position:absolute;right:18px;top:50%;translate:0 -50%;width:20px;height:20px;color:var(--muted)}
+.uses{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.uses b{color:var(--ink);font-size:.95rem;margin-inline-end:4px}
+.uses button{font:700 .9rem/1 var(--font);padding:10px 16px;border-radius:10px;border:1.5px dashed #CBD2DC;background:#fff;color:var(--text);cursor:pointer;transition:.2s}
+.uses button:hover{border-color:var(--navy)}
+.uses button[aria-pressed="true"]{border-style:solid;border-color:var(--navy);background:var(--navy);color:#fff}
+.pcount{font-weight:700;color:var(--muted)} .pcount b{color:var(--red);font-size:1.15rem}
+.empty{grid-column:1/-1;text-align:center;padding:64px 20px;display:grid;gap:14px;justify-items:center;background:var(--soft);border-radius:18px}
+.empty b{font-size:1.3rem;color:var(--ink)}
+/* product gallery crossfade */
+.gal .main{transition:opacity .25s}
+.gal .main.fade{opacity:0}
+.ptop .gal .th img{transition:border-color .2s,transform .2s}
+.ptop .gal .th img:hover{transform:scale(1.04)}
+/* reviews carousel on mobile */
+@media (max-width:900px){.revs{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:86%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin}.rev{scroll-snap-align:start}}
+/* presentation mode */
+.present .proto{display:none}
+.present .header{top:0}
+.present .filters{top:80px}
+.pbtn{display:none;position:fixed;top:12px;left:12px;z-index:140;background:#1B2335;color:#fff;border:0;border-radius:10px;padding:9px 12px;font:700 12px var(--font);cursor:pointer;opacity:.35}
+.pbtn:hover{opacity:1}
+.present .pbtn{display:block}
+.proto .pmode{background:transparent;border:1px solid #3A4560;color:#fff;border-radius:8px;padding:6px 10px;font:700 12px var(--font);cursor:pointer;white-space:nowrap}
+.proto .pmode:hover{background:var(--red);border-color:var(--red)}
+@media (max-width:700px){.proto .pmode{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.hero h1 em{background-size:100% 100%}}
+
+/* ===== v4: slider, centred FAQ, new inner-page header, project cards ===== */
+.sl-ctrl{display:flex;gap:10px;align-items:center}
+.sl-btn{width:50px;height:50px;border-radius:50%;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:.2s}
+.sl-btn svg{width:20px;height:20px}
+.sl-btn:hover:not(:disabled){background:var(--red);border-color:var(--red);color:#fff}
+.sl-btn:disabled{opacity:.35;cursor:default}
+.slider{position:relative}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2*26px)/3);gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:6px 2px 24px;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.track>*{scroll-snap-align:start}
+.track.drag{scroll-snap-type:none;scroll-behavior:auto;cursor:grabbing}
+.track.drag *{pointer-events:none}
+.sl-bar{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin-top:6px}
+.sl-bar i{display:block;height:100%;background:var(--red);border-radius:4px;transform-origin:100% 50%;transition:transform .35s}
+.gal-sl .track{grid-auto-columns:calc((100% - 3*16px)/4);gap:16px}
+.gal-sl .track img{border-radius:14px;aspect-ratio:4/5;object-fit:cover;width:100%}
+@media (max-width:1000px){.track{grid-auto-columns:calc((100% - 22px)/2.15);gap:22px}.gal-sl .track{grid-auto-columns:calc((100% - 16px)/2.6)}}
+@media (max-width:600px){.track{grid-auto-columns:84%;gap:16px}.gal-sl .track{grid-auto-columns:70%}.sl-btn{width:44px;height:44px}}
+.head.center{margin-inline:auto;text-align:center;justify-items:center}
+.faq{margin-inline:auto}
+/* inner page header: real photo + navy veil, no red block */
+.phead::after{content:"";position:absolute;inset:auto 0 0 0;width:auto;height:4px;left:0;opacity:1;transform:none;background:linear-gradient(to left,var(--red) 0 22%,rgba(196,22,28,.0) 60%)}
+.phead::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to left,rgba(15,23,42,.95) 0%,rgba(15,23,42,.84) 45%,rgba(15,23,42,.55) 100%)}
+.phead>img{opacity:1}
+.phead .wrap{z-index:2}
+.phead .crumbs{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:7px 14px;border-radius:999px;justify-self:start;backdrop-filter:blur(4px)}
+@media (max-width:760px){.phead::after{width:auto;left:0}}
+/* project cards side by side */
+.pjgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,2.4vw,32px);margin-top:12px}
+.pj{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:box-shadow .3s,transform .3s;min-width:0}
+.pj:hover{box-shadow:0 22px 50px rgba(15,23,42,.12);transform:translateY(-4px)}
+.pj-img{position:relative;display:block;overflow:hidden}
+.pj-img img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .6s}
+.pj:hover .pj-img img{transform:scale(1.05)}
+.pj-body{padding:clamp(20px,2.4vw,30px);display:grid;gap:14px;flex:1;align-content:start}
+.pj-loc{display:inline-flex;gap:6px;align-items:center;color:var(--red);font-weight:700;font-size:.92rem}
+.pj-loc svg{width:16px;height:16px}
+.pj h3{font:800 clamp(1.2rem,2vw,1.5rem)/1.45 var(--font)}
+.pj-meta{margin:0;display:grid;gap:10px}
+.pj-meta div{display:grid;grid-template-columns:110px 1fr;gap:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.pj-meta dt{color:var(--muted);font-size:.9rem} .pj-meta dd{margin:0;font-weight:700;color:var(--ink)}
+.pj-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:6px}
+.pj-n{color:var(--muted);font-size:.9rem;font-weight:500}
+@media (max-width:820px){.pjgrid{grid-template-columns:1fr}}
+
+/* ================= v5 ================= */
+/* marquee: LTR window so the loop never empties; moves right like Arabic news tickers */
+.marq{background:var(--navy);margin-top:clamp(56px,7vw,90px);display:grid;grid-template-columns:auto 1fr;align-items:stretch;overflow:hidden;border-top:3px solid var(--red)}
+.marq-head{background:var(--red);color:#fff;display:grid;align-content:center;justify-items:center;padding:14px 22px;gap:2px;position:relative;z-index:2;clip-path:polygon(0 0,100% 0,100% 100%,14px 100%)}
+.marq-head span{font:800 1.05rem/1.2 var(--font)}
+.marq-head b{font:500 .82rem/1.2 var(--font);color:#FFE3E0}
+.marq-win{overflow:hidden;direction:ltr;position:relative;padding-block:18px}
+.marq-win::before,.marq-win::after{content:"";position:absolute;top:0;bottom:0;width:40px;z-index:1;pointer-events:none}
+.marq-win::before{left:0;background:linear-gradient(to right,var(--navy),transparent)}
+.marq-win::after{right:0;background:linear-gradient(to left,var(--navy),transparent)}
+.marq .tr{display:flex;width:max-content;will-change:transform;animation:mq var(--mq,120s) linear infinite}
+.marq .grp{display:flex;flex:none}
+.marq:hover .tr{animation-play-state:paused}
+.marq .mi{direction:rtl;display:inline-flex;align-items:baseline;gap:10px;padding-inline:22px;white-space:nowrap;position:relative}
+.marq .mi::after{content:"";position:absolute;left:-6px;top:50%;width:14px;height:6px;margin-top:-3px;background:var(--red);transform:skewX(-28deg)}
+.marq .mi b{color:#fff;font:800 clamp(1.05rem,1.8vw,1.4rem)/1.3 var(--font)}
+.marq .mi small{color:var(--on-dark-2);font:500 .9rem/1.3 var(--font)}
+@keyframes mq{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media (prefers-reduced-motion:reduce){.marq .tr{animation:mq var(--mq,120s) linear infinite!important}}
+@media (max-width:600px){.marq{grid-template-columns:1fr}.marq-head{grid-auto-flow:column;gap:10px;justify-content:center;padding:10px;clip-path:none}.marq-win{padding-block:14px}}
+
+/* review tools button */
+.pbtn{display:none;position:fixed;bottom:100px;left:26px;top:auto;z-index:140;width:44px;height:44px;border-radius:12px;padding:0;place-items:center;background:var(--navy);opacity:.55}
+.pbtn svg{width:20px;height:20px}
+.present .pbtn{display:grid}
+@media (max-width:760px){.present .pbtn{display:none}}
+
+/* ---------- mobile alignment system ---------- */
+@media (max-width:760px){
+  section{padding-block:56px}
+  h2{font-size:1.55rem;line-height:1.45}
+  .lead{font-size:1rem}
+  /* section heads centred */
+  .head,.row-between .head{text-align:center;justify-items:center;margin-inline:auto}
+  .row-between{flex-direction:column;align-items:stretch;gap:20px}
+  .row-between>.btn{width:100%}
+  .sl-ctrl{justify-content:center;flex-wrap:wrap}
+  .sl-ctrl .btn{flex:1 1 100%;order:-1}
+  /* buttons: full width, equal height */
+  .btn{width:100%;padding:15px 18px;font-size:.98rem}
+  .ctas{display:grid;grid-template-columns:1fr;gap:10px;width:100%}
+  .card-cta.q,.copy{width:auto}
+  .more{justify-content:center}
+  /* hero */
+  .hero{padding-block:44px 120px;text-align:center}
+  .hero-copy{justify-items:center;gap:18px}
+  .hero .eyebrow{justify-content:center}
+  .hero .lead{font-size:1rem}
+  .hero .ctas{grid-template-columns:1fr 1fr}
+  .hero .ctas .btn-red{grid-column:1/-1}
+  .hero .ctas .btn{font-size:.9rem;padding:14px 10px}
+  .chips{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;width:calc(100% + 40px);margin-inline:-20px;padding-inline:20px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chips a{flex:none}
+  .hero-card{display:none}
+  /* experience card */
+  .exp{margin-top:-84px}
+  .exp-card{padding:24px 18px;border-radius:14px;text-align:center}
+  .exp-copy{justify-items:center}
+  .exp-copy .btn{width:auto}
+  .stats{gap:10px}
+  .stat{padding:18px 12px;text-align:center}
+  .stat::after{display:none}
+  .stat h3{font-size:1.45rem;white-space:nowrap}
+  .stat p{font-size:.84rem;line-height:1.5}
+  /* bands & splits */
+  .band{text-align:center}
+  .band>div{justify-items:center}
+  .bg-red::after,.bg-red::before{display:none}
+  .split>div{text-align:center}
+  .split .head{margin-inline:auto}
+  .ticks li{justify-content:flex-start;text-align:right}
+  .frame::before{display:none}
+  .branch{text-align:center;justify-items:center}
+  .map{min-height:200px}
+  /* product cards */
+  .card-body{padding:16px;text-align:center;align-items:center}
+  .card-body h2{font-size:1.1rem}
+  .card-cta{align-self:center}
+  /* projects / reviews / docs */
+  .pcard .cap{padding:18px;text-align:center;justify-items:center}
+  .pills{justify-content:center}
+  .rev{padding:22px}
+  .doc{padding:10px 10px 14px}
+  /* form & contact */
+  .fgrid>div:first-child{text-align:center}
+  .fgrid .head{margin-inline:auto}
+  .contact-lines{justify-items:center}
+  .form{padding:20px}
+  .form .btn{width:100%}
+  .cc{grid-template-columns:48px 1fr;align-items:center;column-gap:14px;row-gap:4px;padding:16px}
+  .cc .ic{grid-row:span 3}
+  .cc h3{font-size:1rem}
+  .cc .copy,.cc .more{justify-self:start}
+  /* FAQ */
+  .faq details{padding:0 16px}
+  .faq summary{padding:16px 0}
+  .faq summary h3{font-size:1rem;line-height:1.6}
+  /* inner pages */
+  .phead{padding-block:40px 44px;text-align:center}
+  .phead .wrap{justify-items:center}
+  .phead .crumbs{justify-self:center}
+  .phead h1{font-size:1.85rem}
+  .phead h2{font-size:1.2rem!important}
+  .ptools .row{flex-direction:column;align-items:stretch}
+  .search{max-width:none;min-width:0}
+  .pcount{text-align:center}
+  .uses{justify-content:center}
+  .uses b{width:100%;text-align:center}
+  .filters{justify-content:center;top:68px}
+  .pinfo{text-align:center;justify-items:center}
+  .pinfo .ctas{grid-template-columns:1fr 1fr}
+  .price{text-align:right;width:100%}
+  .specs{width:100%;text-align:right}
+  .art section>h2{justify-content:center}
+  .art section>h2::before{display:none}
+  .art section{text-align:center}
+  .art section .tagl,.art section .ok{justify-content:center}
+  .ok{grid-template-columns:1fr}
+  .ok li{text-align:right}
+  .rel{text-align:right}
+  .sizes{justify-content:center}
+  .pn{grid-template-columns:1fr}
+  .pn a,.pn a:last-child{text-align:center}
+  .sbox{text-align:center}
+  .pj-body{text-align:center;justify-items:center}
+  .pj-meta{width:100%}
+  .pj-meta div{grid-template-columns:1fr;gap:2px;text-align:center}
+  .pj-foot{flex-direction:column;gap:10px;width:100%}
+  .two>div{text-align:center}
+  .two .cta-box{justify-items:center}
+  .facts div{text-align:center}
+  .bfeat div{text-align:center;justify-items:center}
+  .bcard{text-align:center}
+  .bcard .more{justify-content:center}
+  .val{text-align:center;justify-items:center}
+  .split .ctas{grid-template-columns:1fr 1fr}
+  /* footer */
+  .footer{text-align:center;padding-block:52px 24px}
+  .footer .logo img{margin-inline:auto}
+  .footer p{margin-inline:auto}
+  .fsoc{justify-content:center}
+  .fb{flex-direction:column;align-items:center;text-align:center}
+  .fwa,.totop{display:none}
+}
+@media (max-width:380px){.hero .ctas{grid-template-columns:1fr}.pinfo .ctas,.split .ctas{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="present">
+<div class="progress" aria-hidden="true"><i id="prog"></i></div>
+<button class="pbtn" id="pbtn" type="button" aria-label="أدوات المراجعة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg></button>
+
+<!-- ===== شريط التنقل بين القوالب (مش جزء من الموقع) ===== -->
+<div class="proto" id="proto">
+  <div class="wrap">
+    <b>اختار الصفحة:</b>
+    <nav class="tabs" aria-label="صفحات النموذج">
+      <a href="#home">الرئيسية</a><a href="#products">المنتجات</a><a href="#product">صفحة منتج</a><a href="#projects">المشاريع</a><a href="#project">صفحة مشروع</a><a href="#blogs">المقالات</a><a href="#about">من نحن</a><a href="#contact">تواصل معنا</a>
+    </nav>
+    <button class="pmode" id="pmode" type="button">إخفاء أدوات المراجعة</button>
+    <label class="seo-tg" for="seoT"><input type="checkbox" id="seoT"> طبقة SEO</label>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>اتصل بنا: <a class="ph" href="https://wa.me/966553499059" target="_blank" rel="noopener">0553499059</a><span class="tb-x"> · فرعين في المناخ – طريق الخرج، الرياض</span></span>
+    <span class="soc">
+      <a href="https://www.facebook.com/platinummarble.sa" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+      <a href="https://www.instagram.com/platinum.marble/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      <a href="https://www.tiktok.com/@platinum.marble" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+      <a href="https://x.com/platinummarbl" target="_blank" rel="noopener" aria-label="X">X</a>
+      <a href="https://www.snapchat.com/@platinummarbl" target="_blank" rel="noopener" aria-label="Snapchat">SC</a>
+      <a href="https://www.youtube.com/@platinum.marble" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+    </span>
+  </div>
+</div>
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="#home"><img src="https://platinum-marble.com/wp-content/uploads/2025/11/Logo-1.png" alt="شعار مؤسسة بلاتنيوم للحجر والرخام" width="112" height="56"></a>
+    <nav class="nav" aria-label="القائمة الرئيسية">
+      <a href="#home" data-n="home">الرئيسية</a><a href="#about" data-n="about">من نحن</a><a href="#projects" data-n="projects project">المشاريع</a><a href="#products" data-n="products product">المنتجات</a><a href="#blogs" data-n="blogs">المقالات</a><a href="#contact" data-n="contact">تواصل معنا</a>
+    </nav>
+    <a class="btn btn-red" href="https://wa.me/966553499059" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>احصل على عرض سعر</a>
+    <button class="burger" id="burger" aria-label="القائمة" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<div class="scrim" id="scrim"></div>
+<nav class="mnav" id="mnav" aria-label="قائمة الجوال">
+  <div class="dr-head"><img src="https://platinum-marble.com/wp-content/uploads/2025/11/Logo-1.png" alt="" width="88" height="44"><button type="button" id="drClose" aria-label="إغلاق القائمة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <a href="#home" data-n="home">الرئيسية</a><a href="#about" data-n="about">من نحن</a><a href="#projects" data-n="projects project">المشاريع</a><a href="#products" data-n="products product">المنتجات</a><a href="#blogs" data-n="blogs">المقالات</a><a href="#contact" data-n="contact">تواصل معنا</a>
+  <a class="btn btn-red" href="https://wa.me/966553499059" target="_blank" rel="noopener">احصل على عرض سعر</a>
+</nav>
+
+<!-- ======================= HOME ======================= -->
+<main data-view="home">
+  <section class="hero">
+    <img class="hero-bg" src="https://platinum-marble.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-11-18-at-2.38.31-PM.webp" alt="" width="1280" height="720" fetchpriority="high">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="mark"><i></i><i></i></span>توريد · قص · تركيب — الرياض</span>
+        <h1>أفضل أنواع <em>الرخام والحجر الطبيعي</em> في الرياض</h1>
+        <p class="lead">توفر مؤسسة بلاتنيوم للحجر والرخام مجموعة مختارة من الرخام والحجر الطبيعي والبازلت والجرانيت والترافنتينو للمنازل والفلل والمشاريع، بجودة عالية وخيارات تناسب مختلف الاستخدامات.</p>
+        <div class="ctas">
+          <a class="btn btn-red" href="https://wa.me/966553499059" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>اطلب عرض سعر</a>
+          <a class="btn btn-glass" href="https://maps.app.goo.gl/X298kvm2EiXzcUiXA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>احصل على الاتجاهات</a>
+          <a class="btn btn-glass" href="https://drive.google.com/file/d/1LiBRU6jXDyFCRwOU9Me7tD-plohAX_52/view?usp=sharing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6v18h12V7l-4-4Z"/><path d="M14 3v4h4"/></svg>عرض البروفايل</a>
+        </div>
+        <nav class="chips" aria-label="الخامات"><a href="#products">رخام</a><a href="#products">حجر طبيعي</a><a href="#products">بازلت</a><a href="#products">جرانيت</a><a href="#products">ترافنتينو</a><a href="#products">درج</a></nav>
+      </div>
+      <a class="hero-card" href="#project">
+        <img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-riyadh-sandy-beige-emperador-marble-hero-1024x576.webp" alt="أرضيات رخام سنديان بيج وإمبرادور تركي في مشروع حي النزهة بالرياض" width="1024" height="576" loading="lazy">
+        <div><small>أحدث مشروع منفذ</small><b>رخام سنديان بيج وإمبرادور تركي – حي النزهة</b></div>
+      </a>
+    </div>
+  </section>
+
+  <div class="wrap serpw"><div data-serp="home"></div></div>
+
+  <section class="exp">
+    <div class="wrap">
+      <div class="exp-card">
+        <div class="exp-copy">
+          <span class="mark"><i></i><i></i></span>
+          <h2>سنوات من الخبرة في توريد الرخام في الرياض بجودة عالية</h2>
+          <h3 style="color:var(--red)">الجودة هي أساس كل مشروع في توريد الحجر والرخام</h3>
+          <p>نمتلك في مؤسسة بلاتنيوم للحجر والرخام خبرة طويلة في <a class="in" href="https://platinum-marble.com/marble-stone-riyadh/" target="_blank" rel="noopener">توريد الرخام في الرياض</a>، حيث نوفر أفضل أنواع الرخام للمنازل والفلل والمشاريع بجودة عالية.</p>
+          <p>نوفر توريد الرخام بمقاسات حسب الطلب، مع إمكانية التنسيق لخدمات التركيب، لضمان تنفيذ دقيق يناسب مختلف المشاريع.</p>
+          <p>كما نوفر الحجر الطبيعي والبازلت للاستخدامات الخارجية، مع تركيزنا على تقديم حلول رخام تجمع بين الفخامة والمتانة.</p>
+          <div><a class="btn btn-line" href="#about">اعرف المزيد عنا</a></div>
+        </div>
+        <div class="stats">
+          <div class="stat"><h3>+<span data-count="15">15</span> سنة</h3><p>خبرة في توريد الرخام في الرياض</p></div>
+          <div class="stat"><h3>+<span data-count="20">20</span> مشروع</h3><p>مشاريع رخام تم تنفيذها بنجاح</p></div>
+          <div class="stat"><h3>+<span data-count="60">60</span> نوع رخام</h3><p>تشكيلة متنوعة من أفضل أنواع الرخام</p></div>
+          <div class="stat"><h3>+<span data-count="500">500</span> عميل</h3><p>عملاء وثقوا بخدمات توريد الرخام</p></div>
+        </div>
+      </div>
+      <div class="flag"><b>تم بموافقتك:</b> H1 واحد بس في الصفحة (بنفس النص الحالي بالحرف) بدل الاتنين. نفس القاعدة في صفحة المنتجات.</div>
+    </div>
+  </section>
+
+  <div class="marq" aria-hidden="true">
+    <div class="marq-head"><span>منتجاتنا</span><b>25 صنف</b></div>
+    <div class="marq-win"><div class="tr" id="marqTrack"><div class="grp"><span class="mi"><b>بازلت أسود مفجر</b><small>بوشارده للأرضيات</small></span><span class="mi"><b>بازلت أسود ممسوح</b><small>سماكة 2 و3 سم</small></span><span class="mi"><b>بازلت أسود مجلي</b><small>سماكة 2 و3 سم</small></span><span class="mi"><b>حجر شلال أصفر</b><small>ديكور شلالات جداري</small></span><span class="mi"><b>حجر شلال أسود</b><small>ديكور شلالات جداري</small></span><span class="mi"><b>حجر شلال أبيض</b><small>ديكور شلالات جداري</small></span><span class="mi"><b>حجر منحوت أبيض</b><small>منحوت يدوي زخرفي</small></span><span class="mi"><b>حجر منحوت أصفر</b><small>منحوت يدوي زخرفي</small></span><span class="mi"><b>حجر منحوت أسود</b><small>منحوت يدوي زخرفي</small></span><span class="mi"><b>تامبل أصفر</b><small>3 مقاسات معتمدة</small></span><span class="mi"><b>تامبل أبيض</b><small>3 مقاسات معتمدة</small></span><span class="mi"><b>ترافنتينو أبيض</b><small>لون أبيض نقي</small></span><span class="mi"><b>ترافنتينو إيراني</b><small>ترافنتينو مستورد</small></span><span class="mi"><b>ترافنتينو أردني</b><small>عروق خشابي طبيعي</small></span><span class="mi"><b>ترافنتينو سلفر غامق</b><small>بلاتينيوم مميز</small></span><span class="mi"><b>ترافنتينو سلفر</b><small>لون فضي كلاسيك</small></span><span class="mi"><b>ترافنتينو تركي</b><small>نخب أول فاخر</small></span><span class="mi"><b>حجر وجه الجبل أصفر</b><small>سطح طبيعي بارز أصفر</small></span><span class="mi"><b>حجر وجه الجبل</b><small>سطح طبيعي بارز</small></span><span class="mi"><b>حجر رياض أصفر</b><small>حجر طبيعي أصفر</small></span><span class="mi"><b>حجر رياض أبيض</b><small>حجر طبيعي مجلي</small></span><span class="mi"><b>جلكسي أسود</b><small>جرانيت هندي فاخر</small></span><span class="mi"><b>نجران براون</b><small>جرانيت وطني بني</small></span><span class="mi"><b>تروبيكال أسود</b><small>جرانيت طبيعي أسود</small></span><span class="mi"><b>بيانكو أبيض</b><small>رخام طبيعي ناصع</small></span></div><div class="grp"><span class="mi"><b>بازلت أسود مفجر</b><small>بوشارده للأرضيات</small></span><span class="mi"><b>بازلت أسود ممسوح</b><small>سماكة 2 و3 سم</small></span><span class="mi"><b>بازلت أسود مجلي</b><small>سماكة 2 و3 سم</small></span><span class="mi"><b>حجر شلال أصفر</b><small>ديكور شلالات جداري</small></span><span class="mi"><b>حجر شلال أسود</b><small>ديكور شلالات جداري</small></span><span class="mi"><b>حجر شلال أبيض</b><small>ديكور شلالات جداري</small></span><span class="mi"><b>حجر منحوت أبيض</b><small>منحوت يدوي زخرفي</small></span><span class="mi"><b>حجر منحوت أصفر</b><small>منحوت يدوي زخرفي</small></span><span class="mi"><b>حجر منحوت أسود</b><small>منحوت يدوي زخرفي</small></span><span class="mi"><b>تامبل أصفر</b><small>3 مقاسات معتمدة</small></span><span class="mi"><b>تامبل أبيض</b><small>3 مقاسات معتمدة</small></span><span class="mi"><b>ترافنتينو أبيض</b><small>لون أبيض نقي</small></span><span class="mi"><b>ترافنتينو إيراني</b><small>ترافنتينو مستورد</small></span><span class="mi"><b>ترافنتينو أردني</b><small>عروق خشابي طبيعي</small></span><span class="mi"><b>ترافنتينو سلفر غامق</b><small>بلاتينيوم مميز</small></span><span class="mi"><b>ترافنتينو سلفر</b><small>لون فضي كلاسيك</small></span><span class="mi"><b>ترافنتينو تركي</b><small>نخب أول فاخر</small></span><span class="mi"><b>حجر وجه الجبل أصفر</b><small>سطح طبيعي بارز أصفر</small></span><span class="mi"><b>حجر وجه الجبل</b><small>سطح طبيعي بارز</small></span><span class="mi"><b>حجر رياض أصفر</b><small>حجر طبيعي أصفر</small></span><span class="mi"><b>حجر رياض أبيض</b><small>حجر طبيعي مجلي</small></span><span class="mi"><b>جلكسي أسود</b><small>جرانيت هندي فاخر</small></span><span class="mi"><b>نجران براون</b><small>جرانيت وطني بني</small></span><span class="mi"><b>تروبيكال أسود</b><small>جرانيت طبيعي أسود</small></span><span class="mi"><b>بيانكو أبيض</b><small>رخام طبيعي ناصع</small></span></div></div></div>
+  </div>
+
+  <section style="padding-top:clamp(40px,5vw,72px)">
+    <div class="wrap">
+      <div class="row-between" style="margin-bottom:clamp(30px,4vw,48px)">
+        <div class="head" style="margin:0">
+          <span class="mark"><i></i><i></i></span>
+          <h2>منتجاتنا الأكثر طلبًا</h2>
+          <h3>نوفر مجموعة مختارة من الرخام والجرانيت والبازلت والحجر الطبيعي بجودة عالية تناسب المنازل والفلل والمشاريع المتنوعة.</h3>
+        </div>
+        <div class="sl-ctrl"><button class="sl-btn" type="button" data-sl="prev" aria-label="السابق"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 6 6 6-6 6"/></svg></button><button class="sl-btn" type="button" data-sl="next" aria-label="التالي"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 6-6 6 6 6"/></svg></button><a class="btn btn-navy" href="#products">تصفح جميع المنتجات</a></div>
+      </div>
+      <div class="slider" data-auto="5000"><div class="track" id="homeP"></div><div class="sl-bar"><i></i></div></div>
+    </div>
+  </section>
+
+  <section class="bg-red" style="padding-block:clamp(56px,7vw,88px)">
+    <div class="wrap band">
+      <div style="display:grid;gap:10px">
+        <h2>نوفر أفضل أنواع الرخام في الرياض</h2>
+        <h3 style="font-weight:500;color:#FFE3E0">أنواع رخام تناسب جميع المشاريع</h3>
+        <p class="lead">نحرص على تقديم مجموعة متنوعة من أنواع الرخام في الرياض، بدءًا من اختيار الخامات وحتى التوريد، لتناسب الأرضيات والواجهات والدرج، مع ضمان مظهر فاخر يدوم لسنوات.</p>
+      </div>
+      <div class="ctas"><a class="btn btn-navy" href="https://wa.me/966553499059" target="_blank" rel="noopener">اطلب عرض سعر الآن</a></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div class="frame"><img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-sandy-beige-marble-corridor-1024x768.webp" alt="أرضيات رخام سنديان بيج تركي في ممرات مشروع حي النزهة" width="1024" height="768" loading="lazy"></div>
+      <div>
+        <div class="head" style="margin-bottom:0">
+          <span class="mark"><i></i><i></i></span>
+          <h2>معايير الجودة في توريد الرخام في الرياض</h2>
+          <p class="lead">نوفر حلولًا احترافية في توريد الرخام في الرياض مع التركيز على جودة الخامات ودقة التنفيذ والالتزام بالمواعيد، لضمان أفضل النتائج للمنازل والفلل والمشاريع السكنية والتجارية.</p>
+        </div>
+        <ul class="ticks">
+          <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>جودة رخام عالية</li>
+          <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>التزام دقيق بالمواعيد</li>
+          <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>فريق فني ذو خبرة</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-navy">
+    <div class="wrap">
+      <div class="head">
+        <span class="mark"><i></i><i></i></span>
+        <h2>موقعنا على خرائط جوجل</h2>
+        <h2 style="font:500 1.08rem/1.7 var(--font);color:var(--on-dark-2)">تعرف على موقعنا الدقيق عبر خرائط جوجل واستفد من خدمة الاتجاهات المباشرة للوصول إلينا.</h2>
+      </div>
+      <div class="map-grid">
+        <a class="map" href="https://maps.app.goo.gl/X298kvm2EiXzcUiXA" target="_blank" rel="noopener">
+          <img src="https://platinum-marble.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-11-18-at-2.38.31-PM.webp" alt="" loading="lazy" width="1280" height="720">
+          <span><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></span><b>افتح الخريطة والاتجاهات</b><small>الخريطة بتتحمّل لما الزائر يضغط — أسرع للصفحة</small></span>
+        </a>
+        <div class="branches">
+          <div class="branch"><span class="k">الفرع الرئيسي</span><b>المناخ، شارع البيرات – طريق الخرج، الرياض 14315</b><a class="more" href="https://maps.app.goo.gl/X298kvm2EiXzcUiXA" target="_blank" rel="noopener">احصل على الاتجاهات ←</a></div>
+          <div class="branch"><span class="k">الفرع الثاني</span><b>جبل أبو زوالة، المناخ، الرياض 14314</b><a class="more" href="https://maps.google.com/?q=%D9%85%D8%A4%D8%B3%D8%B3%D8%A9%20%D8%A8%D9%84%D8%A7%D8%AA%D9%86%D9%8A%D9%88%D9%85%20%D9%84%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D8%A9%D8%8C%20%D8%AC%D8%A8%D9%84%20%D8%A7%D8%A8%D9%88%20%D8%B2%D9%88%D8%A7%D9%84%D8%A9" target="_blank" rel="noopener">احصل على الاتجاهات ←</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="row-between" style="margin-bottom:clamp(30px,4vw,48px)">
+        <div class="head" style="margin:0">
+          <span class="mark"><i></i><i></i></span>
+          <h2>نماذج من مشاريع الرخام والحجر في الرياض المنفذة باحترافية</h2>
+          <h3>أبرز مشاريع بلاتنيوم للحجر والرخام</h3>
+          <p class="lead">نفذنا مشاريع متنوعة للمنازل والفلل والمباني التجارية باستخدام الرخام والحجر الطبيعي بجودة عالية وتشطيبات احترافية.</p>
+        </div>
+        <a class="btn btn-line" href="#projects">تصفح جميع مشاريعنا</a>
+      </div>
+      <div class="pgrid">
+        <a class="pcard" href="#project">
+          <img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-riyadh-sandy-beige-emperador-marble-hero-1024x576.webp" alt="أرضيات رخام سنديان بيج وإمبرادور تركي في مشروع حي النزهة بالرياض" width="1024" height="576" loading="lazy">
+          <span class="cap"><span class="pills"><span class="pill r">توريد الرخام</span><span class="pill">رخام سنديان بيج وإمبرادور تركي</span></span><b>مشروع خاص في حي النزهة – الرياض</b></span>
+        </a>
+        <a class="pcard" href="https://platinum-marble.com/projects/private-villa-al-malaz-riyadh/" target="_blank" rel="noopener">
+          <img src="https://platinum-marble.com/wp-content/uploads/2026/10/riyadh-stone-villa-entrance-al-malaz-1024x768.webp" alt="حجر الرياض في مدخل وأسوار فيلا خاصة بحي الملز" width="1024" height="768" loading="lazy">
+          <span class="cap"><span class="pills"><span class="pill r">2025 • توريد وتركيب</span><span class="pill">كريما مارفيل · حجر التامبل · حجر الرياض</span></span><b>فيلا خاصة في حي الملز – الرياض</b></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-soft">
+    <div class="wrap">
+      <div class="head">
+        <span class="mark"><i></i><i></i></span>
+        <h2 style="font:500 1.08rem/1.8 var(--font);color:var(--muted)">نوفر جميع بياناتنا القانونية لضمان الشفافية الكاملة في تعاملاتنا، بما يشمل السجل التجاري، شهادة الضريبة، والعنوان الوطني.</h2>
+        <h2>الاعتمادات وأوراق المؤسسة القانونية</h2>
+      </div>
+      <div class="docs" id="docs" data-lbg="docs"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <span class="mark"><i></i><i></i></span>
+        <h2>آراء عملائنا</h2>
+        <h3>آراء حقيقية تعكس جودة خدماتنا في توريد الرخام والحجر الطبيعي في الرياض.</h3>
+      </div>
+      <div class="revs">
+        <figure class="rev"><span class="stars"></span><blockquote>انصح الجميع بالتعامل معهم. خدومين وبالاخص ابو جواد واسعارهم مناسبه. وبضاعتهم نظيفه… ووصلو لي الرخام الى الشرقيه ومشاءالله نفس ماشفته في المستودع. شكرا جزيلا لكم.</blockquote><figcaption><span class="av">E</span>Ebra</figcaption></figure>
+        <figure class="rev"><span class="stars"></span><blockquote>من لا يشكر الناس لا يشكر الله. اشكر اخوي ابو جواد على التعامل والاخلاق ربي يرزقه ويفتح له ابواب الرزق وانصح بتعامل معه 🤍🤍.</blockquote><figcaption><span class="av">A</span>ABDULAZIZ YUSUF</figcaption></figure>
+        <figure class="rev"><span class="stars"></span><blockquote>والله احلى وطيب شباب، والسعر حلوه كثيرررر. من افصل الانسان في طريق الخرج السعر</blockquote><figcaption><span class="av">ع</span>أبو عمر</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-navy">
+    <div class="wrap fgrid">
+      <div>
+        <div class="head" style="margin:0">
+          <span class="mark"><i></i><i></i></span>
+          <h2>اطلب عرض سعر الآن</h2>
+          <p class="lead"><strong style="color:#fff">جاهزون لخدمتك… فقط أرسل لنا التفاصيل وسنعود إليك فورًا</strong></p>
+        </div>
+        <div class="contact-lines">
+          <div><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg></span><span dir="ltr">0553499059</span></div>
+          <div><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>info@platinum-marble.com</div>
+        </div>
+      </div>
+      <form class="form" data-demo>
+        <div class="f2"><div class="field"><label for="hn">الاسم *</label><input id="hn" required></div><div class="field"><label for="he">الإيميل *</label><input id="he" type="email" required></div></div>
+        <div class="field"><label for="hs">الموضوع</label><input id="hs"></div>
+        <div class="field"><label for="hm">الرسالة *</label><textarea id="hm" rows="4" required></textarea></div>
+        <button class="btn btn-red" type="submit">ارسل</button>
+        <p class="note" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="bg-soft">
+    <div class="wrap">
+      <div class="head center"><span class="mark"><i></i><i></i></span><h2>أسئلة شائعة عن الرخام في الرياض</h2></div>
+      <div class="faq">
+        <details open><summary><h3>ما أنواع الرخام والحجر المتوفرة لديكم؟</h3><span class="pm">+</span></summary><p>نوفر الرخام الطبيعي، الحجر الطبيعي، البازلت، الجرانيت والترافنتينو بمقاسات وتشطيبات متعددة تناسب مختلف المشاريع.</p></details>
+        <details><summary><h3>ما أفضل نوع رخام للأرضيات والمداخل؟</h3><span class="pm">+</span></summary><p>يعتمد ذلك على طبيعة المشروع، ومن الخيارات الشائعة كريم مارفل، موغلا، بوردر بيج واستتواريو للمساحات الراقية.</p></details>
+        <details><summary><h3>هل توفرون الحجر الطبيعي والبازلت للواجهات؟</h3><span class="pm">+</span></summary><p>نعم، نوفر حجر طبيعي للواجهات بالإضافة إلى أنواع البازلت المختلفة للممرات والواجهات والتشطيبات الخارجية.</p></details>
+        <details><summary><h3>هل تتوفر مقاسات خاصة وقص حسب الطلب؟</h3><span class="pm">+</span></summary><p>نعم، نوفر قص وتجهيز المقاسات المناسبة وفق متطلبات المشروع والخامة المختارة.</p></details>
+        <details><summary><h3>هل يمكن معاينة المنتجات قبل الطلب؟</h3><span class="pm">+</span></summary><p>نعم، يمكن الاطلاع على المنتجات المتوفرة والتواصل معنا لاختيار النوع المناسب قبل اعتماد الطلب.</p></details>
+        <details><summary><h3>كيف يمكنني الحصول على عرض سعر؟</h3><span class="pm">+</span></summary><p>يمكنك طلب عرض سعر بسهولة عبر تعبئة نموذج التواصل في الصفحة، أو التواصل معنا مباشرة، وسنقوم بمراجعة احتياجك وتقديم عرض مناسب يشمل نوع الحجر أو الرخام، الكمية، ومتطلبات المشروع.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= PRODUCTS ======================= -->
+<main data-view="products" hidden>
+  <div class="phead">
+    <img src="https://platinum-marble.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-11-18-at-2.38.31-PM.webp" alt="" loading="lazy">
+    <div class="wrap">
+      <ol class="crumbs"><li><a href="#home">الرئيسية</a></li><li>المنتجات</li></ol>
+      <span class="kick">المنتجات</span>
+      <h1>رخام وحجر طبيعي وبازلت وجرانيت وترافنتينو</h1>
+      <p class="lead">نوفر مجموعة متنوعة من الرخام والحجر الطبيعي والبازلت والجرانيت والترافنتينو المناسبة للمنازل والفلل والمشاريع السكنية والتجارية، مع خيارات متعددة تناسب مختلف الاستخدامات والتصاميم.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="serpw"><div data-serp="products"></div></div>
+    <div class="ptools">
+      <div class="row">
+        <label class="search" for="pq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="pq" type="search" placeholder="ابحث عن خامة… مثلًا: بيج، بازلت، درج" autocomplete="off" aria-label="ابحث عن خامة"></label>
+        <span class="pcount" id="pcount" aria-live="polite"></span>
+      </div>
+      <div class="uses" id="uses" role="group" aria-label="حسب الاستخدام"><b>هتستخدمها فين؟</b></div>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="تصفية حسب الخامة"></div>
+    <div class="grid g4" id="allP" style="padding-bottom:clamp(64px,8vw,110px)"></div>
+  </div>
+</main>
+
+<!-- ======================= PRODUCT ======================= -->
+<main data-view="product" hidden>
+  <div class="wrap">
+    <div class="serpw"><div data-serp="product"></div></div>
+    <ol class="crumbs" style="padding-top:22px"><li><a href="#home" style="color:var(--muted)">الرئيسية</a></li><li><a href="#products" style="color:var(--muted)">المنتجات</a></li><li style="color:var(--red)">ترافنتينو تركي</li></ol>
+    <div class="ptop">
+      <div class="gal">
+        <img class="main" id="gMain" src="https://platinum-marble.com/wp-content/uploads/2026/04/ترافنتينو-بيج-فاتح-647x1024.jpeg" alt="ترافنتينو بيج فاتح" width="647" height="1024">
+        <div class="th" id="gTh">
+          <img class="on" src="https://platinum-marble.com/wp-content/uploads/2026/04/ترافنتينو-بيج-فاتح-647x1024.jpeg" alt="ترافنتينو بيج فاتح" loading="lazy">
+          <img src="https://platinum-marble.com/wp-content/uploads/2026/04/ترافنتينو-تركي-819x1024.jpeg" alt="أنواع ترافنتينو تركي" loading="lazy">
+          <img src="https://platinum-marble.com/wp-content/uploads/2026/02/ترافنتينو-سيلفر-576x1024.jpeg" alt="ترافنتينو سيلفر رمادي" loading="lazy">
+          <img src="https://platinum-marble.com/wp-content/uploads/2026/04/ترافنتينو-بلاتنيوم-576x1024.jpeg" alt="ترافنتينو سيلفر بلاتنيوم" loading="lazy">
+          <img src="https://platinum-marble.com/wp-content/uploads/2026/02/ترافنتينو-نوتشي-576x1024.jpeg" alt="ترافنتينو نوتشي" loading="lazy">
+        </div>
+      </div>
+      <div class="pinfo">
+        <span class="pill r" style="justify-self:start;padding:7px 14px">ترافنتينو · تركي</span>
+        <h1 style="font-size:clamp(1.9rem,3.6vw,2.9rem)">ترافنتينو تركي – جميع المقاسات بأقل الأسعار</h1>
+        <div class="byline"><span>بواسطة Platinum Marble</span><span>5 دقائق قراءة</span></div>
+        <p style="color:var(--ink);font-size:1.08rem">يُعد ترافنتينو تركي من أكثر أنواع الحجر الطبيعي استخدامًا في المشاريع الحديثة، حيث يتميز بلونه الطبيعي الأنيق وتنوع درجاته التي تناسب مختلف التصاميم الداخلية والخارجية.</p>
+        <div class="price"><span class="n">160<span>ريال / م² — يبدأ من (البيج)</span></span><small>يبدأ سعر الترافنتينو التركي البيج من 160 ريال للمتر المربع. الأسعار غير شاملة ضريبة القيمة المضافة، وتختلف حسب اللون والمقاس والتشطيب والكمية المطلوبة.</small></div>
+        <dl class="specs" style="margin:0">
+          <div><dt>المقاسات (سم)</dt><dd>60×120 · 40×80 · 30×60</dd></div>
+          <div><dt>الألوان</dt><dd>بيج · سيلفر · نوتشي</dd></div>
+          <div><dt>ألواح</dt><dd>متوفرة</dd></div>
+          <div><dt>قص حسب الطلب</dt><dd>أي مقاس</dd></div>
+        </dl>
+        <div class="ctas">
+          <a class="btn btn-red" href="https://wa.me/966553499059?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1%20%D9%84%D9%84%D8%AA%D8%B1%D8%A7%D9%81%D9%86%D8%AA%D9%8A%D9%86%D9%88%20%D8%A7%D9%84%D8%AA%D8%B1%D9%83%D9%8A" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>اطلب عرض سعر</a>
+          <a class="btn btn-line" href="https://maps.app.goo.gl/X298kvm2EiXzcUiXA" target="_blank" rel="noopener">زور المعرض</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pbody">
+      <article class="art">
+        <section>
+          <p>نوفر في مؤسسة بلاتنيوم للحجر والرخام ترافنتينو تركي بأسعار تنافسية بجودة عالية وخيارات متعددة تناسب المنازل والفلل والمشاريع والمطوريين العقاريين.</p>
+          <a class="rel" href="#home"><span><small>يمكنك الاطلاع على جميع أنواع الحجر والرخام عبر</small><b>مؤسسة بلاتنيوم للحجر والرخام</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></a>
+          <a class="rel" href="https://platinum-marble.com/beige-nocchi-silver-platinum-travertine-marble/" target="_blank" rel="noopener"><span><small>تعرّف على</small><b>أسعار وأنواع الترافنتينو البيج والنوتشي</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></a>
+        </section>
+        <section>
+          <h2>أنواع ترافنتينو تركي</h2>
+          <p>يتوفر ترافنتينو تركي بعدة انواع وألوان طبيعية تناسب مختلف التصاميم:</p>
+          <div class="vars">
+            <div class="var"><img src="https://platinum-marble.com/wp-content/uploads/2026/04/ترافنتينو-بيج-4-فاتح.jpeg" alt="ترافنتينو بيج فاتح" loading="lazy">ترافنتينو بيج فاتح</div>
+            <div class="var"><span class="noimg">بدون صورة حاليًا</span>ترافنتينو بيج غامق</div>
+            <a class="var" href="https://platinum-marble.com/silver-travertine-marble/" target="_blank" rel="noopener"><img src="https://platinum-marble.com/wp-content/uploads/2026/02/ترافنتينو-سيلفر-576x1024.jpeg" alt="ترافنتينو سيلفر رمادي" loading="lazy"><span>ترافنتينو سيلفر رمادي <em>← الصفحة</em></span></a>
+            <div class="var"><img src="https://platinum-marble.com/wp-content/uploads/2026/04/ترافنتينو-بلاتنيوم-576x1024.jpeg" alt="ترافنتينو سيلفر بلاتنيوم" loading="lazy">ترافنتينو سيلفر بلاتنيوم</div>
+            <div class="var"><img src="https://platinum-marble.com/wp-content/uploads/2026/02/ترافنتينو-نوتشي-576x1024.jpeg" alt="ترافنتينو نوتشي" loading="lazy">ترافنتينو نوتشي</div>
+          </div>
+          <p>هذه الأنواع تعطي مرونة كبيرة في اختيار التصميم سواء كلاسيكي أو عصري.</p>
+        </section>
+        <section>
+          <h2>مقاسات ترافنتينو تركي</h2>
+          <p>نوفر ترافنتينو تركي بعدة مقاسات حسب الطلب، ومنها:</p>
+          <div class="sizes" aria-label="المقاسات مرسومة بنفس النسبة">
+            <div class="sz"><span class="t" style="width:180px;height:90px;max-width:70vw"></span><b>60×120</b></div>
+            <div class="sz"><span class="t" style="width:120px;height:60px"></span><b>40×80</b></div>
+            <div class="sz"><span class="t" style="width:90px;height:45px"></span><b>30×60</b></div>
+            <div class="sz"><span class="t d" style="width:130px;height:90px">حسب الطلب</span><b>ألواح ترافنتينو</b></div>
+          </div>
+          <p>كما نوفر إمكانية تنفيذ أي مقاس حسب رغبة العميل وطبيعة المشروع.</p>
+        </section>
+        <section>
+          <h2>استخدامات ترافنتينو تركي</h2>
+          <p>يُستخدم ترافنتينو تركي في العديد من التطبيقات:</p>
+          <ul class="tagl"><li>الأرضيات الداخلية</li><li>الممرات</li><li>الجدران والديكور</li><li>الواجهات</li><li>المداخل</li><li>واجهات خارجية للفلل والقصور</li></ul>
+          <a class="rel" href="https://platinum-marble.com/best-stone-marble-house-facades/" target="_blank" rel="noopener"><span><small>للتعرف على كيفية اختيار الرخام للواجهات بشكل صحيح، اقرأ مقالنا التالي</small><b>كيفية اختيار رخام الواجهات المناسب لواجهة منزلك</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></a>
+          <p>ويُعتبر خيارًا مثاليًا لمن يبحث عن مظهر طبيعي أنيق مع تكلفة مناسبة.</p>
+          <a class="rel" href="https://platinum-marble.com/travertine-marble-features-uses-price" target="_blank" rel="noopener"><span><small>للتعرف أكثر على خصائص الترافنتينو، اقرأ مقالنا</small><b>رخام الترافنتينو: مميزاته واستخداماته وسعره في السوق</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></a>
+        </section>
+        <section><h2>مميزات ترافنتينو تركي</h2><ul class="ok"><li>مظهر طبيعي هادئ وأنيق</li><li>تنوع في الألوان</li><li>مناسب للأرضيات والواجهات</li><li>تكلفة أقل مقارنة ببعض أنواع الرخام</li><li>سهل الدمج مع مختلف التصاميم</li></ul></section>
+        <section><h2>أسعار ترافنتينو تركي</h2><p>تختلف أسعار ترافنتينو تركي حسب:</p><ul class="tagl"><li>اللون</li><li>المقاس</li><li>السماكة</li><li>الكمية</li></ul><p>نحرص في مؤسسة بلاتنيوم على توفير أفضل الأسعار التنافسية مع جودة عالية تناسب جميع المشاريع.</p></section>
+        <section><h2>لماذا تختار ترافنتينو تركي من بلاتنيوم؟</h2><ul class="ok"><li>جودة عالية</li><li>تنوع في الألوان والمقاسات</li><li>أسعار منافسة</li><li>توفير كميات للمشاريع</li><li>خبرة في توريد الحجر والرخام</li></ul>
+          <a class="rel" href="#home"><span><small>اطلب الآن عبر</small><b>الصفحة الرئيسية</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></a></section>
+        <section><h2>الأسئلة الشائعة</h2>
+          <div class="faq">
+            <details open><summary><h3>هل ترافنتينو تركي مناسب للأرضيات؟</h3><span class="pm">+</span></summary><p>نعم، يُستخدم بشكل واسع في الأرضيات بسبب مظهره الطبيعي وسعره المناسب.</p></details>
+            <details><summary><h3>ما هي ألوان ترافنتينو تركي؟</h3><span class="pm">+</span></summary><p>يتوفر بدرجات البيج والسيلفر والنوتشي وغيرها.</p></details>
+            <details><summary><h3>هل يمكن توفير مقاسات خاصة؟</h3><span class="pm">+</span></summary><p>نعم، يمكن تنفيذ أي مقاس حسب الطلب.</p></details>
+            <details><summary><h3>هل ترافنتينو تركي مناسب للواجهات؟</h3><span class="pm">+</span></summary><p>نعم، يمكن استخدامه في الواجهات مع اختيار التشطيب المناسب.</p></details>
+          </div></section>
+        <section><h2>الخاتمة</h2>
+          <p>يُعد ترافنتينو تركي من أفضل الخيارات لمن يبحث عن مظهر طبيعي أنيق بتكلفة مناسبة، حيث يجمع بين الجمال والتنوع وسهولة الاستخدام في مختلف المشاريع.</p>
+          <p>اختيار ترافنتينو تركي يساعد في الحصول على تصميم متوازن يجمع بين الفخامة والبساطة.</p>
+          <p>إذا كنت تبحث عن توريد ترافنتينو تركي أو ترغب في معرفة أفضل الخيارات المناسبة لمشروعك، يمكنك <a href="#contact" style="color:var(--red);font-weight:700">التواصل معنا في مؤسسة بلاتنيوم للحجر والرخام</a> للحصول على استشارة مجانية.</p></section>
+        <nav class="pn"><a href="https://platinum-marble.com/basalt/" target="_blank" rel="noopener"><small>→ المقالة السابقة</small><b>البازلت | توريد بازلت للممرات والأرضيات والواجهات في الرياض</b></a><a href="https://platinum-marble.com/jordanian-tumbled/" target="_blank" rel="noopener"><small>المقالة التالية ←</small><b>تامبل أردني بأقل الأسعار للأرصفة والمساحات الخارجية</b></a></nav>
+        <div class="flag"><b>ملاحظة:</b> صفحات المنتجات في الووردبريس "Posts" مش "Products" — بنغيّر شكل القالب بس، نفس الـ post type ونفس الـ URL. السعر والمقاسات فوق مأخوذين من نص الصفحة نفسه.</div>
+      </article>
+      <aside class="side">
+        <div class="sbox"><b>محتاج كمية لمشروع؟</b><span>ابعت المقاس والكمية على الواتساب ونرد عليك بعرض سعر.</span><a class="btn btn-red" href="https://wa.me/966553499059" target="_blank" rel="noopener">اطلب عرض سعر</a><span dir="ltr" style="text-align:center;color:#fff;font-weight:700">0553499059</span></div>
+        <a class="rel" href="#products" style="background:var(--soft)"><span><small>شوف كمان</small><b>كل أنواع الترافنتينو</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></a>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- ======================= PROJECTS ======================= -->
+<main data-view="projects" hidden>
+  <div class="phead">
+    <img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-riyadh-sandy-beige-emperador-marble-hero-1024x576.webp" alt="" loading="lazy">
+    <div class="wrap">
+      <ol class="crumbs"><li><a href="#home">الرئيسية</a></li><li>المشاريع</li></ol>
+      <h1>المشاريع</h1>
+      <h2 style="font-size:clamp(1.25rem,2.2vw,1.7rem)">نقدم لكم نخبة من مشاريعنا التي نفذناها بإتقان وجودة عالية.</h2>
+      <h3 style="color:#FFB4A8">أبرز مشاريع توريد الحجر والرخام في السعودية</h3>
+      <p class="lead">نفخر في مؤسسة بلاتنيوم للحجر والرخام بتنفيذ مجموعة من مشاريع توريد الحجر والرخام في السعودية، شملت فللًا ومبانٍ سكنية وتجارية، مع التزامنا بالجودة العالية والدقة في اختيار المواد والتنفيذ في جميع مراحل المشروع.</p>
+    </div>
+  </div>
+  <div class="wrap serpw"><div data-serp="projects"></div></div>
+  <section style="padding-top:clamp(48px,6vw,72px)">
+    <div class="wrap">
+      <div class="head" style="margin-bottom:10px"><span class="mark"><i></i><i></i></span><h2>مشاريع منفذة</h2></div>
+      <div class="pjgrid">
+        <article class="pj">
+          <a class="pj-img" href="#project"><img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-riyadh-sandy-beige-emperador-marble-hero-1024x576.webp" alt="أرضيات رخام سنديان بيج وإمبرادور تركي في مشروع حي النزهة بالرياض" width="1024" height="576" loading="lazy"><span class="tag">توريد الرخام</span></a>
+          <div class="pj-body">
+            <span class="pj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>الرياض · حي النزهة</span>
+            <h3>مشروع خاص في حي النزهة – الرياض</h3>
+            <dl class="pj-meta"><div><dt>الخامات</dt><dd>رخام سنديان بيج وإمبرادور تركي</dd></div><div><dt>نطاق العمل</dt><dd>توريد الرخام</dd></div></dl>
+            <div class="pj-foot"><a class="btn btn-red" href="#project">تفاصيل المشروع</a><span class="pj-n">6 صور</span></div>
+          </div>
+        </article>
+        <article class="pj">
+          <a class="pj-img" href="https://platinum-marble.com/projects/private-villa-al-malaz-riyadh/" target="_blank" rel="noopener"><img src="https://platinum-marble.com/wp-content/uploads/2026/10/riyadh-stone-villa-entrance-al-malaz-1024x768.webp" alt="حجر الرياض في مدخل وأسوار فيلا خاصة بحي الملز" width="1024" height="768" loading="lazy"><span class="tag">توريد وتركيب</span></a>
+          <div class="pj-body">
+            <span class="pj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>الرياض · حي الملز</span>
+            <h3>فيلا خاصة في حي الملز – الرياض</h3>
+            <dl class="pj-meta"><div><dt>الخامات</dt><dd>كريما مارفيل · حجر التامبل · حجر الرياض</dd></div><div><dt>السنة · النطاق</dt><dd>2025 • توريد وتركيب</dd></div></dl>
+            <div class="pj-foot"><a class="btn btn-red" href="https://platinum-marble.com/projects/private-villa-al-malaz-riyadh/" target="_blank" rel="noopener">تفاصيل المشروع</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="bg-soft">
+    <div class="wrap">
+      <div class="row-between" style="margin-bottom:clamp(26px,3vw,40px)"><div class="head" style="margin:0"><span class="mark"><i></i><i></i></span><h2>من منتجاتنا</h2></div><div class="sl-ctrl"><button class="sl-btn" type="button" data-sl="prev" aria-label="السابق"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 6 6 6-6 6"/></svg></button><button class="sl-btn" type="button" data-sl="next" aria-label="التالي"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 6-6 6 6 6"/></svg></button></div></div>
+      <div class="slider gal-sl" data-auto="4000"><div class="track" id="gal8" data-lbg="products-gal"></div><div class="sl-bar"><i></i></div></div>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= PROJECT ======================= -->
+<main data-view="project" hidden>
+  <div class="phead" style="padding-bottom:clamp(90px,10vw,130px)">
+    <div class="wrap">
+      <ol class="crumbs"><li><a href="#home">الرئيسية</a></li><li><a href="#projects">المشاريع</a></li><li>مشروع حي النزهة</li></ol>
+      <h1 style="font-size:clamp(1.8rem,3.6vw,2.9rem)">توريد رخام سنديان بيج وإمبرادور تركي – مشروع حي النزهة بالرياض</h1>
+    </div>
+  </div>
+  <div class="wrap">
+    <img class="cover" src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-riyadh-sandy-beige-emperador-marble-hero.webp" alt="أرضيات رخام سنديان بيج وإمبرادور تركي في مشروع حي النزهة بالرياض" width="1600" height="900">
+    <div class="serpw"><div data-serp="project"></div></div>
+  </div>
+  <section style="padding-top:clamp(40px,5vw,64px)">
+    <div class="wrap" style="display:grid;gap:clamp(44px,5vw,72px)">
+      <div style="display:grid;gap:18px">
+        <h2>تفاصيل المشروع</h2>
+        <dl class="facts">
+          <div><dt>الموقع</dt><dd>حي النزهة – الرياض</dd></div><div><dt>نوع المشروع</dt><dd>مشروع خاص</dd></div><div><dt>نطاق العمل</dt><dd>توريد الرخام</dd></div>
+          <div><dt>الخامة الرئيسية</dt><dd>سنديان بيج تركي</dd></div><div><dt>الخامة الثانوية</dt><dd>إمبرادور تركي</dd></div><div><dt>الاستخدامات</dt><dd>أرضيات · بوردرات · وزرات</dd></div>
+        </dl>
+      </div>
+      <div class="two">
+        <div><h2>نبذة عن المشروع</h2><p>مشروع خاص في حي النزهة بالرياض، يجمع درجات البيج الفاتحة مع البني الداكن، واعتمد بشكل رئيسي على رخام سنديان بيج التركي في المساحات الرئيسية للأرضيات.</p></div>
+        <div><h2>رخام سنديان بيج التركي للأرضيات</h2><p>استُخدم في أرضيات الممرات بسطح مصقول يعكس الإضاءة ويوسّع المساحة، مع ألواح كبيرة متجانسة تحافظ على استمرارية الممر.</p></div>
+        <div><h2>رخام إمبرادور التركي للتفاصيل والبوردرات</h2><p>استُخدم في البوردرات والوزرات والتفاصيل المحيطة، ودرجته البنية الداكنة صنعت إطارًا واضحًا للأرضية البيج.</p></div>
+        <div><h2>تناغم الرخام مع التصميم الداخلي</h2><p>يتكامل الرخام مع الخشب الطبيعي حول الأبواب والمصعد ومع الإضاءة الدافئة في الممرات.</p></div>
+      </div>
+      <div style="display:grid;gap:18px">
+        <h2>معرض صور المشروع</h2>
+        <div class="pgal" data-lbg="project">
+          <img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-sandy-beige-marble-corridor-1024x768.webp" alt="أرضيات رخام سنديان بيج تركي في ممرات مشروع حي النزهة" loading="lazy">
+          <img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-turkish-marble-flooring-detail-1024x768.webp" alt="تفاصيل أرضيات رخام سنديان بيج التركي في الرياض" loading="lazy">
+          <img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-emperador-marble-elevator-1024x768.webp" alt="رخام إمبرادور تركي حول المصعد والممر الداخلي في مشروع حي النزهة" loading="lazy">
+          <img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-sandy-beige-emperador-marble-hallway-1024x768.webp" alt="تنسيق رخام سنديان بيج وإمبرادور تركي مع الخشب والإضاءة الداخلية" loading="lazy">
+          <img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-riyadh-turkish-marble-project-1024x768.webp" alt="مشروع توريد رخام تركي في حي النزهة بالرياض" loading="lazy">
+        </div>
+      </div>
+      <div class="two">
+        <div><h2>توريد الرخام التركي للمشاريع في الرياض</h2><p>نوفر الرخام التركي والحجر الطبيعي لمشاريع الرياض بمقاسات وكميات حسب كل مشروع. اطّلع على <a href="https://platinum-marble.com/turkish-travertine/" target="_blank" rel="noopener" style="color:var(--red);font-weight:700">رخام تركي بالرياض</a>.</p></div>
+        <div class="cta-box"><h2>هل لديك مشروع وتبحث عن الرخام المناسب؟</h2><p>نساعدك في اختيار الخامة وتنسيق الألوان والتوريد قبل الشراء.</p><div><a class="btn btn-red" href="https://wa.me/966553499059" target="_blank" rel="noopener">اطلب عرض سعر لمشروعك</a></div></div>
+      </div>
+      <div style="display:grid;gap:16px">
+        <h2>الأسئلة الشائعة</h2>
+        <div class="faq">
+          <details open><summary><h3>ما أنواع الرخام المستخدمة في مشروع حي النزهة؟</h3><span class="pm">+</span></summary><p>رخام سنديان بيج التركي للأرضيات الرئيسية، مع رخام إمبرادور التركي للبوردرات والتفاصيل.</p></details>
+          <details><summary><h3>لماذا تم الجمع بين الرخام البيج والإمبرادور؟</h3><span class="pm">+</span></summary><p>البيج يعطي أساسًا هادئًا، والإمبرادور الداكن يحدد أطراف الأرضية والتفاصيل المعمارية.</p></details>
+          <details><summary><h3>هل يتوفر توريد رخام تركي في الرياض؟</h3><span class="pm">+</span></summary><p>نعم، نوفر الرخام التركي والحجر الطبيعي لمشاريع الرياض بمقاسات وكميات حسب المشروع.</p></details>
+          <details><summary><h3>هل يمكن استخدام سنديان بيج في أرضيات الممرات؟</h3><span class="pm">+</span></summary><p>نعم، وهو الاستخدام الرئيسي له في هذا المشروع.</p></details>
+        </div>
+      </div>
+      <a class="rel" href="https://platinum-marble.com/projects/private-villa-al-malaz-riyadh/" target="_blank" rel="noopener"><span><small>مشروع آخر</small><b>مشروع فيلا خاصة في حي الملز</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></a>
+      <div class="flag" style="margin:0"><b>مهم:</b> فقرات الأقسام هنا مختصرة للعرض. في الووردبريس نص الصفحة الحالي يتنقل بالحرف جوه نفس العناوين.</div>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= BLOGS ======================= -->
+<main data-view="blogs" hidden>
+  <div class="phead">
+    <img src="https://platinum-marble.com/wp-content/uploads/2026/10/mugla-marble-entrance-stairs.webp" alt="" loading="lazy">
+    <div class="wrap">
+      <ol class="crumbs"><li><a href="#home">الرئيسية</a></li><li>المقالات</li></ol>
+      <h1>المقالات</h1>
+      <h2 style="font-size:clamp(1.25rem,2.2vw,1.7rem)">مقالات الحجر والرخام الطبيعي</h2>
+      <h3 style="color:#FFB4A8;font-weight:500">مقالات متخصصة لمساعدتك على اختيار الحجر والرخام المناسب لمشروعك</h3>
+      <p class="lead">نقدّم في مدونة بلاتنيوم للحجر والرخام مجموعة من المقالات المتخصصة حول الحجر والرخام الطبيعي، تشمل طرق الاختيار الصحيحة، أنواع الرخام والحجر، أفضل الاستخدامات للمنازل والفلل والمشاريع، ونصائح عملية تساعدك على اتخاذ قرار مدروس قبل الشراء أو التنفيذ.</p>
+    </div>
+  </div>
+  <section style="padding-top:clamp(48px,6vw,72px)">
+    <div class="wrap">
+      <div class="serpw"><div data-serp="blogs"></div></div>
+      <div id="bFeat"></div>
+      <div class="grid g3" id="bGrid"></div>
+      <p style="margin-top:28px;color:var(--muted);font-size:.92rem;border:2px dashed var(--line);border-radius:12px;padding:14px 18px">النموذج بيعرض 13 مقالة من حوالي 60. في الووردبريس كل المقالات تفضل في نفس الصفحة بنفس الكارت (من غير "تحميل المزيد") عشان جوجل يلاقي كل الروابط زي دلوقتي.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= ABOUT ======================= -->
+<main data-view="about" hidden>
+  <div class="phead">
+    <img src="https://platinum-marble.com/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-20-at-4.31.36-PM-1024x701.jpeg" alt="" loading="lazy">
+    <div class="wrap"><ol class="crumbs"><li><a href="#home">الرئيسية</a></li><li>من نحن</li></ol><h1>من نحن</h1></div>
+  </div>
+  <div class="wrap serpw"><div data-serp="about"></div></div>
+  <section>
+    <div class="wrap split">
+      <div style="display:grid;gap:16px">
+        <span class="mark"><i></i><i></i></span>
+        <h2>نصنع الفخامة من الحجر… ونبني الثقة بالجودة</h2>
+        <h3 style="color:var(--red)">حول مؤسسة بلاتنيوم</h3>
+        <p>مؤسسة بلاتنيوم للحجر والرخام متخصصة في توريد الحجر والرخام داخل السعودية للمشاريع السكنية والتجارية، مع خامات عالية الجودة وخيارات متنوعة وخدمة احترافية دقيقة.</p>
+        <div class="ctas"><a class="btn btn-navy" href="#projects">مشاريعنا الاحترافية</a><a class="btn btn-red" href="https://wa.me/966553499059" target="_blank" rel="noopener">احصل على عرض سعر</a></div>
+      </div>
+      <div class="frame"><img src="https://platinum-marble.com/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-20-at-4.31.36-PM-1024x701.jpeg" alt="مكتب مؤسسة بلاتنيوم للحجر والرخام الرئيسي في السعودية" width="1024" height="701" loading="lazy"></div>
+    </div>
+  </section>
+  <section class="bg-navy">
+    <div class="wrap">
+      <div class="head"><span class="mark"><i></i><i></i></span><h2>قيمنا ورؤيتنا في بلاتنيوم للحجر والرخام</h2></div>
+      <div class="vals">
+        <div class="val"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><h3>من نحن</h3><p>نعمل وفق قيم واضحة ورؤية طويلة المدى في توريد الحجر والرخام في السعودية.</p></div>
+        <div class="val"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>رؤيتنا</h3><p>أن نكون الوجهة الرائدة للحجر والرخام الطبيعي، بإضافة قيمة فاخرة عبر الجودة والتطوير المستمر.</p></div>
+        <div class="val"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H8l-4 4z"/></svg></span><h3>رسالتنا</h3><p>أن نكون الخيار الأول في المملكة بمنتجات موثوقة ومعايير جودة دقيقة وحلول تخدم العميل.</p></div>
+        <div class="val"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></span><h3>مهمتنا</h3><p>تقديم حجر ورخام طبيعي عالي الجودة بأسعار تنافسية وخيارات متنوعة تبرز تفاصيل كل مشروع.</p></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="head"><span class="mark"><i></i><i></i></span><h2>نفخر بثقة نخبة من شركائنا الذين اعتمدوا علينا في تلبية احتياجاتهم</h2><h3>عملاؤنا</h3></div>
+      <div class="partners">
+        <div class="partner"><img src="https://platinum-marble.com/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-21-at-6.30.03-PM-768x768.jpeg" alt="شعار شركة مسارات البناء للمقاولات العامة – من شركاء بلاتنيوم للحجر والرخام" loading="lazy"></div>
+        <div class="partner"><img src="https://platinum-marble.com/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-21-at-3.39.45-PM.jpeg" alt="شعار شركة إنتاج – أحد شركاء بلاتنيوم للحجر والرخام في مشاريع التوريد" loading="lazy"></div>
+        <div class="partner"><img src="https://platinum-marble.com/wp-content/uploads/2025/11/LOGO_page-0001-1-768x753.jpg" alt="شعار شركة طاقات العربية – شريك في مشاريع الحجر والرخام مع بلاتنيوم" loading="lazy"></div>
+      </div>
+      <div class="flag"><b>مهم:</b> فقرات "من نحن" هنا مختصرة للعرض. في الووردبريس النص الحالي يتنقل بالحرف.</div>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= CONTACT ======================= -->
+<main data-view="contact" hidden>
+  <div class="phead">
+    <img src="https://platinum-marble.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-11-18-at-2.38.31-PM.webp" alt="" loading="lazy">
+    <div class="wrap">
+      <ol class="crumbs"><li><a href="#home">الرئيسية</a></li><li>تواصل معنا</li></ol>
+      <h1>تواصل معنا</h1>
+      <h2 style="font-size:clamp(1.25rem,2.2vw,1.7rem)">التواصل مع مؤسسة بلاتنيوم للحجر والرخام</h2>
+      <h3 style="color:#FFB4A8;font-weight:500">نحن هنا لخدمتكم والإجابة على جميع استفساراتكم</h3>
+    </div>
+  </div>
+  <div class="wrap serpw"><div data-serp="contact"></div></div>
+  <section style="padding-top:clamp(48px,6vw,72px)">
+    <div class="wrap">
+      <div class="cg">
+        <div class="cc"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg></span><h3>الجوال</h3><span class="v" dir="ltr" style="text-align:right">0553499059</span><button class="copy" type="button" data-copy="0553499059">انسخ الرقم</button></div>
+        <div class="cc"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><h3>البريد الإلكتروني</h3><span class="v">info@platinum-marble.com</span><button class="copy" type="button" data-copy="info@platinum-marble.com">انسخ البريد</button></div>
+        <div class="cc"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></span><h3>الفرع الرئيسي</h3><span class="v">المناخ، شارع البيرات – طريق الخرج</span><a class="more" href="https://maps.app.goo.gl/X298kvm2EiXzcUiXA" target="_blank" rel="noopener">الاتجاهات ←</a></div>
+        <div class="cc"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></span><h3>الفرع الثاني</h3><span class="v">جبل أبو زوالة، المناخ</span><a class="more" href="https://maps.google.com/?q=%D9%85%D8%A4%D8%B3%D8%B3%D8%A9%20%D8%A8%D9%84%D8%A7%D8%AA%D9%86%D9%8A%D9%88%D9%85" target="_blank" rel="noopener">الاتجاهات ←</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-navy">
+    <div class="wrap fgrid">
+      <div class="head" style="margin:0"><span class="mark"><i></i><i></i></span><h2>اطلب عرض سعر الآن</h2><p class="lead"><strong style="color:#fff">جاهزون لخدمتك… فقط أرسل لنا التفاصيل وسنعود إليك فورًا</strong></p></div>
+      <form class="form" data-demo>
+        <div class="f2"><div class="field"><label for="cn">الاسم *</label><input id="cn" required></div><div class="field"><label for="ce">الإيميل *</label><input id="ce" type="email" required></div></div>
+        <div class="field"><label for="cs">الموضوع</label><input id="cs"></div>
+        <div class="field"><label for="cm">الرسالة *</label><textarea id="cm" rows="4" required></textarea></div>
+        <button class="btn btn-red" type="submit">ارسل</button>
+        <p class="note" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <a class="logo" href="#home"><img src="https://platinum-marble.com/wp-content/uploads/2025/11/Logo-2.png" alt="شعار مؤسسة بلاتنيوم للحجر والرخام" width="128" height="64" loading="lazy"></a>
+        <p style="margin-top:16px;max-width:44ch">نقدّم في بلاتنيوم للحجر والرخام أجود أنواع الرخام الطبيعي, البازلت والحجر الفاخر في الرياض للمشاريع السكنية والتجارية، مع التزامنا بالجودة والدقة وتوفير المواد المستوردة بأفضل الأسعار.</p>
+        <div class="fsoc"><a href="https://www.facebook.com/platinummarble.sa/" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/platinum.marble/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@platinum.marble" target="_blank" rel="noopener">Tiktok</a><a href="https://x.com/platinummarbl" target="_blank" rel="noopener">X-twitter</a><a href="https://www.snapchat.com/@platinummarbl" target="_blank" rel="noopener">Snapchat</a><a href="https://www.youtube.com/@platinum.marble" target="_blank" rel="noopener">Youtube</a></div>
+      </div>
+      <div><h2>الوصول السريع</h2><ul><li><a href="#home">الرئيسية</a></li><li><a href="#about">من نحن</a></li><li><a href="#projects">المشاريع</a></li><li><a href="#products">المنتجات</a></li><li><a href="#blogs">المقالات</a></li><li><a href="#contact">تواصل معنا</a></li></ul></div>
+      <div><h2>التواصل</h2><ul><li dir="ltr" style="text-align:right">0553499059</li><li>info@platinum-marble.com</li><li>المناخ، شارع البيرات – طريق الخرج، الرياض</li></ul></div>
+      <div><h2>الفرع الثاني</h2><p>جبل أبو زوالة، المناخ، الرياض 14314</p><p style="margin-top:12px">نخدم عملاؤنا في الرياض وجميع مناطق المملكة العربية السعودية بخدمات توريد الحجر, الرخام الطبيعي والبازلت</p></div>
+    </div>
+    <div class="fb"><span>© 2026 جميع الحقوق محفوظة – بلاتنيوم للحجر والرخام</span><span>رقم التسجيل الضريبي 300558364400003</span><a href="https://platinum-marble.com/privacy-policy/" target="_blank" rel="noopener">سياسة الخصوصية</a></div>
+  </div>
+</footer>
+
+<nav class="abar" aria-label="تواصل سريع">
+  <a class="wa" href="https://wa.me/966553499059" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>واتساب</a>
+  <a href="tel:+966553499059"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>اتصال</a>
+  <a href="https://maps.app.goo.gl/X298kvm2EiXzcUiXA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>الموقع</a>
+</nav>
+
+<script>
+(function(){
+  const U='https://platinum-marble.com/wp-content/uploads/';
+  const src=p=>U+(p.includes('%')?p:encodeURI(p));
+  const WA='https://wa.me/966553499059?text=';
+  const q=n=>WA+encodeURIComponent('السلام عليكم، أرغب بالحصول على عرض سعر ل'+n+' ومعرفة التفاصيل المتوفرة.');
+  // [name, desc, link (path | '#view' | null=quote | 'WA'), category, image]
+  const P=[
+    ['رخام الباندا','رخام بتباين لوني أبيض وأسود، يضفي طابعًا جريئًا وفخمًا على التصاميم العصرية.','/panda-marble/','رخام','2026/05/رخام-باندا.jpeg'],
+    ['رخام موغلا تركي','رخام أبيض نقي بعروق هادئة، يعكس الإضاءة ويمنح إحساسًا بالاتساع.','/mugla-marble/','رخام','2026/05/رخام-موعلا،-عماني-وكريم-مارفل.jpeg'],
+    ['رخام دانو رويال الإيطالي','رخام دانو رويال الإيطالي بعروق طبيعية أنيقة، يضفي لمسة فخامة على الأرضيات والجدران.','/dano-royal-italian-marble/','رخام','2026/05/رخام-دانو-رويال-الإيطالي.jpeg'],
+    ['طاولة رخام طبيعي','طاولة رخام طبيعي بتصميم فاخر، تضيف لمسة أنيقة للمجالس العصرية.',null,'رخام','2026/05/طاولة-رخام-طبيعي.jpeg'],
+    ['درج عماني','درج عماني فاخر بألوان هادئة، يمنح المداخل مظهرًا راقيًا ومميزًا.',null,'درج','2026/04/درج-عماني-1.jpeg'],
+    ['كريم مارفل إسباني','رخام كريم مارفل الإسباني بلونه الهادئ ولمساته الناعمة يمنح المساحات أناقة خالدة.','/spanish-cream-marfil-marble','رخام','2026/06/كريم-مارفل-اسباني.jpeg'],
+    ['استواريو إيطالي','رخام إيطالي فاخر بعروق رمادية واضحة، يُستخدم في المشاريع الفخمة.','/statuario-italian-marble','رخام','2026/06/استواريو-إيطالي.jpeg'],
+    ['رخام موغلا، أخضر هندي ونوتشي','موغلا وأخضر هندي ونوتشي… تنسيق فاخر يمنح المساحة توازنًا بين الأناقة والتميز.','WA','رخام','2026/06/رخام-موغلا،-أخضر-هندي-ونوتشي.jpeg'],
+    ['بوردر بيج','رخام بدرجات بيج متوازنة، عملي للأرضيات والسلالم والمساحات الداخلية.','/border-beige-marble/','رخام','elementor/thumbs/رخام-بوردر-بيج-ro7ta87fy3q0duw1as2al8d9d69qi87gns2qz4n734.jpeg'],
+    ['فولكاس يوناني','رخام يوناني فاخر بعروق ناعمة وألوان هادئة تمنح المساحات لمسة عصرية.','/volakas-greek-marble','رخام','elementor/thumbs/رخام-فولكاس-يوناني-1-riboakl4lt0faegk2k3yxs0ksjeptpl8qfb5majulc.png'],
+    ['كريم مارفل','رخام بيج ناعم وأنيق، مناسب للأرضيات والسلالم والواجهات.','/cream-marfil-marble/','رخام','elementor/thumbs/كريم-مارفل-rhk1t717u9mjsvyfypst1mplz9u437luu2az6flxgg.jpeg'],
+    ['باردورة الرصيف','بردورة رصيف متينة وأنيقة، تمنح المساحات الخارجية مظهرًا منظمًا.','/natural-curbstone','حجر طبيعي','2026/05/باردورة-الرصيف.jpeg'],
+    ['تامبل أردني','تامبل أردني بتشطيب طبيعي، مناسب للممرات والأحواش الخارجية.','/jordanian-tumbled/','حجر طبيعي','2026/05/تامبل-أردني.jpeg'],
+    ['حجر وجه الجبل','حجر طبيعي بملمس مميز يمنح الواجهات طابعًا فخمًا وحضورًا لافتًا.','/riyadh-white-rock-face-stone/','حجر طبيعي','2026/06/حجر-وجه-الجبل.jpeg'],
+    ['حجر مسكة مسبح','خيار مثالي لحواف المسابح، يجمع بين الراحة والأمان والتشطيب الجمالي المميز.',null,'حجر طبيعي','2026/06/حجر-مسكة-مسبح.jpeg'],
+    ['بازلت مجلي','بازلت بسطح أملس، مناسب للواجهات والأرضيات.','/polished-basalt-stone/','بازلت','2026/05/بازلت-مجلي.jpeg'],
+    ['شلال بازلت','تشطيب شلالي يعطي مظهرًا عصريًا للواجهات الفاخرة.','/basalt-waterfall-stone/','بازلت','2026/05/شلال-بازلت.jpeg'],
+    ['درج بازلت','درج بازلت بتشطيب متقن، يمنح المداخل حضورًا عصريًا مميزًا.',null,'بازلت','2026/05/درج-بازلت.jpeg'],
+    ['ألواح بازلت','ألواح بازلت طبيعية بتشطيب عصري، مناسبة للواجهات والأرضيات الحديثة.',null,'بازلت','2026/05/ألواح-بازلت.jpeg'],
+    ['بازلت 10×10','بازلت شديد الصلابة، مناسب للأرضيات، الأرصفة، ومواقف السيارات','/wiped-basalt-stone/','بازلت','2026/05/بازلت-10-في-10.jpeg'],
+    ['بازلت','بازلت طبيعي عالي التحمل، مناسب للمواقف والأرضيات الخارجية الثقيلة.','/basalt','بازلت','2026/05/بازلت-1.jpeg'],
+    ['بازلت ممسوح','تشطيب خشن مضاد للانزلاق، مثالي للأماكن الخارجية.','/wiped-basalt-stone/','بازلت','2026/03/بازلت-ممسوج.jpeg'],
+    ['غرانيت سعودي','غرانيت طبيعي شديد الصلابة، يتميز بنقاط منقطة طبيعية، مناسب للمطابخ والأرضيات عالية الاستخدام.','/saudi-granite-kitchens/','جرانيت','2026/05/غرانيت-سعودي.jpeg'],
+    ['غرانيت بيانكو','غرانيت فاتح بنقشة نقطية ناعمة، مناسب للمطابخ والمساحات الداخلية ويتميز بسهولة تنسيقه مع مختلف التصاميم.','/bianco-granite/','جرانيت','2026/06/جرانيت-بيانكو.jpeg'],
+    ['غرانيت نجران براون','غرانيت سعودي قوي بنقشة منقطة واضحة، يتحمل الظروف القاسية والاستخدام الخارجي، مع متانة عالية.','/najran-brown-granite/','جرانيت','2026/06/جرانيت-نجران-براون.jpeg'],
+    ['غرانيت تروبيكال','غرانيت طبيعي بنقاط لونية متناسقة، مناسب للأرضيات والمطابخ ويمنح المساحات طابعًا أنيقًا.','/tropical-granite/','جرانيت','2026/06/جرانيت-نجران-تروبيكال.jpeg'],
+    ['جلكسي هندي','غرانيت داكن بلمسات لامعة طبيعية، يضفي طابعًا راقيًا على المطابخ الحديثة والمساحات الفاخرة.','/indian-galaxy-marble/','جرانيت','elementor/thumbs/جلكسي-هندي-rio9zs7331ynlcwex94knr7ehrjefka8lsv4s9nvd4.jpeg'],
+    ['ترافنتينو تركي','رخام طبيعي كلاسيكي، شائع للواجهات والأرضيات الخارجية.','#product','ترافنتينو','2026/04/ترافنتينو-تركي.jpeg'],
+    ['ترافنتينو بلاتنيوم','مظهر أنيق ومتجانس، مناسب للواجهات الراقية.',null,'ترافنتينو','2026/06/ترافنتينو-بلاتنيوم.jpeg'],
+    ['ترافنتينو نوتشي','لون بني دافئ يمنح الواجهات والمداخل طابعًا فاخرًا.',null,'ترافنتينو','2026/06/ترافنتينو-نوتشي.jpeg'],
+    ['ترافنتينو سوبر بلاتنيوم','فرز عالي جدًا، مخصص للمشاريع الفاخرة.',null,'ترافنتينو','elementor/thumbs/ترافنتينو-سوبر-بلاتنيوم-ro7tf07wos9hehy6ecf0riym2opwmu6cbfglsrk5gg.jpeg'],
+    ['ترافنتينو بيج','لون بيج طبيعي كلاسيكي للواجهات والأرضيات.','/beige-nocchi-silver-platinum-travertine-marble/#beige-travertine','ترافنتينو','elementor/thumbs/ترافنتينو-بيج-rhk1r1yg9up1cv2egshed65t9oe0k13v7gt5tqs7mo.jpeg'],
+    ['ترافنتينو سيلفر','لون رمادي طبيعي، مناسب للتصاميم الحديثة.','/silver-travertine-marble/','ترافنتينو','elementor/thumbs/ترافنتينو-سيلفر-rpyqjmic4kp6nxu93gdx30xtsho5uentntk0fwjfz4.jpeg'],
+    ['ترافنتينو أردني (أصفر وأبيض)','لون بيج طبيعي كلاسيكي للواجهات والأرضيات.','/jordanian-yellow-travertine/','ترافنتينو','2026/06/ترافنتينو-أصفر-وأبيض.jpeg'],
+    ['طاولة رخام ترافنتينو','طاولة ترافنتينو فاخرة بعروق طبيعية، تضفي طابعًا أنيقًا.',null,'ترافنتينو','2026/05/طاولة-رخام-ترافنتينو.jpeg'],
+    ['ترافنتينو شلال أردني','حجر أردني طبيعي يمنح المساحات دفئًا وفخامة.','/jordanian-waterfall-travertine/','ترافنتينو','2026/02/ترافنتينو-شلال-أردني-4.jpeg'],
+    ['درج عماني','درج عماني طبيعي يجمع بين الفخامة والمتانة، ليمنح منزلك مظهرًا راقيًا يدوم لسنوات.',null,'درج','2026/04/درج-عماني-1.jpeg'],
+    ['درج موغلا','درج موغلا الأبيض يتميز بلونه النقي وتشطيبه الأنيق، ليمنح المساحات مظهرًا عصريًا وفاخرًا.',null,'درج','2026/05/درج-موغلا-1.jpeg'],
+    ['درج كريم مارفل سوري','درج كريم مارفل السوري يجمع بين الفخامة والعملية، ليضفي على منزلك لمسة أنيقة تناسب مختلف التصاميم.',null,'درج','elementor/thumbs/درج-كريم-مارفل-سوري-scaled-rne9jh1s6l3u2hhy3qhhlvxbf6outonwvtvipj6oaw.jpeg'],
+    ['درج نجران تروبيكال','درج نجران تروبيكال يجمع بين القوة والجمال الطبيعي، ليمنح منزلك مظهرًا فاخرًا يدوم لسنوات.',null,'درج','2026/05/درج-نجران-تروبيكال-scaled.jpeg'],
+    ['درج جرانيت بيانكو','درج جرانيت بيانكو الطبيعي يجمع بين المتانة والتشطيب الراقي، ليمنح منزلك مظهرًا فاخرًا يدوم طويلًا.',null,'درج','2026/05/درج-جرانيت-بيانكو-scaled.jpeg'],
+    ['درج بازلت مجلي','درج بازلت مجلي طبيعي يجمع بين القوة والتشطيب الفاخر، ليمنح منزلك مظهرًا عصريًا يدوم لسنوات.',null,'درج','2026/05/درج-بازلت-مجلي-768x1024.jpeg'],
+    ['درج بازلت مجلي وجرانيت بيانكو وجرانيت تروبيكال','خيارات متنوعة من درج البازلت المجلي وجرانيت بيانكو وتروبيكال، بجودة عالية وتشطيبات تضيف لمسة فاخرة لكل منزل',null,'درج','2026/05/درج-بازلت-مجلي-وجرانيت-بيانكو-وجرانيت-تروبيكال-scaled.jpeg'],
+    ['درج كريم مارفل وموغلا وعماني','مجموعة من درجات الرخام الطبيعي تشمل كريم مارفل وموغلا وعماني، لتشطيب أنيق يدوم لسنوات.',null,'درج','2026/05/درج-كريم-مارفل-وموغلا-وعماني-scaled.jpeg']
+  ];
+  const HOME=[
+    ['بازلت','بازلت طبيعي عالي التحمل، مناسب للمواقف والأرضيات الخارجية الثقيلة.','/basalt/','بازلت','2026/05/بازلت-1.jpeg'],
+    ['حجر وجه الجبل','حجر طبيعي بملمس مميز يمنح الواجهات طابعًا فخمًا وحضورًا لافتًا.','/riyadh-white-rock-face-stone/','حجر طبيعي','elementor/thumbs/حجر-وجه-الجبل-roinihx8xsrdxgc2lsnj3t1tqsl3rvubpqv0ebnte0.jpeg'],
+    ['رخام ترافنتينو تركي','رخام طبيعي كلاسيكي، شائع للواجهات والأرضيات الخارجية بطابع أنيق ولمسة طبيعية مميزة.','#product','ترافنتينو','elementor/thumbs/ترافنتينو-تركي-rodj8fm7ld8iod36hbvjpnjcl443bp95i9ox09yy1s.jpeg'],
+    ['غرانيت سعودي','غرانيت طبيعي شديد الصلابة، يتميز بنقاط منقطة طبيعية، مناسب للمطابخ والأرضيات.','/saudi-granite-kitchens/','جرانيت','2026/05/غرانيت-سعودي.jpeg'],
+    ['رخام دانو رويال الإيطالي','رخام دانو رويال الإيطالي بعروق طبيعية أنيقة، يضفي لمسة فخامة على الأرضيات والجدران.','/dano-royal-italian-marble/','رخام','2026/05/رخام-دانو-رويال-الإيطالي.jpeg'],
+    ['درج موغلا','درج موغلا بتشطيب نظيف وألوان هادئة، مناسب للفلل والمنازل الحديثة.',null,'درج','2026/05/درج-موغلا-1.jpeg']
+  ];
+  const esc=s=>String(s).replace(/"/g,'&quot;');
+  function card(p){
+    const [n,d,h,c,img]=p;let href,cta,ext=' target="_blank" rel="noopener"';
+    if(h===null){href=q(n);cta=`<a class="card-cta q" href="${href}"${ext}>اطلب عرض سعر</a>`}
+    else{href=h==='WA'?q(n):(h.startsWith('#')?h:'https://platinum-marble.com'+h);const e=h.startsWith('#')?'':ext;cta=`<a class="card-cta more" href="${href}"${e}>التفاصيل ←</a>`}
+    const mh=h===null?q(n):href;const me=(h&&h.startsWith('#'))?'':ext;
+    const dh=(h===null||h==='WA')?'':href;
+    return `<article class="card" data-cat="${c}" data-n="${esc(n)}" data-d="${esc(d)}" data-img="${src(img)}" data-href="${esc(dh)}" data-wa="${esc(q(n))}"><div class="media"><a class="ml" href="${mh}"${me} tabindex="-1" aria-hidden="true"><img src="${src(img)}" alt="${esc(n)}" loading="lazy" width="1080" height="1350"></a><span class="tag">${c}</span><button class="qv" type="button" aria-label="عرض سريع: ${esc(n)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>عرض سريع</button></div><div class="card-body"><h2>${n}</h2><p>${d}</p>${cta}</div></article>`;
+  }
+  document.getElementById('homeP').innerHTML=HOME.map(card).join('');
+  const all=document.getElementById('allP');all.innerHTML=P.map(card).join('');
+  const cats=['الكل','رخام','حجر طبيعي','بازلت','جرانيت','ترافنتينو','درج'];
+  const fl=document.getElementById('filters');
+  fl.innerHTML=cats.map((c,i)=>`<button type="button" aria-pressed="${i===0}" data-c="${c}">${c}</button>`).join('');
+
+  // legal docs (real scans)
+  const D=[['شهادة الضريبة','2026/02/%D8%B4%D9%87%D8%A7%D8%AF%D8%A9-%D8%AA%D8%B3%D8%AC%D9%8A%D9%84-%D8%AC%D8%AF%D9%8A%D8%AF-%D9%81%D9%8A-%D8%B6%D8%B1%D9%8A%D8%A8%D8%A9-%D8%A7%D9%84%D9%82%D9%8A%D9%85%D8%A9-%D8%A7%D9%84%D9%85%D8%B6%D8%A7%D9%81%D8%A9-6_page-0002.jpg','شهادة الضريبة لمؤسسة بلاتنيوم للحجر والرخام'],['شهادة الضريبة','2026/02/%D8%B4%D9%87%D8%A7%D8%AF%D8%A9-%D8%AA%D8%B3%D8%AC%D9%8A%D9%84-%D8%AC%D8%AF%D9%8A%D8%AF-%D9%81%D9%8A-%D8%B6%D8%B1%D9%8A%D8%A8%D8%A9-%D8%A7%D9%84%D9%82%D9%8A%D9%85%D8%A9-%D8%A7%D9%84%D9%85%D8%B6%D8%A7%D9%81%D8%A9-6_page-0001.jpg','شهادة الضريبة لمؤسسة بلاتنيوم للحجر والرخام'],['العنوان الوطني','2026/02/%D8%A7%D9%84%D8%B9%D9%86%D9%88%D8%A7%D9%86-%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A-%D8%A8%D9%84%D8%A7%D8%AA%D9%8A%D9%86%D9%8A%D9%88%D9%85-%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%B4%D8%AD%D9%86_page-0001.jpg','العنوان الوطني لمؤسسة بلاتينيوم للحجر والرخام'],['السجل التجاري','2026/02/%D9%85%D8%A4%D8%B3%D8%B3%D8%A9-%D8%A8%D9%84%D8%A7%D8%AA%D9%86%D9%8A%D9%88%D9%85-%D9%84%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D8%A9-1_page-0003.jpg','السجل التجاري لمؤسسة بلاتنيوم للحجر والرخام']];
+  document.getElementById('docs').innerHTML=D.map(d=>`<a class="doc" href="${src(d[1])}" target="_blank" rel="noopener"><img src="${src(d[1])}" alt="${d[2]}" loading="lazy"><b>${d[0]}</b></a>`).join('');
+
+  // projects gallery
+  const G=[['2025/12/رخام-بوردر-بيج-تركي-للمساحات-الداخلية-1.jpeg','رخام بوردر بيج تركي للمساحات الداخلية'],['2026/07/خشبي-أردني-819x1024.jpeg','رخام خشبي أردني'],['2025/12/رخام-سنديان-بيج-للمساحات-الداخلية-819x1024.jpeg','رخام سنديان بيج للمساحات الداخلية'],['2025/12/رخام-سنديان-بيج-للأرضيات-819x1024.jpeg','رخام سنديان بيج للأرضيات'],['2025/12/رخام-موغلا-تركي-819x1024.jpeg','رخام موغلا تركي'],['2025/12/رخام-سنديان-بيج-للأرضيات-819x1024.jpeg','رخام سنديان بيج للأرضيات'],['2025/12/مشروع-رخام-كريم-مارفل-للأرضيات-819x1024.jpeg','مشروع رخام كريم مارفل للأرضيات'],['2025/12/مشروع-كريم-مارفل-للدرج-819x1024.jpeg','مشروع كريم مارفل للدرج']];
+  document.getElementById('gal8').innerHTML=G.map(g=>`<img src="${src(g[0])}" alt="${g[1]}" loading="lazy">`).join('');
+
+  // blog
+  const BL=[
+    ['أسعار رخام الدرج في الرياض 2026: كيف تُحسب التكلفة؟','/marble-stairs-prices-riyadh/','البحث عن أسعار رخام الدرج في الرياض لا ينتهي عادةً إلى رقم واحد؛ لأن عرض السعر يتغير حسب نوع الخامة،...','2026/10/mugla-marble-entrance-stairs.webp'],
+    ['رخام أخضر هندي | توريد للأرضيات والدرج والطاولات','/indian-green-marble/','يُعد رخام أخضر هندي من الخيارات المميزة لمن يبحث عن رخام طبيعي بلون جريء وفاخر يضيف حضورًا واضحًا للمساحة...','2026/08/%D8%A7%D9%84%D8%B5%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D9%85%D9%85%D9%8A%D8%B2%D8%A9-%D9%84%D8%B1%D8%AE%D8%A7%D9%85-%D8%A3%D8%AE%D8%B6%D8%B1-%D9%87%D9%86%D8%AF%D9%8A.png'],
+    ['رخام بوردر بيج سنديان | مميزات واستخدامات الرخام التركي البيج','/border-beige-sandyan-marble/','يُعد رخام بوردر بيج سنديان من أشهر أنواع الرخام التركي المستخدمة في المشاريع السكنية الراقية...','2026/02/%D8%B1%D8%AE%D8%A7%D9%85-%D8%B3%D9%86%D8%AF%D9%8A%D8%A7%D9%86-%D8%A8%D9%8A%D8%AC-2.jpeg'],
+    ['ألواح بوردر بيج تركي – رخام طبيعي للمداخل والأرضيات والجدران','/burdur-beige-turkish-slabs/','تُعد ألواح بوردر بيج تركي من أكثر أنواع الرخام التركي طلبًا في المشاريع السكنية والتجارية...','2026/05/WhatsApp-Image-2026-05-01-at-2.26.56-PM-3.jpeg'],
+    ['حجر طبيعي أبيض – واجهات فاخرة للمنازل والفلل بأسعار تنافسية','/white-natural-stone/','يُعتبر الحجر الطبيعي الأبيض من أكثر أنواع الحجر استخدامًا في واجهات المنازل والفلل الحديثة...','2026/05/%D8%AD%D8%AC%D8%B1-%D8%B7%D8%A8%D9%8A%D8%B9%D9%8A-%D8%A3%D8%A8%D9%8A%D8%B6.jpeg'],
+    ['حجر طبيعي للواجهات – أفضل الأنواع للمنازل والفلل بأسعار تنافسية','/natural-stone-facades/','يُعتبر الحجر الطبيعي للواجهات من أكثر الخيارات استخدامًا في تصميم واجهات المنازل والفلل والمشاريع الحديثة...','2025/11/8.png'],
+    ['كريم مارفل إسباني – رخام فاخر للأرضيات والدرج بأسعار تنافسية','/spanish-cream-marfil-marble/','يُعتبر كريم مارفل الإسباني من أشهر أنواع الرخام الطبيعي المستخدمة في الأرضيات والدرج والمداخل الفاخرة...','2026/05/IMG-20260521-WA0163.jpg.jpeg'],
+    ['بردورة رصيف حجر طبيعي – أبيض وأسود وأصفر بأسعار تنافسية','/natural-curbstone/','تُعتبر بردورة الرصيف من العناصر الأساسية في تنسيق الأرصفة والممرات والأحواش والمساحات الخارجية...','2026/05/WhatsApp-Image-2026-05-19-at-2.24.19-PM-1.jpeg'],
+    ['تامبل للأرضيات الخارجية | للممرات والأحواش ومداخل الفلل','/tumbled-stone-flooring/','يُعد تامبل للأرضيات الخارجية من خيارات الحجر الطبيعي المناسبة لتنسيق الممرات والأحواش ومداخل الفلل والحدائق...','2026/05/%D8%AA%D8%A7%D9%85%D8%A8%D9%84-%D8%A3%D8%B1%D8%AF%D9%86%D9%8A-%D8%A3%D8%B5%D9%81%D8%B1-5.jpeg'],
+    ['رخام ترافنتينو بيج – نوتشي – سلفر – بلاتنيوم بأسعار تنافسية','/beige-nocchi-silver-platinum-travertine-marble/','يُعتبر رخام الترافنتينو التركي من الأكثر استخدامًا في الواجهات والأرضيات والديكورات الحديثة...','2026/05/%D8%AE%D8%A7%D9%85-%D8%AA%D8%B1%D8%A7%D9%81%D9%86%D8%AA%D9%8A%D9%86%D9%88-%D8%AA%D8%B1%D9%83%D9%8A.jpeg'],
+    ['بازلت 10×10 الاختيار الاقوى للارضيات','/10x10-basalt/','يُعتبر بازلت 10×10 من أقوى وأفضل أنواع الحجر الطبيعي المستخدمة في الأرضيات الخارجية...','2026/05/%D8%A8%D8%A7%D8%B2%D9%84%D8%AA-%D9%A1%D9%A0%C3%97%D9%A1%D9%A0-7.jpeg'],
+    ['حجر أردني تامبل: ما هو؟ مميزاته وتشطيبه واستخداماته','/jordanian-tumbled-stone/','يُعد حجر أردني تامبل من أشكال الحجر الطبيعي التي تتميز بتشطيب يمنح القطع حوافًا أكثر نعومة ومظهرًا معتّقًا وطبيعيًا...','2026/05/WhatsApp-Image-2026-05-12-at-6.59.03-AM-1.jpeg'],
+    ['حجر الرياض بأقل الأسعار للواجهات والمشاريع السكنية','/riyadh-stone/','يُعد حجر الرياض من أكثر الأحجار الطبيعية استخدامًا في المملكة، حيث يتميز بمظهره الأنيق وتحمّله العالي للعوامل الجوية...','2026/10/riyadh-stone-white-featured.webp']
+  ];
+  const B='https://platinum-marble.com';const f=BL[0];
+  document.getElementById('bFeat').innerHTML=`<a class="bfeat" href="${B+f[1]}" target="_blank" rel="noopener"><img src="${src(f[3])}" alt="${esc(f[0])}" loading="lazy"><div><span class="pill r" style="justify-self:start">أحدث مقالة</span><h3>${f[0]}</h3><p style="color:var(--muted)">${f[2]}</p><span class="more">اقرأ المزيد ←</span></div></a>`;
+  document.getElementById('bGrid').innerHTML=BL.slice(1).map(b=>`<a class="bcard" href="${B+b[1]}" target="_blank" rel="noopener"><img src="${src(b[3])}" alt="${esc(b[0])}" loading="lazy"><h3>${b[0]}</h3><p>${b[2]}</p><span class="more">اقرأ المزيد ←</span></a>`).join('');
+
+  // stars
+  const st='<svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9Z"/></svg>';
+  document.querySelectorAll('.stars').forEach(s=>s.innerHTML=st.repeat(5));
+
+  // product gallery thumbs
+  const gm=document.getElementById('gMain');
+  document.getElementById('gTh').addEventListener('click',e=>{const i=e.target.closest('img');if(!i||i.classList.contains('on'))return;gm.classList.add('fade');setTimeout(()=>{gm.src=i.src;gm.alt=i.alt;gm.onload=()=>gm.classList.remove('fade');setTimeout(()=>gm.classList.remove('fade'),400)},220);document.querySelectorAll('#gTh img').forEach(x=>x.classList.toggle('on',x===i))});
+
+  // SEO cards
+  const S={
+    home:['https://platinum-marble.com/','رخام وحجر طبيعي في الرياض | توريد وقص وتركيب – بلاتنيوم','اطلب أفضل أنواع الرخام في الرياض بأسعار تنافسية! نوفر رخام الترافنتينو وكريم مارفل والبازلت بجودة عالية وخيارات تناسب الفلل والمشاريع.'],
+    products:['https://platinum-marble.com/products/','بلاتنيوم للحجر والرخام | منتجات الحجر الطبيعي والرخام الفاخر','اكتشف أفضل منتجات الحجر الطبيعي والرخام لدينا: رخام ترافنتينو، رخام موغلا، الجرانيت، الرخام الأردني، حجر بازلت والمزيد. جودة عالية وخيارات متعددة تناسب جميع المشاريع.'],
+    product:['https://platinum-marble.com/turkish-travertine/','ترافنتينو تركي – جميع المقاسات بأقل الأسعار','احصل على ترافنتينو تركي الآن بأقل الأسعار! نوفر ترافنتينو تركي بمقاسات مختلفة وألوان متعددة مناسب للواجهات الخارجية, الفلل, المنازل والقصور'],
+    projects:['https://platinum-marble.com/projects/','بلاتنيوم للحجر والرخام | أعمالنا ومشاريع التوريد الناجحة','اطّلع على مشاريع بلاتنيوم للحجر والرخام في توريد الحجر الطبيعي والرخام للفلل والمباني داخل السعودية بجودة عالية وتنفيذ احترافي.'],
+    project:['https://platinum-marble.com/projects/private-project-al-nuzha-riyadh/','رخام سنديان بيج وإمبرادور تركي – مشروع حي النزهة | بلاتنيوم','مشروع خاص في حي النزهة بالرياض: أرضيات رخام سنديان بيج تركي مع بوردرات ووزرات إمبرادور تركي. شاهد صور المشروع وتفاصيل الخامات.'],
+    blogs:['https://platinum-marble.com/blogs/','بلاتنيوم للحجر والرخام | مقالات الحجر والرخام الطبيعي','اطّلع على مقالات الحجر والرخام الطبيعي من بلاتنيوم، دليل متكامل يساعدك على فهم الأنواع، الاستخدامات، ونصائح الاختيار للمشاريع السكنية والتجارية.'],
+    about:['https://platinum-marble.com/about-us/','بلاتنيوم للحجر والرخام | من نحن وخبرتنا في توريد الحجر','تعرّف على مؤسسة بلاتنيوم للحجر والرخام، خبرة في توريد الحجر والرخام الطبيعي داخل السعودية للمشاريع السكنية والتجارية.'],
+    contact:['https://platinum-marble.com/contact-us/','تواصل معنا | بلاتنيوم لتوريد الحجر والرخام في الرياض','(الـ meta description الحالي في Yoast — بدون تغيير)']
+  };
+  document.querySelectorAll('[data-serp]').forEach(el=>{const s=S[el.dataset.serp];el.innerHTML=`<div class="serp"><span class="l">ثابت بدون أي تغيير — كده بيظهر في جوجل</span><span class="u">${s[0]}</span><span class="t">${s[1]}</span><span class="d">${s[2]}</span><span class="k">ثابت كمان: الـ URL · الـ canonical · نصوص ومستويات H1/H2/H3 · نص الصفحة · alt الصور · الروابط الداخلية · schema بتاع Yoast · أزرار الواتساب وأكواد GTM</span></div>`});
+
+  // router
+  const views=[...document.querySelectorAll('main[data-view]')];
+  const tabs=[...document.querySelectorAll('.tabs a')],navs=[...document.querySelectorAll('.nav a')];
+  function show(){
+    let v=(location.hash||'#home').slice(1);if(!views.some(x=>x.dataset.view===v))v='home';
+    views.forEach(x=>x.hidden=x.dataset.view!==v);
+    tabs.forEach(a=>a.getAttribute('href')==='#'+v?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+    navs.forEach(a=>a.dataset.n.split(' ').includes(v)?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+    document.getElementById('mnav').classList.remove('open');document.getElementById('scrim').classList.remove('on');window.scrollTo({top:0,behavior:'instant'});document.dispatchEvent(new Event('viewchange'));
+  }
+  window.addEventListener('hashchange',show);show();
+  const t=document.getElementById('seoT');t.addEventListener('change',()=>document.body.classList.toggle('seo-on',t.checked));
+  document.querySelectorAll('form[data-demo]').forEach(fm=>fm.addEventListener('submit',e=>{e.preventDefault();fm.querySelector('.note').textContent='نموذج عرض فقط — في الموقع ده نفس فورم WPForms الحالي.'}));
+  document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{const o=b.textContent;try{navigator.clipboard.writeText(b.dataset.copy).then(()=>{b.textContent='اتنسخ ✓';setTimeout(()=>b.textContent=o,1500)},()=>{})}catch(e){}}));
+  // fallback if an image fails
+  document.querySelectorAll('main img').forEach(i=>i.addEventListener('error',()=>{i.style.background='#1C2639';i.style.minHeight='120px'},{once:true}));
+})();
+</script>
+<!-- ===== Floating actions + modals ===== -->
+<a class="fwa" href="https://wa.me/966553499059" target="_blank" rel="noopener" aria-label="تواصل معنا عبر الواتساب"><span class="tip">تواصل معنا عبر الواتساب</span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></a>
+<button class="totop" id="totop" type="button" aria-label="العودة لأعلى الصفحة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 14 6-6 6 6"/></svg></button>
+
+<div class="modal" id="qv" role="dialog" aria-modal="true" aria-labelledby="qvT">
+  <div class="qv-box">
+    <button class="x" type="button" data-close aria-label="إغلاق"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <img id="qvImg" src="" alt="">
+    <div class="qv-info">
+      <span class="pill r" id="qvCat" style="justify-self:start;padding:7px 14px"></span>
+      <h3 id="qvT"></h3>
+      <p id="qvD"></p>
+      <ul><li>توريد بمقاسات حسب الطلب</li><li>قص وتجهيز حسب المشروع</li><li>متوفر في فرعينا بالرياض</li></ul>
+      <div class="ctas">
+        <a class="btn btn-red" id="qvWa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>اطلب عرض سعر</a>
+        <a class="btn btn-line" id="qvMore" href="#">التفاصيل الكاملة</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="lb" role="dialog" aria-modal="true" aria-label="معرض الصور">
+  <span class="lb-count" id="lbC"></span>
+  <button class="x" type="button" data-close aria-label="إغلاق"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="lb-nav lb-prev" type="button" id="lbP" aria-label="الصورة السابقة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 6 6 6-6 6"/></svg></button>
+  <figure class="lb-fig"><img id="lbI" src="" alt=""><figcaption id="lbT"></figcaption></figure>
+  <button class="lb-nav lb-next" type="button" id="lbN" aria-label="الصورة التالية"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 6-6 6 6 6"/></svg></button>
+</div>
+
+<script>
+/* ===== Interaction layer (vanilla, ~6KB, no libraries — easy to port to WordPress) ===== */
+(function(){
+  const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* image shimmer until loaded */
+  $$('main img').forEach(i=>{if(!i.complete){i.classList.add('sk');i.addEventListener('load',()=>i.classList.remove('sk'),{once:true});i.addEventListener('error',()=>i.classList.remove('sk'),{once:true})}});
+
+  /* scroll reveal with sibling stagger */
+  const RV='.head,.card,.pcard,.stat,.doc,.rev,.branch,.map,.ticks li,.frame,.prow,.bcard,.bfeat,.val,.partner,.cc,.faq details,.art section,.facts div,.two>div,.pgal img,.gal8 img,.form,.band>*,.vars .var,.sz,.cta-box,.pn a,.sbox,.specs div,.exp-card .exp-copy>*,.contact-lines div,.pj';
+  const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.08}):null;
+  function arm(root){
+    $$(RV,root).forEach(el=>{
+      if(el.closest('.hero')||el.classList.contains('rv'))return;
+      el.classList.add('rv');
+      const sib=[...el.parentElement.children].filter(x=>x.classList.contains('rv'));
+      el.style.setProperty('--d',Math.min(sib.indexOf(el)*0.07,0.49)+'s');
+      io?io.observe(el):el.classList.add('in');
+    });
+  }
+  arm(document);
+  setTimeout(()=>$$('.rv:not(.in)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)el.classList.add('in')}),1200);
+
+  /* counters */
+  const cio='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cio.unobserve(e.target);const el=e.target,end=+el.dataset.count;if(reduce){el.textContent=end;return}const t0=performance.now(),dur=1600;const step=t=>{const k=Math.min((t-t0)/dur,1),v=Math.round(end*(1-Math.pow(1-k,3)));el.textContent=v;if(k<1)requestAnimationFrame(step)};el.textContent=0;requestAnimationFrame(step)}),{threshold:.6}):null;
+  $$('[data-count]').forEach(el=>cio&&cio.observe(el));
+
+  /* scroll: progress, header, back-to-top, parallax */
+  const prog=$('#prog'),hdr=$('.header'),top=$('#totop');let tick=false;
+  function onScroll(){
+    const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+    prog.style.transform=`scaleX(${h>0?y/h:0})`;
+    hdr.classList.toggle('sc',y>40);
+    top.classList.toggle('show',y>700);
+    if(!reduce)$$('main:not([hidden]) .phead>img').forEach(im=>{im.style.transform=`translateY(${Math.min(y*0.25,160)}px) scale(1.08)`});
+    tick=false;
+  }
+  addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
+  top.addEventListener('click',()=>scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
+
+  /* mobile drawer */
+  const mn=$('#mnav'),scrim=$('#scrim'),burger=$('#burger');
+  const drawer=o=>{mn.classList.toggle('open',o);scrim.classList.toggle('on',o);burger.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''};
+  burger.addEventListener('click',()=>drawer(true));$('#drClose').addEventListener('click',()=>drawer(false));scrim.addEventListener('click',()=>drawer(false));
+  $$('a',mn).forEach(a=>a.addEventListener('click',()=>drawer(false)));
+
+  /* view change: re-arm, sync drawer active, close modals */
+  document.addEventListener('viewchange',()=>{
+    drawer(false);const v=(location.hash||'#home').slice(1);
+    $$('a[data-n]',mn).forEach(a=>a.dataset.n.split(' ').includes(v)?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+    onScroll();
+  });
+
+  /* products finder: search + category + use */
+  const all=$('#allP'),fl=$('#filters'),uses=$('#uses'),pq=$('#pq'),pc=$('#pcount');
+  const U=[['كل الاستخدامات',null],['أرضيات وجدران داخلية',/أرضيات|الأرضيات|الجدران|الداخلية|المجالس|المساحات/],['واجهات',/واجه/],['ممرات ومساحات خارجية',/خارج|ممرات|الممرات|مواقف|أرصفة|الأرصفة|أحواش|الأحواش|المسابح|الرصيف/],['مطابخ',/مطابخ|المطابخ/],['درج ومداخل',/درج|سلالم|السلالم|مداخل|المداخل/]];
+  uses.insertAdjacentHTML('beforeend',U.map((u,i)=>`<button type="button" aria-pressed="${i===0}" data-u="${i}">${u[0]}</button>`).join(''));
+  const norm=s=>s.replace(/[ً-ْـ]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/غرانيت/g,'جرانيت').toLowerCase();
+  let cat='الكل',use=0;
+  function apply(anim){
+    const term=norm(pq.value.trim());let n=0;const cards=$$('.card',all);
+    cards.forEach(el=>{
+      const txt=el.dataset.n+' '+el.dataset.d+' '+el.dataset.cat;
+      const ok=(cat==='الكل'||el.dataset.cat===cat)&&(!U[use][1]||U[use][1].test(txt))&&(!term||norm(txt).includes(term));
+      const was=el.hidden;el.hidden=!ok;
+      if(ok){n++;if(anim&&!reduce){el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop','in')}}
+    });
+    pc.innerHTML=`عرض <b>${n}</b> من ${cards.length} خامة`;
+    let em=$('.empty',all);
+    if(!n){if(!em){all.insertAdjacentHTML('beforeend',`<div class="empty"><b>مفيش خامة مطابقة للبحث ده</b><span>ابعتلنا اللي محتاجه على الواتساب ونرشحلك الأنسب.</span><a class="btn btn-red" href="https://wa.me/966553499059" target="_blank" rel="noopener">اسألنا على الواتساب</a></div>`)}}
+    else if(em)em.remove();
+  }
+  fl.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',fl).forEach(x=>x.setAttribute('aria-pressed',x===b));cat=b.dataset.c;apply(true)});
+  uses.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',uses).forEach(x=>x.setAttribute('aria-pressed',x===b));use=+b.dataset.u;apply(true)});
+  let deb;pq.addEventListener('input',()=>{clearTimeout(deb);deb=setTimeout(()=>apply(true),160)});
+  apply(false);
+
+  /* modal helpers */
+  let lastFocus=null;
+  function openM(m){lastFocus=document.activeElement;m.classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>$('[data-close]',m).focus(),50)}
+  function closeM(m){m.classList.remove('open');document.body.style.overflow='';lastFocus&&lastFocus.focus&&lastFocus.focus()}
+  $$('.modal').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m||e.target.closest('[data-close]'))closeM(m)})});
+
+  /* quick view */
+  const qv=$('#qv');
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('.qv');if(!b)return;const c=b.closest('.card');
+    $('#qvImg').src=c.dataset.img;$('#qvImg').alt=c.dataset.n;$('#qvT').textContent=c.dataset.n;$('#qvD').textContent=c.dataset.d;$('#qvCat').textContent=c.dataset.cat;
+    $('#qvWa').href=c.dataset.wa;const more=$('#qvMore');
+    if(c.dataset.href){more.hidden=false;more.href=c.dataset.href;const ext=!c.dataset.href.startsWith('#');more.target=ext?'_blank':'';more.rel=ext?'noopener':''}else more.hidden=true;
+    openM(qv);
+  });
+  $('#qvMore').addEventListener('click',()=>closeM(qv));
+
+  /* lightbox */
+  const lb=$('#lb'),lbI=$('#lbI'),lbT=$('#lbT'),lbC=$('#lbC');let set=[],idx=0;
+  function show(i){idx=(i+set.length)%set.length;const im=set[idx];lbI.style.opacity=0;setTimeout(()=>{lbI.src=im.full;lbI.alt=im.alt;lbT.textContent=im.alt;lbC.textContent=`${idx+1} / ${set.length}`;lbI.style.opacity=1},120)}
+  lbI.style.transition='opacity .2s';
+  $$('[data-lbg]').forEach(g=>{
+    g.addEventListener('click',e=>{
+      const t=e.target.closest('img');if(!t)return;e.preventDefault();
+      const imgs=$$('img',g);set=imgs.map(i=>({full:i.closest('a')?.href||i.src,alt:i.alt}));
+      if(g.dataset.lbg==='docs')set=imgs.map(i=>({full:i.src,alt:i.alt}));
+      show(imgs.indexOf(t));openM(lb);
+    });
+    $$('img',g).forEach(i=>i.setAttribute('data-lb',''));
+  });
+  $('#lbP').addEventListener('click',()=>show(idx-1));$('#lbN').addEventListener('click',()=>show(idx+1));
+  let sx=null;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+  lb.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)show(idx+(dx>0?1:-1));sx=null});
+  document.addEventListener('keydown',e=>{
+    const open=$('.modal.open');
+    if(e.key==='Escape'){if(open)closeM(open);drawer(false)}
+    if(open===lb){if(e.key==='ArrowLeft')show(idx+1);if(e.key==='ArrowRight')show(idx-1)}
+  });
+
+  /* presentation mode */
+  const pm=()=>{document.body.classList.toggle('present');};
+  $('#pmode').addEventListener('click',pm);$('#pbtn').addEventListener('click',pm);
+
+  /* subtle magnetic hover on primary buttons (desktop only) */
+  if(!reduce&&matchMedia('(hover:hover)').matches){
+    $$('.btn-red').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.18}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')});
+  }
+})();
+</script>
+
+
+<script>
+/* ===== Slider (native scroll-snap; every card stays in the HTML for Google) ===== */
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.slider').forEach(sl=>{
+    const tr=sl.querySelector('.track'),bar=sl.querySelector('.sl-bar i');
+    const scope=sl.closest('section')||document;
+    const prev=scope.querySelector('[data-sl="prev"]'),next=scope.querySelector('[data-sl="next"]');
+    const step=()=>{const c=tr.firstElementChild;return c?c.getBoundingClientRect().width+parseFloat(getComputedStyle(tr).columnGap||0):tr.clientWidth};
+    const max=()=>tr.scrollWidth-tr.clientWidth;
+    const pos=()=>Math.abs(tr.scrollLeft); // RTL: scrollLeft goes negative in Chrome/Safari
+    function upd(){const m=max(),p=pos();if(bar){const vis=tr.clientWidth/tr.scrollWidth;bar.style.transform=`scaleX(${m>0?Math.min(vis+(1-vis)*(p/m),1):1})`}
+      if(prev)prev.disabled=p<4;if(next)next.disabled=p>m-4}
+    const go=d=>{tr.scrollBy({left:-d*step(),behavior:reduce?'auto':'smooth'})}; // d=1 forward (towards the left in RTL)
+    next&&next.addEventListener('click',()=>{stop();go(1)});prev&&prev.addEventListener('click',()=>{stop();go(-1)});
+    tr.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});addEventListener('resize',upd);
+    // mouse drag on desktop
+    let down=false,sx=0,sl0=0,moved=false;
+    tr.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl0=tr.scrollLeft});
+    addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx;if(Math.abs(dx)>5){moved=true;tr.classList.add('drag')}tr.scrollLeft=sl0-dx});
+    addEventListener('pointerup',()=>{if(!down)return;down=false;tr.classList.remove('drag');if(moved){stop();const s=step();const target=Math.round(tr.scrollLeft/s)*s;tr.scrollTo({left:target,behavior:'smooth'})}});
+    tr.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
+    // autoplay: pauses on hover/focus/touch, stops after manual use, off for reduced motion
+    let t=null,halt=false;const ms=+sl.dataset.auto||0;
+    function stop(){halt=true;clearInterval(t)}
+    function play(){if(!ms||reduce||halt)return;clearInterval(t);t=setInterval(()=>{if(!sl.offsetParent)return;if(pos()>=max()-4)tr.scrollTo({left:0,behavior:'smooth'});else go(1)},ms)}
+    sl.addEventListener('mouseenter',()=>clearInterval(t));sl.addEventListener('mouseleave',play);
+    sl.addEventListener('focusin',()=>clearInterval(t));tr.addEventListener('touchstart',stop,{passive:true});
+    document.addEventListener('viewchange',()=>{tr.scrollLeft=0;setTimeout(upd,50)});
+    upd();play();
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const tr=document.getElementById('marqTrack');if(!tr)return;
+  function set(){const w=tr.firstElementChild.getBoundingClientRect().width;if(w>0)tr.style.setProperty('--mq',(w/55).toFixed(1)+'s')}
+  set();addEventListener('resize',set);document.fonts&&document.fonts.ready.then(set);
+})();
+</script>
+</body>
+</html>
