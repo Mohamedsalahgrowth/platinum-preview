@@ -1266,6 +1266,172 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
 .js .rv{transition-duration:.55s!important;transform:translateY(18px)}
 .js .rv.in{transform:none}
 .cx-card.in,.cx-col.in{transition-duration:.55s!important}
+
+/* ================= Final polish: projects / project / blogs / product ================= */
+/* projects hub */
+.pr-head{padding-block:clamp(90px,10vw,150px) clamp(70px,8vw,110px)}
+.pr-stats{display:flex;margin:10px 0 0;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(11,17,32,.4);backdrop-filter:blur(6px);justify-self:start}
+.pr-stats div{padding:12px 22px;display:grid;gap:2px;border-inline-start:1px solid rgba(255,255,255,.12)}
+.pr-stats div:first-child{border-inline-start:0}
+.pr-stats dt{order:2;font-size:.8rem;color:#AEB7C6}
+.pr-stats dd{margin:0;color:#fff;font:800 1.5rem/1.1 var(--font)}
+.pr-list{padding-top:clamp(56px,7vw,96px)}
+.pr{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;padding-block:clamp(28px,4vw,48px)}
+.pr+.pr{border-top:1px solid #ECE8E2}
+.pr.flip .pr-mosaic{order:2}
+.pr-mosaic{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:clamp(320px,34vw,470px)}
+.pr-mosaic>*{border-radius:10px;overflow:hidden;background:#E4E1DC;display:block;min-height:0}
+.pr-mosaic .m1{grid-row:span 2}
+.pr-mosaic img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.pr-mosaic>*:hover img,.pr-mosaic img:hover{transform:scale(1.05)}
+.pr-mosaic>img{cursor:zoom-in}
+.pr-info{display:grid;gap:14px;align-content:center;min-width:0}
+.pr-loc{display:inline-flex;gap:6px;align-items:center;color:var(--red);font-weight:700;font-size:.92rem}
+.pr-loc svg{width:16px;height:16px}
+.pr-info h3{font:800 clamp(1.45rem,2.4vw,2rem)/1.35 var(--font)}
+.pr-info>p{color:var(--muted);font-size:1.02rem}
+.pr-meta{margin:4px 0 0;display:grid;border-top:1px solid #EEEBE6}
+.pr-meta div{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #EEEBE6}
+.pr-meta dt{color:var(--muted);font-size:.9rem}
+.pr-meta dd{margin:0;font-weight:700;color:var(--ink)}
+.pr-acts{display:flex;align-items:center;gap:16px;margin-top:6px}
+.pr-n{color:var(--muted);font-size:.9rem}
+.pr-cta{background:var(--navy);position:relative;overflow:hidden;padding-block:clamp(52px,6vw,84px)}
+.pr-cta::before{content:"";position:absolute;inset:0;background:url(https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-riyadh-sandy-beige-emperador-marble-hero-1024x576.webp) center/cover;opacity:.16}
+.pr-cta-in{position:relative;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center}
+.pr-cta h2{color:#fff;margin:10px 0}
+.pr-cta p{color:#C9D1DD}
+.pr-cta .ctas{justify-content:flex-end}
+/* single project */
+.pj-hero{position:relative;overflow:hidden;min-height:clamp(420px,62vh,640px);display:grid;align-items:end;padding-block:clamp(110px,12vw,170px) clamp(44px,5vw,64px);background:var(--navy)}
+.pj-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 26s ease-out both}
+.pj-hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(11,17,32,.95) 0%,rgba(11,17,32,.55) 45%,rgba(11,17,32,.15) 100%)}
+.pj-hero-in{position:relative;z-index:2;display:grid;gap:14px;justify-items:start}
+.pj-hero h1{color:#fff;font-size:clamp(1.9rem,3.8vw,3.1rem);max-width:22ch;line-height:1.3}
+.pj-hero .crumbs{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:7px 14px;border-radius:999px;backdrop-filter:blur(4px)}
+.pj-hero .crumbs a{color:#D5DBE5}
+.pj-hero .crumbs li:last-child{color:#FFB4A8;font-weight:700}
+.pjd{padding-block:clamp(48px,6vw,84px)}
+.pjd-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:clamp(28px,4vw,56px);align-items:start}
+.pjd-side{position:sticky;top:110px;order:2}
+.pjd-card{background:#fff;border:1px solid #E6E2DC;border-radius:12px;padding:24px;display:grid;gap:16px;box-shadow:0 20px 50px -30px rgba(15,23,42,.35)}
+.pjd-card h2{font-size:1.3rem}
+.pjd-card dl{margin:0;display:grid;border-top:1px solid #EEEBE6}
+.pjd-card dl div{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #EEEBE6;font-size:.93rem}
+.pjd-card dt{color:var(--muted)} .pjd-card dd{margin:0;font-weight:700;color:var(--ink);text-align:left}
+.pjd-sw{display:flex;align-items:center;gap:8px}
+.pjd-sw span{width:34px;height:34px;border-radius:50%;box-shadow:0 0 0 2px #fff,0 0 0 3px #E2DDD5}
+.pjd-sw span+span{margin-inline-start:-14px}
+.pjd-sw small{color:var(--muted);font-size:.85rem;margin-inline-start:6px}
+.pjd-card .btn{width:100%}
+.pjd-main{display:grid;gap:clamp(32px,4vw,48px);min-width:0}
+.pjd-sec{display:grid;gap:12px}
+.pjd-sec p{color:var(--text);font-size:1.05rem;max-width:66ch}
+.pjd-pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pjd-pair .pjd-sec{background:#F7F6F4;border-radius:12px;padding:24px;position:relative}
+.pjd-pair h2{font-size:1.2rem}
+.pjd-pair p{font-size:.97rem;color:var(--muted)}
+.pjd-k{font:800 .85rem/1 var(--font);color:var(--red)}
+.pjd-quote{margin:0;position:relative;border-radius:12px;overflow:hidden;min-height:340px;display:grid;align-items:end}
+.pjd-quote img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pjd-quote::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(11,17,32,.9),rgba(11,17,32,.1) 70%)}
+.pjd-quote figcaption{position:relative;z-index:2;padding:clamp(22px,3vw,34px);display:grid;gap:8px}
+.pjd-quote h2{color:#fff;font-size:1.4rem}
+.pjd-quote p{color:#D5DBE5}
+.pjd-gal-sec{background:#F7F6F4;padding-block:clamp(48px,6vw,80px)}
+.pjd-gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,15vw,220px);gap:12px}
+.pjd-gal figure{margin:0;border-radius:10px;overflow:hidden;background:#E4E1DC}
+.pjd-gal figure.g0{grid-column:span 2;grid-row:span 2}
+.pjd-gal figure.g3{grid-column:span 2}
+.pjd-gal img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1);cursor:zoom-in}
+.pjd-gal figure:hover img{transform:scale(1.05)}
+.pjd-next{display:grid;grid-template-columns:200px 1fr auto;align-items:center;gap:20px;background:var(--navy);border-radius:12px;overflow:hidden;text-decoration:none;color:#fff;transition:transform .35s}
+.pjd-next:hover{transform:translateY(-4px)}
+.pjd-next img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.pjd-next span{display:grid;gap:4px;padding-block:16px}
+.pjd-next small{color:#FFB4A8;font-weight:700}
+.pjd-next b{font-size:1.25rem}
+.pjd-next em{font-style:normal;color:#AEB7C6;font-size:.9rem}
+.pjd-next i{padding-inline-end:24px}
+.pjd-next svg{width:28px;height:28px}
+/* blogs */
+.bl-bar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:28px;background:#F3F1ED;padding:5px;border-radius:14px;width:max-content;max-width:100%}
+.bl-bar button{font:700 .9rem/1 var(--font);border:0;background:none;color:#5B6474;padding:11px 15px;border-radius:10px;cursor:pointer;display:inline-flex;gap:7px;align-items:center;transition:background .25s,color .25s}
+.bl-bar button sup{font-size:.7rem;min-width:20px;height:20px;border-radius:999px;display:inline-grid;place-items:center;background:#E5E1DA;color:#6B6458}
+.bl-bar button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.bl-bar button[aria-pressed="true"] sup{background:var(--red);color:#fff}
+.bfeat{position:relative;background:var(--navy)!important;color:#fff;grid-template-columns:1.25fr 1fr}
+.bfeat h3{color:#fff}
+.bfeat div p{color:#C9D1DD!important}
+.bfeat .more{color:#FFB4A8}
+.bfeat img{transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.bfeat:hover img{transform:scale(1.04)}
+.bfeat>div{position:relative}
+.bcard{background:#fff;border:1px solid #E6E2DC;border-radius:10px;overflow:hidden;gap:0!important;transition:transform .4s,box-shadow .4s}
+.bcard:hover{transform:translateY(-5px);box-shadow:0 26px 50px -28px rgba(15,23,42,.35)}
+.bcard img{border-radius:0!important}
+.bcard .bc-t{display:grid;gap:10px;padding:18px 20px 22px}
+.bcard .bc-tag{justify-self:start;font:700 .75rem/1 var(--font);color:var(--red);background:#FDECEC;padding:6px 10px;border-radius:999px}
+.bcard h3{font-size:1.05rem}
+.bcard[hidden],.bfeat[hidden]{display:none!important}
+/* product page polish */
+.ptop .gal .main{background:#E4E1DC;object-fit:cover}
+.ptop .gal .th img{background:#E4E1DC}
+.pd-rel{padding-block:0 clamp(56px,7vw,96px)}
+.rl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.rl{display:grid;background:#fff;border:1px solid #E6E2DC;border-radius:8px;overflow:hidden;text-decoration:none;transition:transform .4s,box-shadow .4s}
+.rl:hover{transform:translateY(-5px);box-shadow:0 26px 50px -28px rgba(15,23,42,.35)}
+.rl-img{background:#E4E1DC;overflow:hidden}
+.rl-img img{width:100%;aspect-ratio:4/4.4;object-fit:cover;object-position:50% 40%;transition:transform 1s}
+.rl:hover .rl-img img{transform:scale(1.05)}
+.rl-t{display:grid;gap:4px;padding:14px 16px 16px}
+.rl-t b{color:var(--ink);font-size:1rem}
+.rl-t small{color:var(--muted)}
+.rl-t em{font-style:normal;font-size:.8rem;color:var(--muted);margin-top:4px}
+.rl-t strong{color:var(--red);font-size:1.1rem}
+@media (max-width:980px){.pr,.pr.flip{grid-template-columns:1fr}.pr.flip .pr-mosaic{order:0}.pjd-grid{grid-template-columns:1fr}.pjd-side{position:static;order:0}.rl-grid{grid-template-columns:repeat(2,1fr)}.pr-cta-in{grid-template-columns:1fr}.pr-cta .ctas{justify-content:flex-start}}
+@media (max-width:760px){
+  .pr-head{padding-block:56px 44px}
+  .pr-stats{justify-self:center;width:100%;justify-content:space-around}
+  .pr-stats div{padding:10px 8px;text-align:center;flex:1}
+  .pr-stats dd{font-size:1.2rem}
+  .pr-mosaic{height:auto;grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+  .pr-mosaic .m1{grid-column:1/-1;grid-row:auto}
+  .pr-mosaic img{aspect-ratio:4/3;height:auto}
+  .pr-mosaic .m1 img{aspect-ratio:16/11}
+  .pr-info{text-align:center;justify-items:center}
+  .pr-meta{width:100%}
+  .pr-meta div{grid-template-columns:1fr;gap:2px;text-align:center}
+  .pr-acts{flex-direction:column;width:100%;gap:8px}
+  .pr-cta-in{text-align:center}.pr-cta-in>div{display:grid;justify-items:center}
+  .pj-hero{min-height:auto;padding-block:120px 32px;text-align:center}
+  .pj-hero-in{justify-items:center}
+  .pj-hero h1{font-size:1.6rem}
+  .pjd-pair{grid-template-columns:1fr}
+  .pjd-sec{text-align:center}
+  .pjd-quote{min-height:280px;text-align:center}
+  .pjd-gal{grid-template-columns:1fr 1fr;grid-auto-rows:130px;gap:8px}
+  .pjd-gal figure.g0{grid-column:1/-1;grid-row:span 2}
+  .pjd-gal figure.g3{grid-column:auto}
+  .pjd-gal figure.g4{grid-column:1/-1}
+  .pjd-next{grid-template-columns:110px 1fr auto;gap:12px}
+  .pjd-next b{font-size:1rem}.pjd-next em{display:none}.pjd-next i{padding-inline-end:12px}
+  .bl-bar{width:auto;flex-wrap:nowrap;overflow-x:auto;margin-inline:-20px;border-radius:0;padding-inline:20px;scrollbar-width:none}
+  .bl-bar::-webkit-scrollbar{display:none}
+  .bl-bar button{flex:none}
+  .bcard .bc-t{text-align:center;justify-items:center}
+  .bcard .bc-tag{justify-self:center}
+  .rl-grid{gap:10px}
+  .rl-t{text-align:center;padding:10px}
+  .rl-t b{font-size:.9rem}
+}
+
+/* project gallery: 6-col layout with no gaps */
+.pjd-gal{grid-template-columns:repeat(6,1fr)!important;grid-auto-rows:clamp(150px,14vw,210px)!important}
+.pjd-gal figure.g0{grid-column:span 4!important;grid-row:span 2!important}
+.pjd-gal figure.g1,.pjd-gal figure.g2{grid-column:span 2!important;grid-row:auto!important}
+.pjd-gal figure.g3,.pjd-gal figure.g4{grid-column:span 3!important;grid-row:auto!important}
+@media (max-width:760px){.pjd-gal{grid-template-columns:1fr 1fr!important;grid-auto-rows:130px!important}.pjd-gal figure.g0{grid-column:1/-1!important;grid-row:span 2!important}.pjd-gal figure.g1,.pjd-gal figure.g2,.pjd-gal figure.g3,.pjd-gal figure.g4{grid-column:auto!important}}
 </style>
 </head>
 <body class="present">
@@ -1593,9 +1759,10 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
     <ol class="crumbs" style="padding-top:22px"><li><a href="#home" style="color:var(--muted)">الرئيسية</a></li><li><a href="#catalog" style="color:var(--muted)">المنتجات</a></li><li style="color:var(--red)">ترافنتينو تركي</li></ol>
     <div class="ptop">
       <div class="gal">
-        <img class="main" id="gMain" src="https://platinum-marble.com/wp-content/uploads/2026/04/ترافنتينو-بيج-فاتح-647x1024.jpeg" alt="ترافنتينو بيج فاتح" width="647" height="1024">
+        <img class="main" id="gMain" src="https://lh3.googleusercontent.com/d/1nCJB3WN7jZbTuS16x0pxYCprrjNijAAS=w1200" alt="ترافنتينو تركي نخب أول" width="960" height="1200">
         <div class="th" id="gTh">
-          <img class="on" src="https://platinum-marble.com/wp-content/uploads/2026/04/ترافنتينو-بيج-فاتح-647x1024.jpeg" alt="ترافنتينو بيج فاتح" loading="lazy">
+          <img class="on" src="https://lh3.googleusercontent.com/d/1nCJB3WN7jZbTuS16x0pxYCprrjNijAAS=w1200" alt="ترافنتينو تركي نخب أول" loading="lazy">
+          <img src="https://platinum-marble.com/wp-content/uploads/2026/04/ترافنتينو-بيج-فاتح-647x1024.jpeg" alt="ترافنتينو بيج فاتح" loading="lazy">
           <img src="https://platinum-marble.com/wp-content/uploads/2026/04/ترافنتينو-تركي-819x1024.jpeg" alt="أنواع ترافنتينو تركي" loading="lazy">
           <img src="https://platinum-marble.com/wp-content/uploads/2026/02/ترافنتينو-سيلفر-576x1024.jpeg" alt="ترافنتينو سيلفر رمادي" loading="lazy">
           <img src="https://platinum-marble.com/wp-content/uploads/2026/04/ترافنتينو-بلاتنيوم-576x1024.jpeg" alt="ترافنتينو سيلفر بلاتنيوم" loading="lazy">
@@ -1632,10 +1799,10 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
           <h2>أنواع ترافنتينو تركي</h2>
           <p>يتوفر ترافنتينو تركي بعدة انواع وألوان طبيعية تناسب مختلف التصاميم:</p>
           <div class="vars">
-            <div class="var"><img src="https://platinum-marble.com/wp-content/uploads/2026/04/ترافنتينو-بيج-4-فاتح.jpeg" alt="ترافنتينو بيج فاتح" loading="lazy">ترافنتينو بيج فاتح</div>
+            <div class="var"><img src="https://lh3.googleusercontent.com/d/1nCJB3WN7jZbTuS16x0pxYCprrjNijAAS=w600" alt="ترافنتينو بيج فاتح" loading="lazy">ترافنتينو بيج فاتح</div>
             <div class="var"><span class="noimg">بدون صورة حاليًا</span>ترافنتينو بيج غامق</div>
-            <a class="var" href="https://platinum-marble.com/silver-travertine-marble/" target="_blank" rel="noopener"><img src="https://platinum-marble.com/wp-content/uploads/2026/02/ترافنتينو-سيلفر-576x1024.jpeg" alt="ترافنتينو سيلفر رمادي" loading="lazy"><span>ترافنتينو سيلفر رمادي <em>← الصفحة</em></span></a>
-            <div class="var"><img src="https://platinum-marble.com/wp-content/uploads/2026/04/ترافنتينو-بلاتنيوم-576x1024.jpeg" alt="ترافنتينو سيلفر بلاتنيوم" loading="lazy">ترافنتينو سيلفر بلاتنيوم</div>
+            <a class="var" href="https://platinum-marble.com/silver-travertine-marble/" target="_blank" rel="noopener"><img src="https://lh3.googleusercontent.com/d/1lsBN6QZflGnkzdJmogGhKy177zoIRcQE=w600" alt="ترافنتينو سيلفر رمادي" loading="lazy"><span>ترافنتينو سيلفر رمادي <em>← الصفحة</em></span></a>
+            <div class="var"><img src="https://lh3.googleusercontent.com/d/11jB3UDec7P_AG9a3w5y94VBvQa4pvybI=w600" alt="ترافنتينو سيلفر بلاتنيوم" loading="lazy">ترافنتينو سيلفر بلاتنيوم</div>
             <div class="var"><img src="https://platinum-marble.com/wp-content/uploads/2026/02/ترافنتينو-نوتشي-576x1024.jpeg" alt="ترافنتينو نوتشي" loading="lazy">ترافنتينو نوتشي</div>
           </div>
           <p>هذه الأنواع تعطي مرونة كبيرة في اختيار التصميم سواء كلاسيكي أو عصري.</p>
@@ -1682,12 +1849,17 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
         <a class="rel" href="#catalog" style="background:var(--soft)"><span><small>تصفح أيضًا</small><b>كل أنواع الترافنتينو</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></a>
       </aside>
     </div>
+
+    <section class="pd-rel">
+      <div class="row-between" style="margin-bottom:22px"><div class="head" style="margin:0"><span class="mark"><i></i><i></i></span><h2>خامات من عائلة الترافنتينو</h2></div><a class="btn btn-line" href="#catalog">جميع المنتجات</a></div>
+      <div class="rl-grid"><a class="rl" href="https://platinum-marble.com/silver-travertine-marble/" target="_blank" rel="noopener"><span class="rl-img"><img src="https://lh3.googleusercontent.com/d/1lsBN6QZflGnkzdJmogGhKy177zoIRcQE=w600" alt="ترافنتينو سلفر" loading="lazy"></span><span class="rl-t"><b>ترافنتينو سلفر</b><small>لون فضي كلاسيك</small><em>يبدأ من <strong>120</strong> ر.س / م²</em></span></a><a class="rl" href="https://platinum-marble.com/beige-nocchi-silver-platinum-travertine-marble/" target="_blank" rel="noopener"><span class="rl-img"><img src="https://lh3.googleusercontent.com/d/11jB3UDec7P_AG9a3w5y94VBvQa4pvybI=w600" alt="ترافنتينو سلفر غامق" loading="lazy"></span><span class="rl-t"><b>ترافنتينو سلفر غامق</b><small>بلاتينيوم مميز</small><em>يبدأ من <strong>120</strong> ر.س / م²</em></span></a><a class="rl" href="https://platinum-marble.com/jordanian-yellow-travertine/" target="_blank" rel="noopener"><span class="rl-img"><img src="https://lh3.googleusercontent.com/d/1mzFoLgLmz7KsDwF05zFQmg8rf6O66qXo=w600" alt="ترافنتينو أردني" loading="lazy"></span><span class="rl-t"><b>ترافنتينو أردني</b><small>عروق خشابي طبيعي</small><em>يبدأ من <strong>85</strong> ر.س / م²</em></span></a><a class="rl" href="#catalog"><span class="rl-img"><img src="https://lh3.googleusercontent.com/d/1QWW83Vz12FM3r3TcEpth6S70wFLv9kZC=w600" alt="ترافنتينو إيراني" loading="lazy"></span><span class="rl-t"><b>ترافنتينو إيراني</b><small>ترافنتينو مستورد</small><em>يبدأ من <strong>130</strong> ر.س / م²</em></span></a></div>
+    </section>
   </div>
 </main>
 
 <!-- ======================= PROJECTS ======================= -->
 <main data-view="projects" hidden>
-  <div class="phead">
+  <div class="phead pr-head">
     <img class="hp-projects" src="https://platinum-marble.com/wp-content/uploads/2026/10/riyadh-stone-villa-entrance-al-malaz.webp" alt="" width="1448" height="1086">
     <div class="wrap">
       <ol class="crumbs"><li><a href="#home">الرئيسية</a></li><li>المشاريع</li></ol>
@@ -1695,32 +1867,41 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
       <h2 style="font-size:clamp(1.25rem,2.2vw,1.7rem)">نقدم لكم نخبة من مشاريعنا التي نفذناها بإتقان وجودة عالية.</h2>
       <h3 style="color:#FFB4A8">أبرز مشاريع توريد الحجر والرخام في السعودية</h3>
       <p class="lead">نفخر في مؤسسة بلاتنيوم للحجر والرخام بتنفيذ مجموعة من مشاريع توريد الحجر والرخام في السعودية، شملت فللًا ومبانٍ سكنية وتجارية، مع التزامنا بالجودة العالية والدقة في اختيار المواد والتنفيذ في جميع مراحل المشروع.</p>
+      <dl class="pr-stats"><div><dt>مشروع منفذ</dt><dd>+20</dd></div><div><dt>سنة خبرة</dt><dd>+15</dd></div><div><dt>توريد · قص · تركيب</dt><dd>الرياض</dd></div></dl>
     </div>
   </div>
   <div class="wrap serpw"><div data-serp="projects"></div></div>
-  <section style="padding-top:clamp(48px,6vw,72px)">
+  <section class="pr-list">
     <div class="wrap">
-      <div class="head" style="margin-bottom:10px"><span class="mark"><i></i><i></i></span><h2>مشاريع منفذة</h2></div>
-      <div class="pjgrid">
-        <article class="pj">
-          <a class="pj-img" href="#project"><img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-riyadh-sandy-beige-emperador-marble-hero-1024x576.webp" alt="أرضيات رخام سنديان بيج وإمبرادور تركي في مشروع حي النزهة بالرياض" width="1024" height="576" loading="lazy"><span class="tag">توريد الرخام</span></a>
-          <div class="pj-body">
-            <span class="pj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>الرياض · حي النزهة</span>
-            <h3>مشروع خاص في حي النزهة – الرياض</h3>
-            <dl class="pj-meta"><div><dt>الخامات</dt><dd>رخام سنديان بيج وإمبرادور تركي</dd></div><div><dt>نطاق العمل</dt><dd>توريد الرخام</dd></div></dl>
-            <div class="pj-foot"><a class="btn btn-red" href="#project">تفاصيل المشروع</a><span class="pj-n">6 صور</span></div>
-          </div>
-        </article>
-        <article class="pj">
-          <a class="pj-img" href="https://platinum-marble.com/projects/private-villa-al-malaz-riyadh/" target="_blank" rel="noopener"><img src="https://platinum-marble.com/wp-content/uploads/2026/10/riyadh-stone-villa-entrance-al-malaz-1024x768.webp" alt="حجر الرياض في مدخل وأسوار فيلا خاصة بحي الملز" width="1024" height="768" loading="lazy"><span class="tag">توريد وتركيب</span></a>
-          <div class="pj-body">
-            <span class="pj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>الرياض · حي الملز</span>
-            <h3>فيلا خاصة في حي الملز – الرياض</h3>
-            <dl class="pj-meta"><div><dt>الخامات</dt><dd>كريما مارفيل · حجر التامبل · حجر الرياض</dd></div><div><dt>السنة · النطاق</dt><dd>2025 • توريد وتركيب</dd></div></dl>
-            <div class="pj-foot"><a class="btn btn-red" href="https://platinum-marble.com/projects/private-villa-al-malaz-riyadh/" target="_blank" rel="noopener">تفاصيل المشروع</a></div>
-          </div>
-        </article>
-      </div>
+      <div class="head"><span class="mark"><i></i><i></i></span><h2>مشاريع منفذة</h2></div>
+      <article class="pr">
+        <div class="pr-mosaic" data-lbg="pr-nuzha">
+          <a class="m1" href="#project"><img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-riyadh-sandy-beige-emperador-marble-hero-1024x576.webp" alt="أرضيات رخام سنديان بيج وإمبرادور تركي في مشروع حي النزهة بالرياض" loading="lazy"></a>
+          <img class="m2" src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-sandy-beige-marble-corridor-1024x768.webp" alt="أرضيات رخام سنديان بيج تركي في ممرات مشروع حي النزهة" loading="lazy">
+          <img class="m3" src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-emperador-marble-elevator-1024x768.webp" alt="رخام إمبرادور تركي حول المصعد والممر الداخلي في مشروع حي النزهة" loading="lazy">
+        </div>
+        <div class="pr-info">
+          <span class="pr-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>الرياض · حي النزهة</span>
+          <h3>مشروع خاص في حي النزهة – الرياض</h3>
+          <p>أرضيات رخام سنديان بيج تركي مع بوردرات ووزرات إمبرادور تركي، في تنسيق يجمع البيج الهادئ مع البني الداكن.</p>
+          <dl class="pr-meta"><div><dt>الخامات</dt><dd>رخام سنديان بيج وإمبرادور تركي</dd></div><div><dt>نطاق العمل</dt><dd>توريد الرخام</dd></div><div><dt>الاستخدامات</dt><dd>أرضيات · بوردرات · وزرات</dd></div></dl>
+          <div class="pr-acts"><a class="btn btn-red" href="#project">تفاصيل المشروع</a><span class="pr-n">6 صور</span></div>
+        </div>
+      </article>
+      <article class="pr flip">
+        <div class="pr-mosaic" data-lbg="pr-malaz">
+          <a class="m1" href="https://platinum-marble.com/projects/private-villa-al-malaz-riyadh/" target="_blank" rel="noopener"><img src="https://platinum-marble.com/wp-content/uploads/2026/10/riyadh-stone-villa-entrance-al-malaz.webp" alt="حجر الرياض في مدخل وأسوار فيلا خاصة بحي الملز" loading="lazy"></a>
+          <img class="m2" src="https://platinum-marble.com/wp-content/uploads/2026/10/spanish-crema-marfil-pool-flooring-riyadh-1024x768.webp" alt="أرضيات كريما مارفيل حول المسبح في فيلا خاصة بالرياض" loading="lazy">
+          <img class="m3" src="https://platinum-marble.com/wp-content/uploads/2026/10/riyadh-stone-private-villa-al-malaz-1024x768.webp" alt="حجر الرياض في واجهة فيلا خاصة بحي الملز" loading="lazy">
+        </div>
+        <div class="pr-info">
+          <span class="pr-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>الرياض · حي الملز</span>
+          <h3>فيلا خاصة في حي الملز – الرياض</h3>
+          <p>كريما مارفيل حول المسبح، وحجر التامبل للممرات، وحجر الرياض لمدخل الفيلا وأسوارها.</p>
+          <dl class="pr-meta"><div><dt>الخامات</dt><dd>كريما مارفيل · حجر التامبل · حجر الرياض</dd></div><div><dt>السنة · النطاق</dt><dd>2025 • توريد وتركيب</dd></div><div><dt>الاستخدامات</dt><dd>أرضيات المسبح · ممرات · أسوار</dd></div></dl>
+          <div class="pr-acts"><a class="btn btn-red" href="https://platinum-marble.com/projects/private-villa-al-malaz-riyadh/" target="_blank" rel="noopener">تفاصيل المشروع</a></div>
+        </div>
+      </article>
     </div>
   </section>
   <section class="bg-soft">
@@ -1729,45 +1910,63 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
       <div class="slider gal-sl" data-auto="2600"><div class="track" id="gal8" data-lbg="products-gal"></div><div class="sl-bar"><i></i></div></div>
     </div>
   </section>
+  <section class="pr-cta">
+    <div class="wrap pr-cta-in">
+      <div><span class="cx-kick light"><span class="mark"><i></i><i></i></span>مشروعك القادم</span><h2>هل لديك مشروع فيلا أو مبنى تجاري؟</h2><p>أرسل لنا المخططات أو صور الموقع، وسنقترح عليك الخامات المناسبة ونرسل عرض السعر.</p></div>
+      <div class="ctas"><a class="btn btn-red" href="https://wa.me/966553499059" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>اطلب عرض سعر لمشروعك</a><a class="btn btn-glass" href="#catalog">تصفح المنتجات</a></div>
+    </div>
+  </section>
 </main>
 
 <!-- ======================= PROJECT ======================= -->
 <main data-view="project" hidden>
-  <div class="phead" style="padding-bottom:clamp(90px,10vw,130px)">
-    <div class="wrap">
+  <section class="pj-hero">
+    <img class="pj-hero-img" src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-riyadh-sandy-beige-emperador-marble-hero.webp" alt="أرضيات رخام سنديان بيج وإمبرادور تركي في مشروع حي النزهة بالرياض" width="1600" height="900">
+    <div class="wrap pj-hero-in">
       <ol class="crumbs"><li><a href="#home">الرئيسية</a></li><li><a href="#projects">المشاريع</a></li><li>مشروع حي النزهة</li></ol>
-      <h1 style="font-size:clamp(1.8rem,3.6vw,2.9rem)">توريد رخام سنديان بيج وإمبرادور تركي – مشروع حي النزهة بالرياض</h1>
+      <span class="cx-kick"><span class="mark"><i></i><i></i></span>دراسة حالة · توريد الرخام</span>
+      <h1>توريد رخام سنديان بيج وإمبرادور تركي – مشروع حي النزهة بالرياض</h1>
     </div>
-  </div>
-  <div class="wrap">
-    <img class="cover" src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-riyadh-sandy-beige-emperador-marble-hero.webp" alt="أرضيات رخام سنديان بيج وإمبرادور تركي في مشروع حي النزهة بالرياض" width="1600" height="900">
-    <div class="serpw"><div data-serp="project"></div></div>
-  </div>
-  <section style="padding-top:clamp(40px,5vw,64px)">
-    <div class="wrap" style="display:grid;gap:clamp(44px,5vw,72px)">
-      <div style="display:grid;gap:18px">
-        <h2>تفاصيل المشروع</h2>
-        <dl class="facts">
-          <div><dt>الموقع</dt><dd>حي النزهة – الرياض</dd></div><div><dt>نوع المشروع</dt><dd>مشروع خاص</dd></div><div><dt>نطاق العمل</dt><dd>توريد الرخام</dd></div>
-          <div><dt>الخامة الرئيسية</dt><dd>سنديان بيج تركي</dd></div><div><dt>الخامة الثانوية</dt><dd>إمبرادور تركي</dd></div><div><dt>الاستخدامات</dt><dd>أرضيات · بوردرات · وزرات</dd></div>
-        </dl>
-      </div>
-      <div class="two">
-        <div><h2>نبذة عن المشروع</h2><p>مشروع خاص في حي النزهة بالرياض، يجمع درجات البيج الفاتحة مع البني الداكن، واعتمد بشكل رئيسي على رخام سنديان بيج التركي في المساحات الرئيسية للأرضيات.</p></div>
-        <div><h2>رخام سنديان بيج التركي للأرضيات</h2><p>استُخدم في أرضيات الممرات بسطح مصقول يعكس الإضاءة ويوسّع المساحة، مع ألواح كبيرة متجانسة تحافظ على استمرارية الممر.</p></div>
-        <div><h2>رخام إمبرادور التركي للتفاصيل والبوردرات</h2><p>استُخدم في البوردرات والوزرات والتفاصيل المحيطة، ودرجته البنية الداكنة صنعت إطارًا واضحًا للأرضية البيج.</p></div>
-        <div><h2>تناغم الرخام مع التصميم الداخلي</h2><p>يتكامل الرخام مع الخشب الطبيعي حول الأبواب والمصعد ومع الإضاءة الدافئة في الممرات.</p></div>
-      </div>
-      <div style="display:grid;gap:18px">
-        <h2>معرض صور المشروع</h2>
-        <div class="pgal" data-lbg="project">
-          <img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-sandy-beige-marble-corridor-1024x768.webp" alt="أرضيات رخام سنديان بيج تركي في ممرات مشروع حي النزهة" loading="lazy">
-          <img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-turkish-marble-flooring-detail-1024x768.webp" alt="تفاصيل أرضيات رخام سنديان بيج التركي في الرياض" loading="lazy">
-          <img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-emperador-marble-elevator-1024x768.webp" alt="رخام إمبرادور تركي حول المصعد والممر الداخلي في مشروع حي النزهة" loading="lazy">
-          <img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-sandy-beige-emperador-marble-hallway-1024x768.webp" alt="تنسيق رخام سنديان بيج وإمبرادور تركي مع الخشب والإضاءة الداخلية" loading="lazy">
-          <img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-riyadh-turkish-marble-project-1024x768.webp" alt="مشروع توريد رخام تركي في حي النزهة بالرياض" loading="lazy">
+  </section>
+  <div class="wrap"><div class="serpw"><div data-serp="project"></div></div></div>
+
+  <section class="pjd">
+    <div class="wrap pjd-grid">
+      <aside class="pjd-side">
+        <div class="pjd-card">
+          <h2>تفاصيل المشروع</h2>
+          <dl>
+            <div><dt>الموقع</dt><dd>حي النزهة – الرياض</dd></div>
+            <div><dt>نوع المشروع</dt><dd>مشروع خاص</dd></div>
+            <div><dt>نطاق العمل</dt><dd>توريد الرخام</dd></div>
+            <div><dt>الخامة الرئيسية</dt><dd>سنديان بيج تركي</dd></div>
+            <div><dt>الخامة الثانوية</dt><dd>إمبرادور تركي</dd></div>
+            <div><dt>الاستخدامات</dt><dd>أرضيات · بوردرات · وزرات</dd></div>
+          </dl>
+          <div class="pjd-sw"><span style="background:linear-gradient(135deg,#E7DAC3,#CDB894)"></span><span style="background:linear-gradient(135deg,#6B4A36,#3E2A1F)"></span><small>سنديان بيج + إمبرادور</small></div>
+          <a class="btn btn-red" href="https://wa.me/966553499059" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>اطلب عرض سعر لمشروعك</a>
         </div>
+      </aside>
+      <div class="pjd-main">
+        <div class="pjd-sec"><h2>نبذة عن المشروع</h2><p>مشروع خاص في حي النزهة بالرياض، يجمع درجات البيج الفاتحة مع البني الداكن، واعتمد بشكل رئيسي على رخام سنديان بيج التركي في المساحات الرئيسية للأرضيات.</p></div>
+        <div class="pjd-pair">
+          <div class="pjd-sec"><span class="pjd-k">01</span><h2>رخام سنديان بيج التركي للأرضيات</h2><p>استُخدم في أرضيات الممرات بسطح مصقول يعكس الإضاءة ويوسّع المساحة، مع ألواح كبيرة متجانسة تحافظ على استمرارية الممر.</p></div>
+          <div class="pjd-sec"><span class="pjd-k">02</span><h2>رخام إمبرادور التركي للتفاصيل والبوردرات</h2><p>استُخدم في البوردرات والوزرات والتفاصيل المحيطة، ودرجته البنية الداكنة صنعت إطارًا واضحًا للأرضية البيج.</p></div>
+        </div>
+        <figure class="pjd-quote"><img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-sandy-beige-emperador-marble-hallway-1024x768.webp" alt="تنسيق رخام سنديان بيج وإمبرادور تركي مع الخشب والإضاءة الداخلية" loading="lazy"><figcaption><h2>تناغم الرخام مع التصميم الداخلي</h2><p>يتكامل الرخام مع الخشب الطبيعي حول الأبواب والمصعد ومع الإضاءة الدافئة في الممرات.</p></figcaption></figure>
       </div>
+    </div>
+  </section>
+
+  <section class="pjd-gal-sec">
+    <div class="wrap">
+      <div class="row-between" style="margin-bottom:24px"><div class="head" style="margin:0"><span class="mark"><i></i><i></i></span><h2>معرض صور المشروع</h2></div><span class="pr-n">اضغط على أي صورة لعرضها بالحجم الكامل</span></div>
+      <div class="pjd-gal" data-lbg="project"><figure class="g0"><img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-sandy-beige-marble-corridor-1024x768.webp" alt="أرضيات رخام سنديان بيج تركي في ممرات مشروع حي النزهة" loading="lazy"></figure><figure class="g1"><img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-turkish-marble-flooring-detail-1024x768.webp" alt="تفاصيل أرضيات رخام سنديان بيج التركي في الرياض" loading="lazy"></figure><figure class="g2"><img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-emperador-marble-elevator-1024x768.webp" alt="رخام إمبرادور تركي حول المصعد والممر الداخلي في مشروع حي النزهة" loading="lazy"></figure><figure class="g3"><img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-sandy-beige-emperador-marble-hallway-1024x768.webp" alt="تنسيق رخام سنديان بيج وإمبرادور تركي مع الخشب والإضاءة الداخلية" loading="lazy"></figure><figure class="g4"><img src="https://platinum-marble.com/wp-content/uploads/2026/10/al-nuzha-riyadh-turkish-marble-project-1024x768.webp" alt="مشروع توريد رخام تركي في حي النزهة بالرياض" loading="lazy"></figure></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="display:grid;gap:clamp(40px,5vw,64px)">
       <div class="two">
         <div><h2>توريد الرخام التركي للمشاريع في الرياض</h2><p>نوفر الرخام التركي والحجر الطبيعي لمشاريع الرياض بمقاسات وكميات حسب كل مشروع. اطّلع على <a href="https://platinum-marble.com/turkish-travertine/" target="_blank" rel="noopener" style="color:var(--red);font-weight:700">رخام تركي بالرياض</a>.</p></div>
         <div class="cta-box"><h2>هل لديك مشروع وتبحث عن الرخام المناسب؟</h2><p>نساعدك في اختيار الخامة وتنسيق الألوان والتوريد قبل الشراء.</p><div><a class="btn btn-red" href="https://wa.me/966553499059" target="_blank" rel="noopener">اطلب عرض سعر لمشروعك</a></div></div>
@@ -1781,8 +1980,12 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
           <details><summary><h3>هل يمكن استخدام سنديان بيج في أرضيات الممرات؟</h3><span class="pm">+</span></summary><p>نعم، وهو الاستخدام الرئيسي له في هذا المشروع.</p></details>
         </div>
       </div>
-      <a class="rel" href="https://platinum-marble.com/projects/private-villa-al-malaz-riyadh/" target="_blank" rel="noopener"><span><small>مشروع آخر</small><b>مشروع فيلا خاصة في حي الملز</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></a>
-      <div class="flag" style="margin:0"><b>مهم:</b> فقرات الأقسام هنا مختصرة للعرض. في الووردبريس نص الصفحة الحالي يتنقل بالحرف جوه نفس العناوين.</div>
+      <a class="pjd-next" href="https://platinum-marble.com/projects/private-villa-al-malaz-riyadh/" target="_blank" rel="noopener">
+        <img src="https://platinum-marble.com/wp-content/uploads/2026/10/riyadh-stone-villa-entrance-al-malaz-1024x768.webp" alt="حجر الرياض في مدخل وأسوار فيلا خاصة بحي الملز" loading="lazy">
+        <span><small>المشروع التالي</small><b>مشروع فيلا خاصة في حي الملز</b><em>كريما مارفيل · حجر التامبل · حجر الرياض</em></span>
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></i>
+      </a>
+      <div class="flag" style="margin:0"><b>مهم:</b> فقرات الأقسام هنا مختصرة للعرض. في WordPress يُنقل نص الصفحة الحالي كما هو داخل العناوين نفسها.</div>
     </div>
   </section>
 </main>
@@ -1802,6 +2005,7 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
   <section style="padding-top:clamp(48px,6vw,72px)">
     <div class="wrap">
       <div class="serpw"><div data-serp="blogs"></div></div>
+      <div class="bl-bar" id="blBar" role="group" aria-label="تصفية المقالات"></div>
       <div id="bFeat"></div>
       <div class="grid g3" id="bGrid"></div>
       <div class="flag">النموذج يعرض 13 مقالة من نحو 60. في WordPress تبقى جميع المقالات في الصفحة نفسها دون زر "تحميل المزيد"، حتى يصل محرك البحث إلى كل الروابط كما هو الحال الآن.</div>
@@ -2209,7 +2413,7 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
   $$('main img').forEach(i=>{if(!i.complete){i.classList.add('sk');i.addEventListener('load',()=>i.classList.remove('sk'),{once:true});i.addEventListener('error',()=>i.classList.remove('sk'),{once:true})}});
 
   /* scroll reveal with sibling stagger */
-  const RV='.head,.card,.pcard,.stat,.doc,.rev,.branch,.map,.ticks li,.frame,.prow,.bcard,.bfeat,.val,.partner,.cc,.faq details,.art section,.facts div,.two>div,.pgal img,.gal8 img,.form,.band>*,.vars .var,.sz,.cta-box,.pn a,.sbox,.specs div,.exp-card .exp-copy>*,.contact-lines div,.pj,.ab-s,.ab-step-list li,.ab-gal figure,.ab-br,.ab-doc,.ab-nums div';
+  const RV='.head,.card,.pcard,.stat,.doc,.rev,.branch,.map,.ticks li,.frame,.prow,.bcard,.bfeat,.val,.partner,.cc,.faq details,.art section,.facts div,.two>div,.pgal img,.gal8 img,.form,.band>*,.vars .var,.sz,.cta-box,.pn a,.sbox,.specs div,.exp-card .exp-copy>*,.contact-lines div,.pj,.ab-s,.ab-step-list li,.ab-gal figure,.ab-br,.ab-doc,.ab-nums div,.pr,.pjd-card,.pjd-sec,.pjd-quote,.pjd-gal figure,.pjd-next,.rl,.bl-bar';
   const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px 12% 0px',threshold:0}):null;
   function arm(root){
     $$(RV,root).forEach(el=>{
@@ -2461,6 +2665,22 @@ main[data-view]:not([hidden]){animation:vfade .55s ease both}
   addEventListener('scroll',q,{passive:true});addEventListener('resize',q);addEventListener('hashchange',()=>setTimeout(upd,80));
   items.forEach((li,k)=>li.addEventListener('click',()=>{const r=ol.getBoundingClientRect();scrollBy({top:r.top-innerHeight*.5+ (innerWidth<=760?li.offsetTop:0),behavior:'smooth'})}));
   upd();
+})();
+</script>
+
+<script>
+/* ===== Blogs: topic tags + filter ===== */
+(function(){
+  const grid=document.getElementById('bGrid'),feat=document.querySelector('#bFeat .bfeat'),bar=document.getElementById('blBar');if(!grid||!bar)return;
+  const T=[['الأسعار والنصائح',/أسعار|سعر|نصائح|كيف|تنظيف|اختيار|مشاكل|دليل/],['الترافنتينو',/ترافنتينو/],['البازلت',/بازلت/],['الجرانيت',/جرانيت|غرانيت/],['الحجر الطبيعي',/حجر|تامبل|بردورة/],['الرخام',/رخام/]];
+  const cards=[feat,...grid.querySelectorAll('.bcard')].filter(Boolean);
+  cards.forEach(c=>{const t=(c.querySelector('h3')||{}).textContent||'';const tags=T.filter(([,r])=>r.test(t)).map(([n])=>n);c.dataset.tags=tags.join('|');
+    if(c.classList.contains('bcard')){const img=c.querySelector('img');const rest=[...c.children].filter(x=>x!==img);const box=document.createElement('div');box.className='bc-t';box.innerHTML=`<span class="bc-tag">${tags.find(x=>x!=='الأسعار والنصائح')||tags[0]||'مقالات'}</span>`;rest.forEach(x=>box.appendChild(x));c.appendChild(box)}});
+  const topics=['جميع المقالات',...T.map(([n])=>n).filter(n=>cards.some(c=>c.dataset.tags.split('|').includes(n)))];
+  bar.innerHTML=topics.map((n,i)=>`<button type="button" aria-pressed="${i===0}" data-t="${n}">${n}<sup>${i===0?cards.length:cards.filter(c=>c.dataset.tags.split('|').includes(n)).length}</sup></button>`).join('');
+  bar.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;[...bar.children].forEach(x=>x.setAttribute('aria-pressed',x===b));const t=b.dataset.t;
+    cards.forEach(c=>{const ok=t==='جميع المقالات'||c.dataset.tags.split('|').includes(t);c.hidden=!ok;if(ok){c.classList.remove('pop');void c.offsetWidth;c.classList.add('pop')}});
+    b.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'})});
 })();
 </script>
 </body>
